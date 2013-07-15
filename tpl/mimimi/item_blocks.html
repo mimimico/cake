@@ -1,0 +1,23 @@
+{% foreach(page.items::itemrow) %}
+<div class="row items">
+    {%foreach(itemrow::item) %}
+    <div class="block block-{%item.size%}">
+        <div class="image">
+            <a class="buy" href="#">{% lang.button_buy %}</a>
+            <a class="like" href="#"></a>
+            <img src="{%item.image%}" />
+        </div>
+        <div class="caption">
+            <div class="description">
+                <a href="#"><h4>{%item.title%}</h4></a>
+                <a href="#" class="category">{%item.category%}</a>
+            </div>
+            <div class="price">
+                <div class="currency">{%item.price.uah%} ₴</div>
+                <div class="usd">{%item.price.usd%} $</div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
