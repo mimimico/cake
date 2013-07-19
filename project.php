@@ -22,7 +22,7 @@ peCore::init(
         /* Mysql settings */
         "mysqlHost" => "localhost",
         "mysqlUser" => "root",
-        "mysqlPass" => "root", //CHANGEME!
+        "mysqlPass" => "database_password", //CHANGEME!
         "mysqlName" => "mimimi",
         
         /* Components */
