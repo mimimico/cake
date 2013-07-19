@@ -6,7 +6,7 @@ section ul.separated {list-style-type: none;}
 section ul.separated li {border-bottom: 1px solid #e1e1e1; padding: 7px 5px 6px 5px; margin: 0px 15px;}
 section ul.separated li:hover {background: #fcfcfc;}
 section ul.separated li.first {border-top: 1px solid #e1e1e1;}
-section li.address {background: url("images/list-point-map.png") transparent no-repeat left 7px !important; padding-left: 25px !important;}
+section li.address {background: url("../images/list-point-map.png") transparent no-repeat left 7px !important; padding-left: 25px !important;}
 section .price .currency {color: #a78181;}
 section .price {width: 72px; display: block; float: right; text-align: right; font-size: 12px; line-height: 18px; color: #ccc;}
 /* MAIN */
@@ -29,11 +29,11 @@ section .main .login input[type="text"].username,
 section .main .login input[type="password"].password {width: 140px; margin: 10px auto !important;} 
 section .main .login input[type="submit"] {margin: 0px 20px 0px 0px;}
 section .main .login .social {padding: 8px 9px 7px 35px; width: 100%; overflow: hidden; margin: 7px 0px 0px 0px; font-size: 11px; color: #fff; border-radius: 6px; text-align: left; float: left; display: block; height: 35px; transition: 0.3s 0s ease background-color; -o-transition: 0.3s 0s ease background-color; -moz-transition: 0.3s 0s ease background-color; -webkit-transition: 0.3s 0s ease background-color;}
-section .main .login input[type="button"].social-facebook {background: #5f90b0 url("images/facebook.png") no-repeat 10px 10px; margin-top: 11px;}
+section .main .login input[type="button"].social-facebook {background: #5f90b0 url("../images/facebook.png") no-repeat 10px 10px; margin-top: 11px;}
 section .main .login input[type="button"].social-facebook:hover {background-color: #6f9dbb;}
-section .main .login input[type="button"].social-vk {background: #81aecb url("images/vk.png") no-repeat 10px 10px;}
+section .main .login input[type="button"].social-vk {background: #81aecb url("../images/vk.png") no-repeat 10px 10px;}
 section .main .login input[type="button"].social-vk:hover {background-color: #95bed8;}
-section .main .login input[type="button"].create-account {background: #bbb url("images/email.png") no-repeat 10px 10px;}
+section .main .login input[type="button"].create-account {background: #bbb url("../images/email.png") no-repeat 10px 10px;}
 section .main .login input[type="button"].create-account:hover {background-color: #ccc;}
 section .main .promotion, section .main .about-shop {width: 735px; float: right;}
 section .main .promotion .block {height: 300px;}
@@ -42,7 +42,7 @@ section .about-shop .block .cover {height: 316px !important; width: 100%; overfl
 section .about-shop .block .cover img {width: 735px; min-height: 316px; position: relative; z-index: 16; border-radius: 6px 6px 0px 0px;}
 section .about-shop .block .shop {position: absolute; top: 8px; right: 8px; background: #f4f4f4; border-radius: 6px; padding: 20px 10px 20px 10px; height: 260px; width: 218px; z-index: 17;}
 section .about-shop .block .shop .title {padding: 0px 0px 10px 0px !important;}
-section .about-shop .block .shop a.like {background: #dd9798 url("images/like-white.png") no-repeat 6.5px 6.5px; height: 24px; border-radius: 6px; display: inline; float: left; margin: 10px 0px 0px 10px; padding: 6px 15px 0px 35px; font-weight: bold; color: #fff; transition: 0.3s 0s ease background-color; -o-transition: 0.3s 0s ease background-color; -moz-transition: 0.3s 0s ease background-color; -webkit-transition: 0.3s 0s ease background-color;}
+section .about-shop .block .shop a.like {background: #dd9798 url("../images/like-white.png") no-repeat 6.5px 6.5px; height: 24px; border-radius: 6px; display: inline; float: left; margin: 10px 0px 0px 10px; padding: 6px 15px 0px 35px; font-weight: bold; color: #fff; transition: 0.3s 0s ease background-color; -o-transition: 0.3s 0s ease background-color; -moz-transition: 0.3s 0s ease background-color; -webkit-transition: 0.3s 0s ease background-color;}
 section .about-shop .block .shop a.like:hover {background-color: #9c4343;} 
 section .about-shop .block ul.categories-in {height: 34px; overflow: hidden; text-align: center; list-style-type: none; padding-top: 15px;}
 section .about-shop .block ul.categories-in li {display: inline; margin: 0px 10px;}
@@ -72,8 +72,8 @@ section.item .title {padding-top: 8px !important; margin-bottom: 0px !important;
 section.item .sell {overflow: hidden; padding: 10px !important; margin: 0px 0px 8px 0px !important;}
 section.item .sell .price {height: 30px; overflow: hidden; line-height: 15px;}
 section.item .sell a {transition: 0.3s 0s ease background-color; -moz-transition: 0.3s 0s ease background-color; -webkit-transition: 0.3s 0s ease background-color; -o-transition: 0.3s 0s ease background-color;}
-section.item .sell a.like {background: #dd9798 url("images/like-white.png") no-repeat 50% 6.5px; width: 30px; height: 30px; border-radius: 6px; display: inline; float: left; margin-left: 10px;}
-section.item .sell a.buy {background: url("images/cart.png") no-repeat #759c43 !important; padding-left: 38px !important; border-radius: 6px !important; background-position: 8px center !important;}
+section.item .sell a.like {background: #dd9798 url("../images/like-white.png") no-repeat 50% 6.5px; width: 30px; height: 30px; border-radius: 6px; display: inline; float: left; margin-left: 10px;}
+section.item .sell a.buy {background: url("../images/cart.png") no-repeat #759c43 !important; padding-left: 38px !important; border-radius: 6px !important; background-position: 8px center !important;}
 section.item .sell a.like:hover {background-color: #9c4343;}
 section.item .sell a.buy:hover {background-color: #527526 !important;}
 section.item .networks {padding: 5px 10px !important;}
@@ -95,7 +95,7 @@ section.item .social-stats ul.stats li {padding: 3px 5px 2px 5px;}
 section.item ul.comments {list-style-type: none; width: 472px; display: block; float: left;}
 section.item ul.comments .title {margin-top: 0px; padding-top: 0px; margin-bottom: 25px;}
 section.item ul.comments li.comment {position: relative;}
-section.item ul.comments li.comment .avatar {background: url("images/comment-arrow.png") no-repeat right center; width: 70px; height: 50px; display: block; float: left; position: relative; z-index: 15;}
+section.item ul.comments li.comment .avatar {background: url("../images/comment-arrow.png") no-repeat right center; width: 70px; height: 50px; display: block; float: left; position: relative; z-index: 15;}
 section.item ul.comments li.comment .avatar img {border-radius: 6px; width: 50px; height: 50px;}
 section.item ul.comments li.comment .block {padding-bottom: 10px}
 section.item ul.comments li.comment .block .name {margin: 9px 0px 8px 0px; padding-bottom: 7px; border-bottom: 1px solid #e1e1e1;}
@@ -123,8 +123,8 @@ section .items .block .image .like,
 section .items .block .image .buy {position: absolute; -webkit-transition: opacity 0.5s ease 0s; -moz-transition: opacity 0.5s ease 0s; -o-transition: opacity 0.5s ease 0s; transition: opacity 0.5s ease 0s; opacity: 0; z-index: 11;}
 section .items .block .image:hover .like,
 section .items .block .image:hover .buy {opacity: 1; position: absolute; z-index: 13;}
-section .items .block .image .like {background: url("images/like.png") no-repeat; width: 24px; height: 24px;} 
-section .items .block .image .like:hover {background: url("images/like-hover.png") no-repeat;}
+section .items .block .image .like {background: url("../images/like.png") no-repeat; width: 24px; height: 24px;} 
+section .items .block .image .like:hover {background: url("../images/like-hover.png") no-repeat;}
 section .items .block .caption {padding: 0px 8px; margin-top: 8px; height: 35px; overflow: hidden;}
 section .items .block .description {overflow: hidden; float: left; display: block;}
 section .items .block .description h4 {height: 15px; overflow: hidden; font-size: 13px; margin: 0px 0px 2px 0px;}
