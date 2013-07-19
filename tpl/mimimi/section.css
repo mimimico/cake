@@ -1,0 +1,142 @@
+/* BY DEFAULT */
+section .row {margin: 0px 2px 0px 2px; display: block;}
+section .block {background: #fff; border-radius: 6px; display: block; margin-bottom: 25px; overflow: hidden; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); min-height: 20px;}
+section a.buy {background: #759c43; color: #fff; font-weight: bold; padding: 6px 12px; border-radius: 6px; float: left;}
+section ul.separated {list-style-type: none;}
+section ul.separated li {border-bottom: 1px solid #e1e1e1; padding: 7px 5px 6px 5px; margin: 0px 15px;}
+section ul.separated li:hover {background: #fcfcfc;}
+section ul.separated li.first {border-top: 1px solid #e1e1e1;}
+section li.address {background: url("images/list-point-map.png") transparent no-repeat left 7px !important; padding-left: 25px !important;}
+section .price .currency {color: #a78181;}
+section .price {width: 72px; display: block; float: right; text-align: right; font-size: 12px; line-height: 18px; color: #ccc;}
+/* MAIN */
+section .main .login, 
+section .main .profile {width: 238px; float: left;}
+section .main .profile .block {padding: 10px 10px 24px 10px;}
+section .main .profile .block img {display: block; margin: 10px auto 0px auto; border-radius: 10px;}
+section .main .profile .block .status {display: block; text-align: center;}
+section .main .profile .block .label {border-radius: 3px; text-align: center; color: #fff; padding: 1px 6px 1px 7px; font-size: 10px; text-transform: uppercase;}
+section .main .profile .block .label-blue {background: #91b5e5;}
+section .main .profile .block h3.title {padding: 10px 0px 10px 0px !important;}
+section .main .profile .sharing {padding: 10px !important;}
+section .main .profile .sharing img {border-radius: 0px; opacity: 0.5; margin: 0px auto;}
+section .main .profile .sharing img:hover {opacity: 1;}
+section .main .login .block {padding: 0px 0px 10px 0px; margin-bottom: 6px;}
+section .main .login {margin-bottom: 25px;}
+section .main .login .title {color: #999; margin: 0px; padding: 10px 0px 0px 0px; font-size: 13px; letter-spacing: 0px;}
+section .main .login .block {text-align: center; margin-bottom: 0px;}
+section .main .login input[type="text"].username,
+section .main .login input[type="password"].password {width: 140px; margin: 10px auto !important;} 
+section .main .login input[type="submit"] {margin: 0px 20px 0px 0px;}
+section .main .login .social {padding: 8px 9px 7px 35px; width: 100%; overflow: hidden; margin: 7px 0px 0px 0px; font-size: 11px; color: #fff; border-radius: 6px; text-align: left; float: left; display: block; height: 35px; transition: 0.3s 0s ease background-color; -o-transition: 0.3s 0s ease background-color; -moz-transition: 0.3s 0s ease background-color; -webkit-transition: 0.3s 0s ease background-color;}
+section .main .login input[type="button"].social-facebook {background: #5f90b0 url("images/facebook.png") no-repeat 10px 10px; margin-top: 11px;}
+section .main .login input[type="button"].social-facebook:hover {background-color: #6f9dbb;}
+section .main .login input[type="button"].social-vk {background: #81aecb url("images/vk.png") no-repeat 10px 10px;}
+section .main .login input[type="button"].social-vk:hover {background-color: #95bed8;}
+section .main .login input[type="button"].create-account {background: #bbb url("images/email.png") no-repeat 10px 10px;}
+section .main .login input[type="button"].create-account:hover {background-color: #ccc;}
+section .main .promotion, section .main .about-shop {width: 735px; float: right;}
+section .main .promotion .block {height: 300px;}
+section .about-shop .block {position: relative;}
+section .about-shop .block .cover {height: 316px !important; width: 100%; overflow: hidden;} 
+section .about-shop .block .cover img {width: 735px; min-height: 316px; position: relative; z-index: 16; border-radius: 6px 6px 0px 0px;}
+section .about-shop .block .shop {position: absolute; top: 8px; right: 8px; background: #f4f4f4; border-radius: 6px; padding: 20px 10px 20px 10px; height: 260px; width: 218px; z-index: 17;}
+section .about-shop .block .shop .title {padding: 0px 0px 10px 0px !important;}
+section .about-shop .block .shop a.like {background: #dd9798 url("images/like-white.png") no-repeat 6.5px 6.5px; height: 24px; border-radius: 6px; display: inline; float: left; margin: 10px 0px 0px 10px; padding: 6px 15px 0px 35px; font-weight: bold; color: #fff; transition: 0.3s 0s ease background-color; -o-transition: 0.3s 0s ease background-color; -moz-transition: 0.3s 0s ease background-color; -webkit-transition: 0.3s 0s ease background-color;}
+section .about-shop .block .shop a.like:hover {background-color: #9c4343;} 
+section .about-shop .block ul.categories-in {height: 34px; overflow: hidden; text-align: center; list-style-type: none; padding-top: 15px;}
+section .about-shop .block ul.categories-in li {display: inline; margin: 0px 10px;}
+section .about-shop .block ul.categories-in li .counter {margin-left: 6px !important;}
+/* SECTION.ITEM */
+section.item .block {padding: 10px;}
+/* CONTENT */
+section.item .content {width: 735px; float: left;}
+section.item .content .block {padding: 0px 25px 25px 25px;}
+section.item .content .title {border-bottom: 1px solid #e1e1e1;}
+section.item .content .image {margin: 10px 0px 20px 0px; display: block; height: auto; float: left; width: 100%;}
+section.item .content .image .original {width: 600px; float: left; border-radius: 6px;}
+section.item .content .image .original img {width: 100%;}
+section.item .content .image .minimized {width: 70px; float: right;}
+section.item .content .image .minimized .crop {height: 70px; overflow: hidden; margin: 0px 0px 8px 0px; border-radius: 6px;}
+section.item .content .image .minimized img {width: 100%;}
+section.item .content .description {width: 100%;}
+section.item .content .description p {margin-bottom: 13px;}
+section.item .content .description p:last-child {margin-bottom: 0px;}
+section.item .content .description a {color: #9c4343;}
+section.item .content .description a:hover,
+section.item .content .description a:active,
+section.item .content .description a:visited {color: #999;}
+/* SIDEBAR */
+section.item .sidebar {width: 238px; float: right;}
+section.item .title {padding-top: 8px !important; margin-bottom: 0px !important;}
+section.item .sell {overflow: hidden; padding: 10px !important; margin: 0px 0px 8px 0px !important;}
+section.item .sell .price {height: 30px; overflow: hidden; line-height: 15px;}
+section.item .sell a {transition: 0.3s 0s ease background-color; -moz-transition: 0.3s 0s ease background-color; -webkit-transition: 0.3s 0s ease background-color; -o-transition: 0.3s 0s ease background-color;}
+section.item .sell a.like {background: #dd9798 url("images/like-white.png") no-repeat 50% 6.5px; width: 30px; height: 30px; border-radius: 6px; display: inline; float: left; margin-left: 10px;}
+section.item .sell a.buy {background: url("images/cart.png") no-repeat #759c43 !important; padding-left: 38px !important; border-radius: 6px !important; background-position: 8px center !important;}
+section.item .sell a.like:hover {background-color: #9c4343;}
+section.item .sell a.buy:hover {background-color: #527526 !important;}
+section.item .networks {padding: 5px 10px !important;}
+section.item .networks img {padding-top: 5px;}
+section.item .info .shop {margin-bottom: 20px;}
+section.item li.profile {min-height: 55px !important;}
+section.item li.profile:hover {background: none !important;}
+section.item li.profile img {display: block; float: left; border-radius: 6px; width: 50px; height: 50px;} 
+section.item li.profile .user {display: inline-block; margin-left: 10px; color: #ccc;}
+section.item li.profile .user a {color: #444; display: block; margin-top: 5px;}
+section.item li.profile .user a:hover {color: #999;}
+section.item .more-related .title {padding-top: 7px !important;}
+section.item .more-related .images {display: block; text-align: center;}
+section.item .more-related .images img {width: 60px; height: 60px; border-radius: 6px; margin: 5px 5px 0px 0px;}
+section.item .more-related a.more-link {background: #ccc; color: #fff; border-radius: 6px; padding: 6px 12px 5px 12px; text-align: right; margin: 6px 0px 0px 0px; display: block; float: right; font-weight: bold; font-size: 13px; text-transform: none; letter-spacing: 0px; transition: 0.3s 0s ease background; -o-transition: 0.3s 0s ease background; -moz-transition: 0.3s 0s ease background; -webkit-transition: 0.3s 0s ease background;}
+section.item .more-related a.more-link:hover {background: #999;}
+section.item .social-stats ul.stats {list-style-type: none;}
+section.item .social-stats ul.stats li {padding: 3px 5px 2px 5px;}
+section.item ul.comments {list-style-type: none; width: 472px; display: block; float: left;}
+section.item ul.comments .title {margin-top: 0px; padding-top: 0px; margin-bottom: 25px;}
+section.item ul.comments li.comment {position: relative;}
+section.item ul.comments li.comment .avatar {background: url("images/comment-arrow.png") no-repeat right center; width: 70px; height: 50px; display: block; float: left; position: relative; z-index: 15;}
+section.item ul.comments li.comment .avatar img {border-radius: 6px; width: 50px; height: 50px;}
+section.item ul.comments li.comment .block {padding-bottom: 10px}
+section.item ul.comments li.comment .block .name {margin: 9px 0px 8px 0px; padding-bottom: 7px; border-bottom: 1px solid #e1e1e1;}
+section.item ul.comments li.comment .block .counter {float: right;}
+/* USER */
+section.user .column {margin-right: 24px; float: left; display: block;}
+section.user .main .favorites .block,
+section.user .main .comments .block {width: 356px;}
+section.user .main .column:last-child {margin-right: 0px;}
+/* BLOCK ITEMS */
+section .items .block {float: left; height: 316px;}
+section .items .block:last-child {margin-right: 0px;}
+section .items .block-1 {width: 316px; margin-right: 25px;}
+section .items .block-2 {width: 657px; margin-right: 25px;}
+section .items .block-1 .description {width: 213px;}
+section .items .block-2 .description {width: 554px;}
+section .items .block-2 .image img,
+section .items .block-1 .image img {min-height: 276px;}
+section .items .block .image {height: 268px; overflow: hidden; position: relative; z-index: 10;}
+section .items .block .image:hover img {opacity: 0.85;}
+section .items .block .image img {width: 100%; border-radius: 6px 6px 0px 0px; -webkit-border-radius: 6px 6px 0px 0px; -moz-border-radius: 6px 6px 0px 0px; -o-border-radius: 6px 6px 0px 0px; position: relative; z-index: 12; -webkit-transition: opacity 0.5s ease 0s; -moz-transition: opacity 0.5s ease 0s; -o-transition: opacity 0.5s ease 0s; transition: opacity 0.5s ease 0s;}
+section .items .block .image .like {top: 10px; right: 10px;}
+section .items .block .image .buy {bottom: 10px; right: 10px;}
+section .items .block .image .like, 
+section .items .block .image .buy {position: absolute; -webkit-transition: opacity 0.5s ease 0s; -moz-transition: opacity 0.5s ease 0s; -o-transition: opacity 0.5s ease 0s; transition: opacity 0.5s ease 0s; opacity: 0; z-index: 11;}
+section .items .block .image:hover .like,
+section .items .block .image:hover .buy {opacity: 1; position: absolute; z-index: 13;}
+section .items .block .image .like {background: url("images/like.png") no-repeat; width: 24px; height: 24px;} 
+section .items .block .image .like:hover {background: url("images/like-hover.png") no-repeat;}
+section .items .block .caption {padding: 0px 8px; margin-top: 8px; height: 35px; overflow: hidden;}
+section .items .block .description {overflow: hidden; float: left; display: block;}
+section .items .block .description h4 {height: 15px; overflow: hidden; font-size: 13px; margin: 0px 0px 2px 0px;}
+section .items .block .description a.category {color: #999; font-size: 12px;}
+section .items .block .description a.category:hover {color: #666 !important;}
+/* OTHER */
+.nivoSlider {position: relative; width: 100%; height: auto; overflow: hidden;}
+.nivoSlider img {position: absolute; top: 0px; left: 0px; border-radius: 6px;}
+a.more {width: 307px; height: 31px; color: #9c4343; text-transform: uppercase; font-weight: bold; padding: 12px 0px 8px 0px; background: #fff; border-radius: 10px; cursor: pointer; letter-spacing: 2px; margin: 0px auto 25px auto; float: none; background: none; box-shadow: none; border-radius: 0px;}
+@-webkit-keyframes rotation {from {-webkit-transform:rotate(0deg);} to {-webkit-transform:rotate(-360deg);}}
+@-moz-keyframes rotation {from {-moz-transform:rotate(0deg); } to {-moz-transform:rotate(-360deg); }}
+@keyframes rotation {from {transform:rotate(0deg); } to {transform:rotate(-360deg); }}
+a.more:hover img {-webkit-animation-name: rotation; -webkit-animation-duration: 0.5s; -webkit-animation-iteration-count: 1; -webkit-animation-timing-function: ease; -webkit-transform: translate3d(0, 0, 0); -moz-animation-name: rotation; -moz-animation-duration: 0.5s; -moz-animation-iteration-count: 1; -moz-animation-timing-function: ease; animation-name: rotation; animation-duration: 0.5s; animation-iteration-count: 1; animation-timing-function: ease;}
+a.more img {display: block; float: left; margin: 0px 15px;}
+a.more .text {margin-top: 7px;}

@@ -1,0 +1,11 @@
+footer {height: 60px; overflow: hidden; padding-top: 20px; background: #fff; border-top: 1px solid #e1e1e1;} 
+footer .copyrights {display: inline-block; float: left; width: 122px; text-align: right; color: #ccc; font-size: 11px;}
+footer .copyrights img {display: block;}
+footer ul.footer-menu {float: right; margin: 0px !important; margin-top: 6px;}
+footer ul.footer-menu li {display: inline; float: right; margin: 0px 10px; text-transform: uppercase; list-style: none;}
+footer ul.footer-menu li a {color: #ccc;}
+footer ul.footer-menu li a:focus,
+footer ul.footer-menu li a:hover,
+footer ul.footer-menu li a:active {color: #bbb;}
+footer .feedback {display: block; margin-top: 20px; text-align: right; margin-right: 10px; color: #ccc; font-size: 11px;}
+

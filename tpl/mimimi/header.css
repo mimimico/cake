@@ -1,0 +1,6 @@
+header {background: #fff; z-index: 100; width: 100%; margin-bottom: 25px; position: relative; padding-bottom: 10px; border-bottom: 1px solid #e1e1e1;}
+header .brand {text-align: center; padding: 20px 0px;}
+header form.search {position: absolute; right: 0px; margin-top: -57px;}
+header ul.menu {background-image: none; background: #fcfcfc; border-bottom: 1px solid #e1e1e1; border-top: 1px solid #e1e1e1; min-height: 35px; margin: 0px auto 0px auto; width: 100% !important; text-align: center; display: block;}
+header ul.menu li {display: inline-block; margin: 10px 30px 8px; text-transform: uppercase; font-weight: bold; font-size: 13px;}
+header ul.menu a {padding: 8px; cursor: pointer; transition: 0.3s 0s ease color; -o-transition: 0.3s 0s ease color; -moz-transition: 0.3s 0s ease color; -webkit-transition: 0.3s 0s ease color;}
