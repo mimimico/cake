@@ -103,8 +103,21 @@ section.item ul.comments li.comment .block .counter {float: right;}
 /* USER */
 section.user .column {margin-right: 24px; float: left; display: block;}
 section.user .main .favorites .block,
-section.user .main .comments .block {width: 356px;}
+section.user .main .comments .block {width: 356px; padding-bottom: 20px;}
 section.user .main .column:last-child {margin-right: 0px;}
+section.user .main .comments ul {margin: 10px; list-style-type: none;}
+section.user .main .comments ul li {margin: 10px 0px; display: block; width: 100%; float: left; overflow: hidden; border-bottom: 1px solid #e1e1e1; padding-bottom: 10px;}
+section.user .main .comments ul li img {width: 60px; height: 60px; border-radius: 6px; display: block; float: left;}
+section.user .main .comments ul li .caption {width: 260px; float: right; display: block;}
+section.user .main .comments ul li .caption .date {font-size: 10px; color: #ccc; text-align: left;}
+section.user .main .comments ul li .caption h4 a {margin: 0px 0px 2px 0px;}
+section.user .main .favorites ul {margin: 10px; list-style-type: none;}
+section.user .main .favorites ul li {margin: 10px 0px; display: block; width: 100%; float: left; overflow: hidden; border-bottom: 1px solid #e1e1e1; padding-bottom: 10px;}
+section.user .main .favorites ul li img {width: 60px; height: 60px; border-radius: 6px; display: block; float: left;}
+section.user .main .favorites ul li .caption {width: 260px; float: right; display: block;}
+section.user .main .favorites ul li .caption h4 a {margin: 0px 0px 2px 0px;}
+section.user .main .favorites ul li a.category {color: #999; font-size: 12px;}
+section.user .main .favorites ul li a.category:hover {color: #666 !important;}
 /* BLOCK ITEMS */
 section .items .block {float: left; height: 316px;}
 section .items .block:last-child {margin-right: 0px;}
@@ -130,6 +143,11 @@ section .items .block .description {overflow: hidden; float: left; display: bloc
 section .items .block .description h4 {height: 15px; overflow: hidden; font-size: 13px; margin: 0px 0px 2px 0px;}
 section .items .block .description a.category {color: #999; font-size: 12px;}
 section .items .block .description a.category:hover {color: #666 !important;}
+section.item ul.comments li.add h3.title {color: #999;}
+section.item ul.comments li.add textarea {display: block;  width: 450px; box-shadow: 0px;  border: 1px solid #ddd;  display: block;  font-size: 13px;  color: #444;  transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border;  -o-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border;  -moz-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border;  -webkit-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border;  min-height: 100px;  background: #fff;  border-radius: 6px;  padding: 10px; margin-bottom: 10px}
+section.item ul.comments li.add textarea:hover {border: 1px solid #ccc}
+section.item ul.comments li.add textarea:focus {border: 1px solid #ccc; box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1)}
+section.item ul.comments li.add input[type="submit"] {margin-bottom: 25px;}
 /* OTHER */
 .nivoSlider {position: relative; width: 100%; height: auto; overflow: hidden;}
 .nivoSlider img {position: absolute; top: 0px; left: 0px; border-radius: 6px;}
