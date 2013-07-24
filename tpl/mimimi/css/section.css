@@ -7,8 +7,6 @@ section ul.separated li {border-bottom: 1px solid #e1e1e1; padding: 7px 5px 6px 
 section ul.separated li:hover {background: #fcfcfc;}
 section ul.separated li.first {border-top: 1px solid #e1e1e1;}
 section li.address {background: url("../images/list-point-map.png") transparent no-repeat left 7px !important; padding-left: 25px !important;}
-section .price .currency {color: #a78181;}
-section .price {width: 72px; display: block; float: right; text-align: right; font-size: 12px; line-height: 18px; color: #ccc;}
 /* MAIN */
 section .main .login, 
 section .main .profile {width: 238px; float: left;}
@@ -47,15 +45,48 @@ section .about-shop .block .shop a.like:hover {background-color: #9c4343;}
 section .about-shop .block ul.categories-in {height: 34px; overflow: hidden; text-align: center; list-style-type: none; padding-top: 15px;}
 section .about-shop .block ul.categories-in li {display: inline; margin: 0px 10px;}
 section .about-shop .block ul.categories-in li .counter {margin-left: 6px !important;}
-/* SECTION.ITEM */
-section.item .block {padding: 10px;}
+/* TWO COLUMN STRUCTURE . CONTENT AND SIDEBAR */
+section.item .block, 
+section.cart .block {padding: 10px;}
+section .content .title {border-bottom: 1px solid #e1e1e1;}
+section .content {width: 735px; float: left;}
+section .price .currency {color: #a78181;}
+section .price {width: 72px; display: block; float: right; text-align: right; font-size: 12px; line-height: 18px; color: #ccc;}
+
+/* CART */
+section.cart .content .seller {text-align: center; margin: 10px 0px;}
+section.cart .content .title {margin-bottom: 10px;}
+section.cart .content .image {width: 300px; overflow: hidden;}
+section.cart .content .image img {width: 300px; border-radius: 6px;}
+section .sell a {transition: 0.3s 0s ease background-color; -moz-transition: 0.3s 0s ease background-color; -webkit-transition: 0.3s 0s ease background-color; -o-transition: 0.3s 0s ease background-color;}
+section .sell a.like {background: #dd9798 url("../images/like-white.png") no-repeat 50% 6.5px; width: 30px; height: 30px; border-radius: 6px; display: inline; float: left; margin-left: 10px;}
+section .sell a.buy {background: url("../images/cart.png") no-repeat #759c43 !important; padding-left: 38px; border-radius: 6px !important; background-position: 8px center !important;}
+section .sell a.like:hover {background-color: #9c4343;}
+section .sell a.buy:hover {background-color: #527526 !important;}
+section .sell .price {height: 30px; overflow: hidden; line-height: 15px;}
+section.cart .sidebar .section {margin: 0px 0px 10px 0px;}
+section.cart .sidebar .sell {padding: 10px 20px;}
+section.cart .sidebar .shipto select {width: 100%; padding: 10px; line-height: 1; height: 25px; border: 1px solid rgba(0, 0, 0, 0.3);}
+section.cart .sidebar .options {display: block; width: 100%; float: left;}
+section.cart .sidebar .options .quantity-text {display: block; float: left;}
+section.cart .sidebar .options .quantity-text .available {display: block; float: left; font-size: 12px; color: #ccc;}
+section.cart .sidebar input[type="text"].quantity {width: 35px; padding: 0px 10px; float: left; margin-left: 10px;}
+section.cart .sidebar .how-to-pay img {margin: 0px 0px 0px 10px;}
+section.cart .sidebar .how-to-pay input[type="radio"] {height: 24px;}
+section.cart .sidebar .total {border-top: 1px solid #e1e1e1; padding-top: 10px; margin: 0px 20px;}
+section.cart .sidebar .total .row {width: 100%; display: block; float: left;}
+section.cart .sidebar .total .row .detail {float: left; text-align: left;}
+section.cart .sidebar .total .row .price {color: #444; font-weight: bold; font-size: 13px !important; height: auto;}
+section.cart .sidebar .total .full {font-weight: bold; border-top: 1px solid #e1e1e1; padding-top: 5px; margin: 5px 0px;}
+section.cart .sidebar .sell a.buy {float: right; margin: 15px 0px 0px 0px;}
+section.cart .sidebar .sell a.decline {margin-top: 22px; display: block; float: left; font-size: 12px;}
+/* ITEM */
 /* CONTENT */
-section.item .content {width: 735px; float: left;}
 section.item .content .block {padding: 0px 25px 25px 25px;}
 section.item .content .title {border-bottom: 1px solid #e1e1e1;}
 section.item .content .image {margin: 10px 0px 20px 0px; display: block; height: auto; float: left; width: 100%;}
-section.item .content .image .original {width: 600px; float: left; border-radius: 6px;}
-section.item .content .image .original img {width: 100%;}
+section.item .content .image .original {width: 600px; float: left;}
+section.item .content .image .original img {width: 100%; border-radius: 6px;}
 section.item .content .image .minimized {width: 70px; float: right;}
 section.item .content .image .minimized .crop {height: 70px; overflow: hidden; margin: 0px 0px 8px 0px; border-radius: 6px;}
 section.item .content .image .minimized img {width: 100%;}
@@ -67,15 +98,9 @@ section.item .content .description a:hover,
 section.item .content .description a:active,
 section.item .content .description a:visited {color: #999;}
 /* SIDEBAR */
-section.item .sidebar {width: 238px; float: right;}
+section .sidebar {width: 238px; float: right;}
 section.item .title {padding-top: 8px !important; margin-bottom: 0px !important;}
 section.item .sell {overflow: hidden; padding: 10px !important; margin: 0px 0px 8px 0px !important;}
-section.item .sell .price {height: 30px; overflow: hidden; line-height: 15px;}
-section.item .sell a {transition: 0.3s 0s ease background-color; -moz-transition: 0.3s 0s ease background-color; -webkit-transition: 0.3s 0s ease background-color; -o-transition: 0.3s 0s ease background-color;}
-section.item .sell a.like {background: #dd9798 url("../images/like-white.png") no-repeat 50% 6.5px; width: 30px; height: 30px; border-radius: 6px; display: inline; float: left; margin-left: 10px;}
-section.item .sell a.buy {background: url("../images/cart.png") no-repeat #759c43 !important; padding-left: 38px !important; border-radius: 6px !important; background-position: 8px center !important;}
-section.item .sell a.like:hover {background-color: #9c4343;}
-section.item .sell a.buy:hover {background-color: #527526 !important;}
 section.item .networks {padding: 5px 10px !important;}
 section.item .networks img {padding-top: 5px;}
 section.item .info .shop {margin-bottom: 20px;}

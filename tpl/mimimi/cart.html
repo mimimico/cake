@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/style.css" /> 
+		<link rel="stylesheet" href="css/default.css" /> 
+		<link rel="stylesheet" href="css/header.css" /> 
+		<link rel="stylesheet" href="css/section.css" />
+		<link rel="stylesheet" href="css/footer.css" /> 
+	</head>
+	<body>
+
+		<header>
+			<div class="container">
+				<div class="brand">
+					<a href="#"><img src="images/logo.png" alt="mimimi" /></a>
+				</div>
+				<form class="search">
+					<input type="text" class="search" placeholder="Поиск по сайту">
+				</form>
+			</div>
+			<ul class="menu">
+				<div class="container">
+					<li><a href="#">Аксессуары</a></li>
+					<li><a href="#">Украшения</a></li>
+					<li><a href="#">Для дома</a></li>
+					<li><a href="#">Одежда</a></li>
+					<li><a href="#">Искусство</a></li>
+					<li><a href="#">Разное</a></li>
+				</div>
+			</ul>
+		</header>
+
+		<section class="cart">
+			<div class="container">
+				<div class="row">
+					<div class="content">
+						<div class="block all-info">
+							<div class="image">
+								<img src="images/temp/original1.jpg" />
+							</div>
+							<div class="info">
+								<h3 class="title">
+									<a href="#">Montmartre - Paris prints, Paris Cafes, Etsy Wall Art - The Cafes of Montmartre. Paris photography, crimson home decor, kitchen art</a>
+								</h3>
+								<div class="seller">Мастер <a href="#">mrVeles</a></div>
+							</div>
+						</div>
+					</div>
+					<div class="sidebar">
+						<div class="block sell">
+							<div class="section shipto">
+								<h4>Доставка</h4>
+								<select>
+									<option>Украина</option>
+									<option>Россия</option>
+									<option>Казахстан</option>
+									<option>Белоруссия</option>
+									<option>Япония</option>
+									<option>Мадагаскар</option>
+									<option>Гондурас (ну вы понэли)</option>
+								</select>
+							</div>
+							<div class="section options">
+								<div class="quantity-text">
+									<h4>Количество</h4>
+									<div class="available">Доступно: 15</div>
+								</div>
+								<input type="text" class="quantity squared" maxlength="5" />
+							</div>
+							<div class="how-to-pay section">
+								<h4>Как платить?</h4>
+								<p><input type="radio" /><img src="./images/icon-mastercard.png"><img src="./images/icon-visa.png"></p>
+								<p><input type="radio" /><img src="./images/icon-paypal.png"></p>
+							</div>
+							<div class="total section">
+								<div class="row">
+									<div class="detail">Цена товара</div>
+									<div class="price">15 ₴</div>
+								</div>
+								<div class="row">
+									<div class="detail">Количество</div>
+									<div class="price">15 ₴ x 3</div>
+								</div>
+								<div class="row">
+									<div class="detail">Доставка</div>
+									<div class="price">15 ₴</div>
+								</div>
+								<div class="row">
+									<div class="detail">Налог</div>
+									<div class="price">15 ₴</div>
+								</div>
+								<div class="row full">
+									<div class="detail">Стоимость</div>
+									<div class="price">15 ₴</div>
+								</div>
+							</div>
+							<a href="#" class="decline">Отменить</a>
+							<a href="#" class="buy">Купить</a>
+						</div>
+					</div>
+				</div>
+		</section>
+
+		<footer>
+			<div class="container">
+				<div class="copyrights">
+					<img src="images/footer-logo.gif" />
+					<div class="date">&copy; 2013</div>
+				</div>
+				<ul class="footer-menu">
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">Конфиденциальность</a></li>
+					<li><a href="#">Отзывы</a></li>
+					<li><a href="#">Контакты</a></li>
+					<li><a href="#">Блог</a></li>
+					<li><a href="#">О нас</a></li>
+				</ul>
+				<div class="feedback">
+					feedback@mimimi.co
+				</div>
+			</div>
+		</footer>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+		<script src="slider/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+		<script type="text/javascript">
+		$(window).load(function() {
+			$('#slider').nivoSlider({
+				effect: 'slideInLeft', 
+				directionNav: false,
+				pauseOnHover: true,
+				animSpeed: 500,
+				pauseTime: 3000,
+			});
+		});
+		</script>
+	</body>
+</html>
