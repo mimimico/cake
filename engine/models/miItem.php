@@ -9,16 +9,26 @@
 
 class miItem extends peModel 
 {
-    public function callable_loadAll()
+    public function getItemsPage($page = 0)
     {
-        $small = $this->query()->select()->table("items")->where(
-            array('size' => 1)
-        )->limit(10)->order("uid", true)->run();
+        $query = $this->query()->select()->table("items")->order("uid", true);
+        return array(
+            $query->where(array("size" => 1))->limit($page * 10, 10)->run(),
+            $query->where(array("size" => 2))->limit($page, 1)->run(true)
+        );
+    }
+    
+    public function view_displayItemPage($params)
+    {
+        if (is_array($params) && isset($params[0])) {
+            $page = array_shift($params);
+        } else {
+            $page = 0;
+        }
         
-        $big = $this->query()->select()->table("items")->where(
-            array('size' => 2)
-        )->limit(1)->order("uid", true)->run();
-        
+        list($small, $big) = $this->getItemsPage($page);
+        $categories = $this->categories->getSubCategories();
+        if (empty($small) || empty($big)) { return; }
         $row = rand(1,2);
         $pos = rand(0,1);
         $items = array();
@@ -36,9 +46,8 @@ class miItem extends peModel
                     $price->usd = $items[$i][$j]->price;
                     $price->uah = $price->usd * 8;
                     $items[$i][$j]->price = $price;
-                    $cname = $this->categories[$items[$i][$j]->category]->name;
-                    $obj = (object)peStorage::get("lang-en");
-                    $items[$i][$j]->category = $obj->$cname;
+                    $cname = $categories[$items[$i][$j]->category]->name;
+                    $items[$i][$j]->category = $cname;
                     if (strlen($items[$i][$j]->title) > 31 && $items[$i][$j]->size == 1) {
                         $items[$i][$j]->title = substr($items[$i][$j]->title, 0, 31) . "...";
                     }

@@ -9,11 +9,41 @@
 
 class miCategory extends peModel 
 {
-    public function loadAll()
+    private static $data = array();
+    
+    protected function getTableData() 
     {
-        $result = $this->query()->select()->table("categories")->run();
-        $categories = array();
-        foreach($result as $obj) $categories[$obj->uid] = $obj;
-        return $categories;
+        self::$data = $this->query()->select()->table("categories")->run();
+    }
+    
+    public function getCategories()
+    {
+        if (empty(self::$data)) $this->getTableData();
+        $result = array();
+        foreach(self::$data as $obj) {
+            if (!$obj->parent) {
+                $obj->name = peLanguage::get($obj->name);
+                $result[$obj->uid] = $obj;
+            }
+        }
+        return $result;
+    }
+    
+    public function getSubCategories()
+    {
+        if (empty(self::$data)) $this->getTableData();
+        $result = array();
+        foreach(self::$data as $obj) {
+            if ($obj->parent) {
+                $obj->name = peLanguage::get($obj->name);
+                $result[$obj->uid] = $obj;
+            }
+        }
+        return $result;
+    }
+    
+    public function view_displayCategories()
+    {
+        return $this->getCategories();
     }
 }

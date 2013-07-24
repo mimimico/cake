@@ -46,6 +46,9 @@ abstract class peCore
         /* Import project components */
         foreach(peProject::getComponents() as $component) { peLoader::import($component); }
         
+        /* Load language file */
+        peLanguage::load();
+        
         /* Loading all plugins of engine */
         self::plugins();
         

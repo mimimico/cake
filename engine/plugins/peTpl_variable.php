@@ -53,7 +53,11 @@ class peTpl_variable
                     if ($ignore || !in_array($first, self::$syntax)) {
                         $route = str_replace(".", "->", $matches[1]);
                         $value = eval('return @$data->' . $route . ';');
-                        if ($value instanceof peModel) $value = $value->_recall();
+                        if (is_array($value)) {
+                            if (isset($value[0]) && $value[0] instanceof peModel) {
+                                return $value[0]->_recall($value);
+                            }
+                        }
                         if ($ignore) return $value;
                         if (empty($value)) $value = null;
                         $tpl[$n] = preg_replace(

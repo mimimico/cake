@@ -123,6 +123,7 @@ class peTpl_foreach
             foreach(self::$closedBlocks as $key => $block) 
             {
                 unset(self::$closedBlocks[$key]);
+                if (!$block) continue;
                 $block_name = peTemplate::exp(str_replace("(\S{1,64})", $block->name . " \:true\:", self::$syntax[0]));
                 $tpl = preg_replace($block_name, $block->get($data), $tpl, 1);
             }

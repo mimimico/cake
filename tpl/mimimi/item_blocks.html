@@ -1,9 +1,10 @@
 {% foreach(page.items::itemrow) %}
 <div class="row items">
-    {%foreach(itemrow::item) %}
+    {% foreach(itemrow::item) %}
+    {% if (item.title) %}
     <div class="block block-{%item.size%}">
         <div class="image">
-            <a class="buy" href="#">{% lang.button_buy %}</a>
+            <a class="buy" href="#">{% l(button_buy) %}</a>
             <a class="like" href="#"></a>
             <img src="{%item.image%}" />
         </div>
@@ -18,6 +19,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
     {% endfor %}
 </div>
 {% endfor %}

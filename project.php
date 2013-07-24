@@ -12,17 +12,18 @@ peCore::init(
     array(
         /* Basic project settings */
         "title"     => " | Proto Engine",
-        "host"      => "http://localhost/",
+        "host"      => "http://176.8.247.124:8080/proto/",
         "siteTheme" => "mimimi",
-        "tplDirs"   => array("style", "css", "slider", "script", "js", "images"),
+        "tplDirs"   => array("css", "slider", "script", "js", "images"),
         "debug"     => true,
         "hashSalt"  => "qw123",
         "charset"   => "utf-8",
+        "language"  => "en", // default language
         
         /* Mysql settings */
         "mysqlHost" => "localhost",
         "mysqlUser" => "root",
-        "mysqlPass" => "database_password", //CHANGEME!
+        "mysqlPass" => "usbw",
         "mysqlName" => "mimimi",
         
         /* Components */
@@ -33,21 +34,8 @@ peCore::init(
             "components.peImage",
             "components.peModel",
             "components.peQuery",
+            "components.peLanguage",
             "components.peResponse"
         )
     )
 );
-
-/* Language section */
-peStorage::add("lang-en", array(
-    "button_buy" => "Buy",
-    "button_sell" => "Sell",
-    
-    "category_jewerly" => "Jewels",
-    "category_eggs" => "Eggs :)"
-));
-
-peStorage::add("lang-ru", array(
-    "button_buy" => "Купить",
-    "button_sell" => "Продать"
-));

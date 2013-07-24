@@ -21,12 +21,14 @@
             </div>
             <ul class="menu">
                 <div class="container">
-                    <li><a href="#">Аксессуары</a></li>
-                    <li><a href="#">Украшения</a></li>
+                    {% foreach(page.categories::cat)%}
+                    <li><a href="#">{% cat.name %}</a></li>
+                    {% endfor %}
+                    <!--li><a href="#">Украшения</a></li>
                     <li><a href="#">Для дома</a></li>
                     <li><a href="#">Одежда</a></li>
                     <li><a href="#">Искусство</a></li>
-                    <li><a href="#">Разное</a></li>
+                    <li><a href="#">Разное</a></li-->
                 </div>
             </ul>
         </header>

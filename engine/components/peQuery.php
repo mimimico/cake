@@ -63,7 +63,7 @@ class peQuery
         return self::$_requests;
     }
     
-    private function query($return = false)
+    private function query($single = false)
     {
         /* Adding method*/
         if (empty($this->_method)) {
@@ -135,11 +135,10 @@ class peQuery
             if (!empty($result) && is_object($result))
             {
                 $objects = array();
-                while($obj = $result->fetch_object())
-                {
+                while($obj = $result->fetch_object()) {
                     $objects[] = $obj;
                 }
-                if (count($objects) <= 1) {
+                if ($single && count($objects) <= 1) {
                     return @$objects[0];
                 } else {
                     return $objects;

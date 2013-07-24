@@ -9,7 +9,8 @@
 abstract class peModel extends peHttp
 {
     protected $_data = array();
-    protected $_queue = array();
+    protected $_cache = array();
+    protected static $_viewdata = array();
 
     public function copy($params)
     {
@@ -34,17 +35,24 @@ abstract class peModel extends peHttp
         }
     }   
 
-    public function call($name) 
+    public function bind() 
     {
-        array_push($this->_queue, $name);
-        return $this;
+        return array($this, func_get_args());
     }
     
-    public function _recall()
+    public function _recall($data)
     {
-        $name = "callable_" . array_shift($this->_queue);
-        if (is_callable(array($this, $name))) {
-            return $this->$name();
+        if (isset($data[1]) && is_array($data[1])) {
+            $params = $data[1];
+            $name = "view_" . array_shift($params);
+            if (is_callable(array($data[0], $name))) {
+                if (isset($this->_cache[$name]) && !empty($this->_cache[$name])) {
+                    return $this->_cache[$name];
+                } else {
+                    $this->_cache[$name] = $data[0]->$name($params);
+                    return $this->_cache[$name];
+                }
+            }
         }
         return null;
     }

@@ -8,8 +8,9 @@
 
 class peLoader
 {
-    public static function import($name)
+    public static function import($name, $engine = true)
     {
-        return peRequire(pePath_Engine . str_replace(".", ds, $name) . ".php");
+        $base = ($engine) ? pePath_Engine : pePath_Root;
+        return @peRequire($base . str_replace(".", ds, $name) . ".php");
     }
 }

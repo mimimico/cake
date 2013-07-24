@@ -2,6 +2,7 @@
 {% block(scripts) %}
 <script src="slider/jquery.nivo.slider.pack.js" type="text/javascript"></script>
 <script type="text/javascript">
+    var al_page = 1;
     $(window).load(function() {
         $('#slider').nivoSlider({
             effect: 'slideInLeft',
@@ -9,6 +10,14 @@
             pauseOnHover: true,
             animSpeed: 500,
             pauseTime: 3000,
+        });
+        $('#loader').click(function() {
+            $.ajax({
+                url: "{% url(main::getItems) %}&page=" + al_page,
+            }).done(function(data) {
+                $('#loaded-content').append(data);
+            });
+            al_page++;
         });
     });
 </script>
@@ -39,12 +48,13 @@
             </div>
         </div>
     </div>
+    <div id="loaded-content">
     {% include(item_blocks) %}
-   
+    </div>
     </div>
 </div>
 <div class="row">
-    <a class="block more">
+    <a id="loader" class="block more">
         <img src="images/more.png" />
         <div class="text">Загрузить больше товаров</div>
     </a>
