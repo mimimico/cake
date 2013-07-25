@@ -1,10 +1,11 @@
 @import url("http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic");
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,cyrillic");
 * {padding: 0px; margin: 0px; outline: 0px; border: 0px;}
-body, html {background: #f4f4f4; font-family: "PT Sans"; font-size: 13px; padding-left: 0px !important; padding-right: 0px !important; height: 100%;}
+body, html {background: #f4f4f4; font-family: "PT Sans", Tahoma, Sans; font-size: 13px; padding-left: 0px !important; padding-right: 0px !important; height: 100%; color: #444; -webkit-font-smoothing: antialiased; font-smoothing: antialiased;}
 a {color: #999; text-decoration: none;}
 a:active {color: #888; text-decoration: none;}
 a:hover, a:focus {color: #9c4343; text-decoration: none;}
+h1, h2, h3, h4, h5 {color: #444;}
 input[type="submit"]:hover {background: #b66060;}
 input[type="submit"] {background: #9c4343; color: #fff; font-weight: bold; padding: 8px 20px; border-radius: 6px; display: block; float: right; font-size: 12px; -webkit-transition: background 0.3s 0s ease; -moz-transition: background 0.3s 0s ease; -o-transition: background 0.3s 0s ease; transition: background 0.3s 0s ease; cursor: pointer;}
 input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder {color: #ccc !important;}
@@ -16,15 +17,18 @@ input[type="text"].search {background: #fff url("../images/input-icons-search.pn
 input[type="text"].username {background: #fff url("../images/input-icons-login.png") 5% center no-repeat;}
 input[type="text"].squared {border-radius: 6px !important;} 
 input[type="password"].password {background: #fff url("../images/input-icons-password.png") 5% center no-repeat;}
+textarea {display: block; font-family: "PT Sans", Tahoma, Sans; width: 450px; box-shadow: 0px; border: 1px solid #ddd; display: block; font-size: 13px; color: #444; transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border; -o-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border; -moz-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border; -webkit-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border; min-height: 100px; background: #fff; border-radius: 6px; padding: 10px;}
+textarea:focus {border: 1px solid #ccc; box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);}
+textarea:hover {border: 1px solid #ccc;}
 .container {display: block; margin: 0px auto; max-width: 1002px; position: relative; overflow: hidden;}
 .title {text-transform: uppercase; color: #444; font-weight: bold; font-size: 16px; text-align: center; padding: 22px 0px 10px; letter-spacing: 2px;}
 .noborder {border: none !important;}
 ul li .counter {margin-left: 10px !important; font-size: 11px; background: #eee; padding: 2px 5px 1px 5px; border-radius: 100px;}
 /* CAP */
-.cap .holder {text-align: center;  font-size: 36px; color: #777; font-family: "Open Sans";  font-weight: 100; height: 200px; overflow: hidden; position: absolute; top: 50%; left: 50%; max-width: 430px; margin: -100px 0px 0px -215px;}
+.cap .holder {text-align: center; font-size: 36px; color: #777; font-family: "Open Sans"; font-weight: 100; height: 200px; overflow: hidden; position: absolute; top: 50%; left: 50%; max-width: 430px; margin: -100px 0px 0px -215px;}
 .cap .info {position: absolute; text-align: center; width: 100%; bottom: 5%;}
 .cap .info li {margin: 0px auto;}
-.cap .info a {color: #fff;  background: #9c4343; padding: 5px 12px; border-radius: 6px; -webkit-transition: background 0.3s 0s ease; -moz-transition: background 0.3s 0s ease; -o-transition: background 0.3s 0s ease; transition: background 0.3s 0s ease;}
+.cap .info a {color: #fff; background: #9c4343; padding: 5px 12px; border-radius: 6px; -webkit-transition: background 0.3s 0s ease; -moz-transition: background 0.3s 0s ease; -o-transition: background 0.3s 0s ease; transition: background 0.3s 0s ease;}
 .cap .info a:hover {background: #b66060;}
 .cap .info a.developers {margin-top: 20px !important;}
 a.developers {color: #999; background: none !important; padding: none !important; border-radius: none !important;}

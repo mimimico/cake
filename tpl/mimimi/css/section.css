@@ -1,4 +1,5 @@
 /* BY DEFAULT */
+section {min-height: 75%;}
 section .row {margin: 0px 2px 0px 2px; display: block;}
 section .block {background: #fff; border-radius: 6px; display: block; margin-bottom: 25px; overflow: hidden; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); min-height: 20px;}
 section a.buy {background: #759c43; color: #fff; font-weight: bold; padding: 6px 12px; border-radius: 6px; float: left;}
@@ -48,29 +49,34 @@ section .about-shop .block ul.categories-in li .counter {margin-left: 6px !impor
 /* TWO COLUMN STRUCTURE . CONTENT AND SIDEBAR */
 section.item .block, 
 section.cart .block {padding: 10px;}
-section .content .title {border-bottom: 1px solid #e1e1e1;}
+section .content .title {}
 section .content {width: 735px; float: left;}
 section .price .currency {color: #a78181;}
 section .price {width: 72px; display: block; float: right; text-align: right; font-size: 12px; line-height: 18px; color: #ccc;}
-
 /* CART */
-section.cart .content .seller {text-align: center; margin: 10px 0px;}
+section.cart .section {margin: 0px 0px 10px 0px;}
 section.cart .content .title {margin-bottom: 10px;}
-section.cart .content .image {width: 300px; overflow: hidden;}
-section.cart .content .image img {width: 300px; border-radius: 6px;}
+section.cart .content .options {display: block; width: 100%; float: left;}
+section.cart .content .options .quantity-text {display: block; float: left;}
+section.cart .content .options .quantity-text .available {display: block; float: left; font-size: 12px; color: #ccc;}
+section.cart .content .options input[type="text"].quantity {width: 35px; padding: 0px 10px; float: left; text-align: center; margin-left: 10px; font-size: 16px;}
+section.cart .content .block {overflow: hidden;} /* min-height: 360px; */
+section.cart .content .seller {margin: 0px 0px 10px 0px; text-align: center; border-bottom: 1px solid #e1e1e1; padding-bottom: 15px; padding-top: 5px;}
+section.cart .content .image {overflow: hidden; width: 300px; display: block; float: left; border-radius: 6px 6px;}
+section.cart .content .image img {width: 300px; border-radius: 0px 0px 6px 6px;}
+section.cart .content .info {float: right; width: 400px; display: block;}
+section.cart .content h3.title {margin: 0px; padding-top: 5px;}
+section.cart .content .info textarea.comment {max-width: 375px; min-width: 375px; min-height: 100px;}
+section.cart .content .info ul.links {width: 375px; list-style-type: none; text-align: center; font-size: 12px; margin: 30px 0px 0px 0px;}
+section.cart .content .info ul.links li {display: inline; margin: 0px 5px;}
 section .sell a {transition: 0.3s 0s ease background-color; -moz-transition: 0.3s 0s ease background-color; -webkit-transition: 0.3s 0s ease background-color; -o-transition: 0.3s 0s ease background-color;}
 section .sell a.like {background: #dd9798 url("../images/like-white.png") no-repeat 50% 6.5px; width: 30px; height: 30px; border-radius: 6px; display: inline; float: left; margin-left: 10px;}
 section .sell a.buy {background: url("../images/cart.png") no-repeat #759c43 !important; padding-left: 38px; border-radius: 6px !important; background-position: 8px center !important;}
 section .sell a.like:hover {background-color: #9c4343;}
 section .sell a.buy:hover {background-color: #527526 !important;}
 section .sell .price {height: 30px; overflow: hidden; line-height: 15px;}
-section.cart .sidebar .section {margin: 0px 0px 10px 0px;}
 section.cart .sidebar .sell {padding: 10px 20px;}
-section.cart .sidebar .shipto select {width: 100%; padding: 10px; line-height: 1; height: 25px; border: 1px solid rgba(0, 0, 0, 0.3);}
-section.cart .sidebar .options {display: block; width: 100%; float: left;}
-section.cart .sidebar .options .quantity-text {display: block; float: left;}
-section.cart .sidebar .options .quantity-text .available {display: block; float: left; font-size: 12px; color: #ccc;}
-section.cart .sidebar input[type="text"].quantity {width: 35px; padding: 0px 10px; float: left; margin-left: 10px;}
+section.cart .sidebar .shipto select {width: 100%; border: 1px solid rgba(0, 0, 0, 0.3);}
 section.cart .sidebar .how-to-pay img {margin: 0px 0px 0px 10px;}
 section.cart .sidebar .how-to-pay input[type="radio"] {height: 24px;}
 section.cart .sidebar .total {border-top: 1px solid #e1e1e1; padding-top: 10px; margin: 0px 20px;}
@@ -169,9 +175,7 @@ section .items .block .description h4 {height: 15px; overflow: hidden; font-size
 section .items .block .description a.category {color: #999; font-size: 12px;}
 section .items .block .description a.category:hover {color: #666 !important;}
 section.item ul.comments li.add h3.title {color: #999;}
-section.item ul.comments li.add textarea {display: block;  width: 450px; box-shadow: 0px;  border: 1px solid #ddd;  display: block;  font-size: 13px;  color: #444;  transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border;  -o-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border;  -moz-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border;  -webkit-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border;  min-height: 100px;  background: #fff;  border-radius: 6px;  padding: 10px; margin-bottom: 10px}
-section.item ul.comments li.add textarea:hover {border: 1px solid #ccc}
-section.item ul.comments li.add textarea:focus {border: 1px solid #ccc; box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1)}
+section.item ul.comments li.add textarea {width: 450px; margin-bottom: 10px;}
 section.item ul.comments li.add input[type="submit"] {margin-bottom: 25px;}
 /* OTHER */
 .nivoSlider {position: relative; width: 100%; height: auto; overflow: hidden;}
