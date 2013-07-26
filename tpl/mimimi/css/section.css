@@ -8,6 +8,9 @@ section ul.separated li {border-bottom: 1px solid #e1e1e1; padding: 7px 5px 6px 
 section ul.separated li:hover {background: #fcfcfc;}
 section ul.separated li.first {border-top: 1px solid #e1e1e1;}
 section li.address {background: url("../images/list-point-map.png") transparent no-repeat left 7px !important; padding-left: 25px !important;}
+.rating {text-align: center; display: block; margin: 0px auto; padding-left: 18px;}
+#half {display: inline-block; overflow: hidden;}
+#half img {display: inline !important; float: left;}
 /* MAIN */
 section .main .login, 
 section .main .profile {width: 238px; float: left;}
