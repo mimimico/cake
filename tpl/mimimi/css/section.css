@@ -1,6 +1,6 @@
 /* BY DEFAULT */
 section {min-height: 75%;}
-section .row {margin: 0px 2px 0px 2px; display: block;}
+section .row {margin: 0px 2px 0px 2px; display: block; width: 100%; float: left;}
 section .block {background: #fff; border-radius: 6px; display: block; margin-bottom: 25px; overflow: hidden; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15); min-height: 20px;}
 section a.buy {background: #759c43; color: #fff; font-weight: bold; padding: 6px 12px; border-radius: 6px; float: left;}
 section ul.separated {list-style-type: none;}
@@ -79,7 +79,7 @@ section .sell a.like:hover {background-color: #9c4343;}
 section .sell a.buy:hover {background-color: #527526 !important;}
 section .sell .price {height: 30px; overflow: hidden; line-height: 15px;}
 section.cart .sidebar .sell {padding: 10px 20px;}
-section.cart .sidebar .shipto select {width: 100%; border: 1px solid rgba(0, 0, 0, 0.3);}
+section.cart .sidebar .shipto select {width: 100%;}
 section.cart .sidebar .how-to-pay img {margin: 0px 0px 0px 10px;}
 section.cart .sidebar .how-to-pay input[type="radio"] {height: 24px;}
 section.cart .sidebar .total {border-top: 1px solid #e1e1e1; padding-top: 10px; margin: 0px 20px;}
@@ -152,6 +152,32 @@ section.user .main .favorites ul li .caption {width: 260px; float: right; displa
 section.user .main .favorites ul li .caption h4 a {margin: 0px 0px 2px 0px;}
 section.user .main .favorites ul li a.category {color: #999; font-size: 12px;}
 section.user .main .favorites ul li a.category:hover {color: #666 !important;}
+/* EDIT-PROFIE */
+section.edit-profile .block {padding: 0px 18px 15px 17px;}
+section.edit-profile .edit .title {border-bottom: 1px solid #e1e1e1; margin-bottom: 20px; padding-bottom: 20px;}
+section.edit-profile .row {}
+section.edit-profile .edit {overflow: hidden;}
+section.edit-profile .edit .column {padding: 10px; overflow: hidden;}
+section.edit-profile .section .caption {width: 90px; display: block; float: left; margin-top: 7px; padding-left: 0px;}
+section.edit-profile .section .input {width: 335px; display: block; float: right;}
+section.edit-profile .userpic {width: 170px; display: block; float: right; margin-top: 7px; background: #fafafa; border-radius: 6px; text-align: center; position: relative;}
+section.edit-profile .userpic input[type="file"] {width: 100px; height: 100px; position: absolute; display: block; border: 6px solid transparent; left: 50%; margin-left: -56px; opacity: 0; cursor: pointer;}
+section.edit-profile .userpic img {border: 6px dashed #ccc; border-radius: 6px;}
+section.edit-profile .userpic ul {text-align: left; margin: 20px 20px 0px 20px; list-style-type: none;}
+section.edit-profile .section {width: 480px; float: left; display: block; overflow: hidden;}
+section.edit-profile .section .date .caption {margin-top: 0px; padding-right: 0px;}
+section.edit-profile .section .date .input select {margin-bottom: 10px;}
+section.edit-profile input[type="text"] {width: 315px; padding: 0px 10px 0px 10px !important;}
+section.edit-profile .section .phone input[type="text"] {display: block; float: left; text-align: center;}
+section.edit-profile .section .phone input[type="text"].country {width: 78px !important; margin-right: 10px;}
+section.edit-profile .section .phone input[type="text"].city {width: 70px !important; margin-right: 10px;}
+section.edit-profile .section .phone input[type="text"].number {width: 100px !important;}
+section.edit-profile .section .map input[type="text"] {display: block; float: left; text-align: left; margin-bottom: 10px;}
+section.edit-profile .section .map input[type="text"].map-country {width: 150px !important; margin-right: 10px;} 
+section.edit-profile .section .map input[type="text"].map-city {width: 130px;}
+section.edit-profile .section .map input[type="text"].map-address {width: 200px; margin-right: 10px;}
+section.edit-profile .section .map input[type="text"].map-index {width: 80px;}
+section.edit-profile a.back {margin-top: 8px; display: block; float: left;}
 /* BLOCK ITEMS */
 section .items .block {float: left; height: 316px;}
 section .items .block:last-child {margin-right: 0px;}
