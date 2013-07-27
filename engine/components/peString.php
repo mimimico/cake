@@ -87,4 +87,9 @@ class String
     {
         return $this->_string;
     }
+    
+    public function get()
+    {
+        return $this->_string;
+    }
 }

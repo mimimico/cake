@@ -8,6 +8,7 @@
 
 class peQuery 
 { 
+    private static $_cache = array();
     private static $_pointer = null;
     private static $_requests = 0;
     private static $_requestFrom = array("select", "delete");
@@ -126,7 +127,7 @@ class peQuery
         }
         
         /* Running query */
-        $result = self::getPointer()->query($query);
+        $result = self::cacherun($query->get());
         if (self::getPointer()->errno) {
             $p = self::getPointer();
             peCore::error("Mysqli: query error (" . $p->errno . "), " . $p->error);
@@ -146,6 +147,14 @@ class peQuery
             }
         }
         return null;
+    }
+    
+    private static function cacherun($query)
+    {
+        if (empty(self::$_cache) || !isset(self::$_cache[$query])) {
+            self::$_cache[$query] = self::getPointer()->query($query);
+        } 
+        return self::$_cache[$query];
     }
     
     private static function escapeString($value)

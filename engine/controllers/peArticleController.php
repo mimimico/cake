@@ -23,7 +23,7 @@ class peArticleController extends peController
         /* Generating response*/ 
         $params = new peRequest("title:200", "date", "text:h", "tags:t");
         $article = new peArticle();
-        $article->copy($params);
+        $article->insert($params);
         $article->save();
         self::redirect(peProject::getHost());
     }

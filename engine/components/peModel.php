@@ -12,7 +12,7 @@ abstract class peModel extends peHttp
     protected $_cache = array();
     protected static $_viewdata = array();
 
-    public function copy($params)
+    public function insert($params)
     {
         $this->_data = array_replace($this->_data, $params->extract());
     }
@@ -38,6 +38,16 @@ abstract class peModel extends peHttp
     public function bind() 
     {
         return array($this, func_get_args());
+    }
+    
+    function getParam($array, $id = 0)
+    {
+        if (is_array($array) && isset($array[$id])) {
+            $element = $array[$id];
+        } else {
+            $element = 0;
+        }
+        return $element;
     }
     
     public function _recall($data)

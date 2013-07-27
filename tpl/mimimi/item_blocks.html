@@ -4,7 +4,7 @@
     {% if (item.title) %}
     <div class="block block-{%item.size%}">
         <div class="image">
-            <a class="buy" href="#">{% l(button_buy) %}</a>
+            <a class="buy" href="{% url(item::index)%}&id={% item.uid %}">{% l(button_buy) %}</a>
             <a class="like" href="#"></a>
             <img src="{%item.image%}" />
         </div>

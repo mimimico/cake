@@ -18,13 +18,20 @@ class miItem extends peModel
         );
     }
     
+    public function getItem($id = 0) 
+    {
+        return $this->query()->select()->table("items")->where(array("uid" => $id))->run(true);
+    }
+    
+    public function view_displayItem($params) 
+    {
+        $id = $this->getParam($params);
+        return $this->getItem($id);
+    }
+    
     public function view_displayItemPage($params)
     {
-        if (is_array($params) && isset($params[0])) {
-            $page = array_shift($params);
-        } else {
-            $page = 0;
-        }
+        $page = $this->getParam($params);
         
         list($small, $big) = $this->getItemsPage($page);
         $categories = $this->categories->getSubCategories();
