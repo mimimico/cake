@@ -1,4 +1,4 @@
-footer {height: 60px; overflow: hidden; padding-top: 20px; background: #fff; border-top: 1px solid #e1e1e1;} 
+footer {height: 60px; overflow: hidden; padding-top: 20px; background: #fff; border-top: 1px solid #e1e1e1; width: 100%; display: block; float: left;} 
 footer .copyrights {display: inline-block; float: left; width: 122px; text-align: right; color: #ccc; font-size: 11px;}
 footer .copyrights img {display: block;}
 footer ul.footer-menu {float: right; margin: 0px !important; margin-top: 6px;}
