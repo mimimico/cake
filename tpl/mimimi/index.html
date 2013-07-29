@@ -14,25 +14,48 @@
             al_page++;
         });
     });
+
+    $(".create-account").click(function () {
+  		$('div#1').replaceWith($('div#2'));
+  		$('div#2').show();
+	});
+
+	
+    
 </script>
+
 {% endblock %}
 
 {% block(content) %}
 <section class="content">
     <div class="container">
         <div class="row main">
-            <div class="login">
+            <div class="login" id="1">
                 <div class="block">
                     <h3 class="title">Вход на сайт</h3>
                     <form method="post" action="index.php">
                         <input type="text" class="username" placeholder="Логин" />
-                        <input type="password" class="password" placeholder="Пароль">
+                        <input type="password" class="password" placeholder="Пароль" />
                         <input type="submit" value="Вход" />
                     </form>
                 </div>
                 <input type="button" class="social social-facebook" value="Войти с помощью Facebook" />
                 <input type="button" class="social social-vk" value="Войти с помощью ВКонтакте" />
                 <input type="button" class="social create-account" value="Регистрация на сайте" />
+            </div>
+            <div class="login registration" id="2">
+                <div class="block">
+                    <h3 class="title">Регистрация</h3>
+                    <form method="post" action="index.php">
+                        <input type="text" class="username" placeholder="Логин" />
+                        <input type="text" class="email" placeholder="E-mail" />
+                        <input type="password" class="password" placeholder="Повторите пароль" />
+                        <a href="#" class="back">Назад</a>
+                        <input type="submit" value="Регистрация" />
+                    </form>
+                </div>
+                <input type="button" class="social social-facebook" value="Войти с помощью Facebook" />
+                <input type="button" class="social social-vk" value="Войти с помощью ВКонтакте" />
             </div>
             <div class="promotion">
                 <div class="block slider-wrapper">

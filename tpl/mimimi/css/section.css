@@ -28,6 +28,7 @@ section .main .login {margin-bottom: 25px;}
 section .main .login .title {color: #999; margin: 0px; padding: 10px 0px 0px 0px; font-size: 13px; letter-spacing: 0px;}
 section .main .login .block {text-align: center; margin-bottom: 0px;}
 section .main .login input[type="text"].username,
+section .main .login input[type="text"].email,
 section .main .login input[type="password"].password {width: 140px; margin: 10px auto !important;} 
 section .main .login input[type="submit"] {margin: 0px 20px 0px 0px;}
 section .main .login .social {padding: 8px 9px 7px 35px; width: 100%; overflow: hidden; margin: 7px 0px 0px 0px; font-size: 11px; color: #fff; border-radius: 6px; text-align: left; float: left; display: block; height: 35px; transition: 0.3s 0s ease background-color; -o-transition: 0.3s 0s ease background-color; -moz-transition: 0.3s 0s ease background-color; -webkit-transition: 0.3s 0s ease background-color;}
@@ -37,6 +38,8 @@ section .main .login input[type="button"].social-vk {background: #81aecb url("..
 section .main .login input[type="button"].social-vk:hover {background-color: #95bed8;}
 section .main .login input[type="button"].create-account {background: #bbb url("../images/email.png") no-repeat 10px 10px;}
 section .main .login input[type="button"].create-account:hover {background-color: #ccc;}
+section .main .login a.back {margin-top: 7px; display: block; float: left; margin-left: 18px;}
+section .main .registration {display: none;}
 section .main .promotion, section .main .about-shop {width: 735px; float: right;}
 section .main .promotion .block {height: 300px;}
 section .about-shop .block {position: relative;}

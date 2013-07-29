@@ -15,8 +15,9 @@ input[type="text"]:hover, input[type="password"]:hover {border: 1px solid #ddd;}
 input[type="text"]:focus, input[type="password"]:focus {border: 1px solid #ddd; box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);}
 input[type="text"].search {background: #fff url("../images/input-icons-search.png") 5% center no-repeat;} 
 input[type="text"].username {background: #fff url("../images/input-icons-login.png") 5% center no-repeat;}
-input[type="text"].squared {border-radius: 6px !important;} 
+input[type="text"].email {background: #fff url("../images/input-icons-email.png") 5% center no-repeat;}
 input[type="password"].password {background: #fff url("../images/input-icons-password.png") 5% center no-repeat;}
+input[type="text"].squared {border-radius: 6px !important;} 
 textarea {display: block; font-family: "PT Sans", Tahoma, Sans; width: 450px; box-shadow: 0px; border: 1px solid #ddd; display: block; font-size: 13px; color: #444; transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border; -o-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border; -moz-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border; -webkit-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border; min-height: 100px; background: #fff; border-radius: 6px; padding: 10px;}
 textarea:focus {border: 1px solid #ccc; box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);}
 textarea:hover {border: 1px solid #ccc;}
