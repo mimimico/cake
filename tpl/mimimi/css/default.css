@@ -19,7 +19,8 @@ input[type="text"].search {background: #fff url("../images/input-icons-search.pn
 input[type="text"].username {background: #fff url("../images/input-icons-login.png") 5% center no-repeat;}
 input[type="text"].email {background: #fff url("../images/input-icons-email.png") 5% center no-repeat;}
 input[type="password"].password {background: #fff url("../images/input-icons-password.png") 5% center no-repeat;}
-input[type="text"].squared {border-radius: 6px !important;} 
+input[type="text"].squared {border-radius: 6px !important;}
+input[type="text"].no-image {padding-left: 10px !important;} 
 textarea {display: block; font-family: "PT Sans", Tahoma, Sans; width: 450px; box-shadow: 0px; border: 1px solid #eee; display: block; font-size: 13px; color: #444; transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border; -o-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border; -moz-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border; -webkit-transition: 0.3s 0s ease box-shadow, 0.3s 0s ease border; min-height: 100px; background: #fff; border-radius: 6px; padding: 10px;}
 textarea:focus {border: 1px solid #ccc; box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);}
 textarea:hover {border: 1px solid #ddd;}
@@ -32,7 +33,7 @@ ul li .counter {margin-left: 10px !important; font-size: 11px; background: #eee;
 .cap .holder {text-align: center; font-size: 36px; color: #777; font-family: "Open Sans"; font-weight: 100; height: 200px; overflow: hidden; position: absolute; top: 50%; left: 50%; max-width: 430px; margin: -100px 0px 0px -215px;}
 .cap .info {position: absolute; text-align: center; width: 100%; bottom: 5%;}
 .cap .info li {margin: 0px auto;}
-.cap .info a {color: #fff; background: #9c4343; padding: 5px 12px; border-radius: 6px; -webkit-transition: background 0.3s 0s ease; -moz-transition: background 0.3s 0s ease; -o-transition: background 0.3s 0s ease; transition: background 0.3s 0s ease;}
+.cap .info a {color: #fff; background: ##; padding: 5px 12px; border-radius: 6px; -webkit-transition: background 0.3s 0s ease; -moz-transition: background 0.3s 0s ease; -o-transition: background 0.3s 0s ease; transition: background 0.3s 0s ease;}
 .cap .info a:hover {background: #b66060;}
 .cap .info a.developers {margin-top: 20px !important;}
 a.developers {color: #999; background: none !important; padding: none !important; border-radius: none !important;}

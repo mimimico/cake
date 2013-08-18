@@ -140,7 +140,8 @@ section.item ul.comments li.comment .block .counter {float: right;}
 /* USER */
 section.user .column {margin-right: 24px; float: left; display: block;}
 section.user .main .favorites .block,
-section.user .main .comments .block {width: 356px; padding-bottom: 20px;}
+section.user .main .comments .block,
+section.user .main .chat .block {width: 356px; padding-bottom: 20px;}
 section.user .main .column:last-child {margin-right: 0px;}
 section.user .main .comments ul {margin: 10px; list-style-type: none;}
 section.user .main .comments ul li {margin: 10px 0px; display: block; width: 100%; float: left; overflow: hidden; border-bottom: 1px solid #e1e1e1; padding-bottom: 10px;}
@@ -155,6 +156,29 @@ section.user .main .favorites ul li .caption {width: 260px; float: right; displa
 section.user .main .favorites ul li .caption h4 a {margin: 0px 0px 2px 0px;}
 section.user .main .favorites ul li a.category {color: #999; font-size: 12px;}
 section.user .main .favorites ul li a.category:hover {color: #666 !important;}
+/* USER . MESSAGES */
+section.user .main .chat .title {border-bottom: 1px solid #e1e1e1; padding-bottom: 20px !important;}
+section.user .main .chat-unclicked {padding-bottom: 0px !important;}
+section.user .main .chat-unclicked ul {list-style-type: none;}
+section.user .main .chat-unclicked li.message {border-bottom: 1px solid #e1e1e1; background-color: #fafafa;}
+section.user .main .chat-unclicked li img {width: 40px; height: 40px; border-radius: 6px; display: block; float: left; margin: 10px 0px 0px 10px;}
+section.user .main .chat-unclicked li.message:last-child {border-bottom: none;}
+section.user .main .chat-unclicked .caption {margin-left: 60px; padding: 10px 10px 0px 0px;}
+section.user .main .chat-unclicked .caption a.username {color: #9c4343; display: block; font-weight: bold;}
+section.user .main .chat-unclicked .caption a.username:hover {color: #888; border-bottom: 10px;}
+section.user .main .chat .date {text-align: right; display: block; font-size: 10px; color: #aaa; margin-left: 10px;}
+section.user .main .chat-active {position: relative;}
+section.user .main .chat-active a.back {width: 30px; height: 30px; display: block; float: left; background: url("../images/arrow-right.svg") no-repeat; position: absolute; left: 10px; top: 20px;}
+section.user .main .chat-active ul.messages {max-height: 400px; overflow: scroll;}
+section.user .main .chat-active ul li {margin: 20px 10px 20px 10px; display: block; width: 70%; border-radius: 6px; padding: 10px; position: relative;}
+section.user .main .chat-active ul li.sender {float: left; text-align: left; background: #e1e1e1;}
+section.user .main .chat-active ul li.reply {float: right; text-align: right; background: #9c4343; color: #fff;}
+section.user .main .chat-active li .date {position: absolute; bottom: -15px;}
+section.user .main .chat-active li.sender .date {left: 0px;}
+section.user .main .chat-active li.reply .date {right: 0px;}
+section.user .main .chat-active form.new-message {border-top: 1px solid #e1e1e1; padding: 20px 20px 0px 20px;}
+section.user .main .chat-active form.new-message input[type="text"] {float: left;}
+section.user .main .chat-active form.new-message input[type="submit"] {float: right;}
 /* ADD-EDIT */
 section.add-edit .block {padding: 0px 18px 15px 17px;}
 section.add-edit .edit .title {border-bottom: 1px solid #e1e1e1; margin-bottom: 20px; padding-bottom: 20px;}
