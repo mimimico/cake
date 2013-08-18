@@ -31,4 +31,13 @@ class peItemController extends peController
         
         return $response;
     }
+    
+    public static function addAction()
+    {
+        peLoader::import("models.miCategory");
+        $response = new peResponse("add-item");
+        $categories = new miCategory();
+        $response->page->categories = $categories->bind("displayCategories");
+        return $response;
+    }
 }

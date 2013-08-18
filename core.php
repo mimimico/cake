@@ -92,6 +92,7 @@ abstract class peCore
         if (!peProject::getDebug()) {
             error_reporting(0);
         }
+        peSession::create();
         header("Content-type: text/html; charset=" . peProject::getCharset());
     }
     

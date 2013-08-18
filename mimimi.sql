@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июл 27 2013 г., 13:14
+-- Время создания: Авг 03 2013 г., 10:26
 -- Версия сервера: 5.5.20
 -- Версия PHP: 5.3.9
 
@@ -28,8 +28,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `accounts` (
   `uid` int(255) NOT NULL AUTO_INCREMENT,
-  `login` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `registered` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `lastlogin` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 

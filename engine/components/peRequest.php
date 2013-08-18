@@ -44,6 +44,11 @@ class peRequest
         return $this->_data;
     }
     
+    public function replace($data)
+    {
+        $this->_data = $data;
+    }
+    
     public function __set($Key, $Value)
     {
 	return $this->_data[strtolower($Key)] = $Value;

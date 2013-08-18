@@ -16,12 +16,10 @@
     });
 
     $(".create-account").click(function () {
-  		$('div#1').replaceWith($('div#2'));
-  		$('div#2').show();
-	});
+        $('div#1').replaceWith($('div#2'));
+        $('div#2').show();
+    });
 
-	
-    
 </script>
 
 {% endblock %}
@@ -33,29 +31,29 @@
             <div class="login" id="1">
                 <div class="block">
                     <h3 class="title">Вход на сайт</h3>
-                    <form method="post" action="index.php">
-                        <input type="text" class="email" placeholder="E-mail" />
-                        <input type="password" class="password" placeholder="Пароль" />
-                        <input type="submit" value="Вход" />
+                    <form method="post" action="{%url(user::login)%}">
+                        <input type="text" class="email" name="email" placeholder="{%l(fields_email)%}" />
+                        <input type="password" class="password" name="password" placeholder="{%l(fields_pass)%}" />
+                        <input type="submit" value="{%l(button_login)%}" />
                     </form>
                 </div>
-                <input type="button" class="social social-facebook" value="Войти с помощью Facebook" />
-                <input type="button" class="social social-vk" value="Войти с помощью ВКонтакте" />
-                <input type="button" class="social create-account" value="Регистрация на сайте" />
+                <input type="button" class="social social-facebook" value="{%l(button_fblogin)%}" />
+                <input type="button" class="social social-vk" value="{%l(button_vklogin)%}" />
+                <input type="button" class="social create-account" value="{%l(button_register)%}" />
             </div>
             <div class="login registration" id="2">
                 <div class="block">
                     <h3 class="title">Регистрация</h3>
-                    <form method="post" action="index.php">
-                        <input type="text" class="email" placeholder="E-mail" />
-                        <input type="password" class="password" placeholder="Пароль" />
-                        <input type="password" class="password" placeholder="Повторите пароль" />
-                        <a href="#" class="back">Назад</a>
-                        <input type="submit" value="Регистрация" />
+                    <form method="post" action="{%url(user::register)%}">
+                        <input type="text" name="email" class="email" placeholder="{%l(fields_email)%}" />
+                        <input type="password" name="password" class="password" placeholder="{%l(fields_pass)%}" />
+                        <input type="password" name="repassword" class="password" placeholder="{%l(fields_repass)%}" />
+                        <a href="#" class="back">{%l(button_back)%}</a>
+                        <input type="submit" value="{%l(button_register)%}" />
                     </form>
                 </div>
-                <input type="button" class="social social-facebook" value="Войти с помощью Facebook" />
-                <input type="button" class="social social-vk" value="Войти с помощью ВКонтакте" />
+                <input type="button" class="social social-facebook" value="{%l(button_fblogin)%}" />
+                <input type="button" class="social social-vk" value="{%l(button_vklogin)%}" />
             </div>
             <div class="promotion">
                 <div class="block slider-wrapper">

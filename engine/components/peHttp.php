@@ -26,28 +26,22 @@ class peHttp
     
     public static function redirect($url = null)
     {
-        if ($url) {
-            header(sprintf("Location: %s", $url));
-            die();
-        }
+        if (!isset($url)) $url = peProject::getHost();
+        header(sprintf("Location: %s", $url)); die();
         return false;
     }
     
     public static function htmlRedirect($url = null, $time = 0) 
     {
         if (!$url) $url = peProject::getHost();
-        print(
-            sprintf("<meta http-equiv='refresh' content='%d; URL=%s'>", $time, $url)
-        );
+        printf("<meta http-equiv='refresh' content='%d; URL=%s'>", $time, $url);
         
     }
     
     public static function error($code = 0, $back = false)
     {
-        self::redirect(
-            self::url(
-                array("name" => "error", "code" => $code, "back" => $back)
-            )
-        );
+        self::redirect(self::url(
+            array("name" => "error", "code" => $code, "back" => $back)
+        ));
     }
 }

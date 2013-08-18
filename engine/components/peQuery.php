@@ -136,8 +136,10 @@ class peQuery
             if (!empty($result) && is_object($result))
             {
                 $objects = array();
-                while($obj = $result->fetch_object()) {
-                    $objects[] = $obj;
+                while($obj = $result->fetch_assoc()) {
+                    $request = new peRequest();
+                    $request->replace($obj);
+                    $objects[] = $request;
                 }
                 if ($single && count($objects) <= 1) {
                     return @$objects[0];

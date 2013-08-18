@@ -21,7 +21,7 @@ abstract class peLanguage
             $splits = array();
 
             if (preg_match($pattern, $lang, $splits)) {
-                self::$data = peLoader::import("lang." . $splits["primarytag"], false);
+                self::$data = @peLoader::import("lang." . $splits["primarytag"], false);
                 if (!empty(self::$data)) {
                     return;
                 }

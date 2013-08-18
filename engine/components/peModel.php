@@ -35,6 +35,20 @@ abstract class peModel extends peHttp
         }
     }   
 
+    public function __isset($name)
+    {
+        return isset($this->_data[strtolower($name)]);
+    }
+    
+    public function __unset($name)
+    {
+        if (isset($this->_data[strtolower($name)])) {
+            unset($this->_data[strtolower($name)]);
+            return true;
+        }
+        return false;
+    }
+    
     public function bind() 
     {
         return array($this, func_get_args());
@@ -43,11 +57,9 @@ abstract class peModel extends peHttp
     function getParam($array, $id = 0)
     {
         if (is_array($array) && isset($array[$id])) {
-            $element = $array[$id];
-        } else {
-            $element = 0;
+            return $array[$id];
         }
-        return $element;
+        return 0;
     }
     
     public function _recall($data)

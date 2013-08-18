@@ -35,6 +35,8 @@ peCore::init(
             "components.peModel",
             "components.peQuery",
             "components.peLanguage",
+            "components.peSession",
+            "components.peTime",
             "components.peResponse"
         )
     )
