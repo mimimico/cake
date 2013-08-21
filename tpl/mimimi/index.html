@@ -16,8 +16,8 @@
     });
 
     $(".create-account").click(function () {
-        $('div#1').replaceWith($('div#2'));
-        $('div#2').show();
+        $('div#login').replaceWith($('div#registration'));
+        $('div#registration').show();
     });
 
 </script>
@@ -25,35 +25,35 @@
 {% endblock %}
 
 {% block(content) %}
-<section class="content">
-    <div class="container">
-        <div class="row main">
-            {% if (user.logined) %}
-            <div class="profile column">
-                <div class="block">
-                    <img src="images/temp/avatar100.jpg" />
-                    <div class="status"><span class="label label-blue">Мастер</span></div>
-                    <h3 class="title">Андрей Велес</h3>
-                    <ul class="separated">
-                        <li class="first"><a href="#">Избранное</a></li>
-                        <li><a href="#">Отзывы</a></li>
-                        <li><a href="{%url(user::logout)%}">LOGOUT</a></li>
-                    </ul>
-                    <div class="rating">
-                        <div id="half"></div>
-                    </div>
+<section id="content">
+    <div class="row">
+        {% if (user.logined) %}
+        <div class="profile column">
+            <div class="block">
+                <img src="images/temp/avatar100.jpg" />
+                <div class="status"><span class="label label-blue">Мастер</span></div>
+                <h3 class="title">Андрей Велес</h3>
+                <ul class="separated">
+                    <li class="first"><a href="#">Избранное</a></li>
+                    <li><a href="#">Отзывы</a></li>
+                    <li><a href="{%url(user::logout)%}">LOGOUT</a></li>
+                </ul>
+                <div class="rating">
+                    <div id="half"></div>
                 </div>
             </div>
-            {% else %}
-            <div class="login" id="1">
-                <div class="block">
+        </div>
+        {% else %}
+        <div class="block-min user-fields">
+            <div id="login" style="display: none;">
+                <div class="block block-min login">
                     <h3 class="title">Вход на сайт</h3>
                     <form method="post" action="{%url(user::login)%}">
                         <input type="text" class="email" name="email" placeholder="{%l(fields_email)%}" />
                         <input type="password" class="password" name="password" placeholder="{%l(fields_pass)%}" />
                         <input type="submit" value="{%l(button_login)%}" />
                     </form>
-                </div>
+                </div> 
                 <a href="{% user.links.facebook %}">
                     <input type="button" class="social social-facebook" value="{%l(button_fblogin)%}" />
                 </a>
@@ -62,8 +62,8 @@
                 </a>
                 <input type="button" class="social create-account" value="{%l(button_register)%}" />
             </div>
-            <div class="login registration" id="2">
-                <div class="block">
+            <div id="registration">
+                <div class="block block-min registration">
                     <h3 class="title">Регистрация</h3>
                     <form method="post" action="{%url(user::register)%}">
                         <input type="text" name="email" class="email" placeholder="{%l(fields_email)%}" />
@@ -78,17 +78,11 @@
                 </a>
                 <a href="{% user.links.vkontakte %}">
                     <input type="button" class="social social-vk" value="{%l(button_vklogin)%}" />
-                </a>
+                </a>    
             </div>
-            {% endif %}
-            <div class="promotion">
-                <div class="block slider-wrapper">
-                    <div id="slider" class="nivoSlider">
-                        <img src="images/temp/promotion1.jpg" alt="" />
-                        <img src="images/temp/promotion2.jpg" alt="" />
-                    </div>
-                </div>
-            </div>
+        </div>
+        {% endif %}
+        <div class="block block-3 promotion">
         </div>
         <div id="loaded-content">
         {% include(item_blocks) %}

@@ -1,8 +1,8 @@
 {% foreach(page.items::itemrow) %}
-<div class="row items">
+<div class="row">
     {% foreach(itemrow::item) %}
     {% if (item.title) %}
-    <div class="block block-{%item.size%}">
+    <div class="block block-{%item.size%} item">
         <div class="image">
             <a class="buy" href="{% url(item::index)%}&id={% item.uid %}">{% l(button_buy) %}</a>
             <a class="like" href="#"></a>

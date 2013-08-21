@@ -3,15 +3,11 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="css/style.css" /> 
-		<link rel="stylesheet" href="css/default.css" /> 
-		<link rel="stylesheet" href="css/header.css" /> 
-		<link rel="stylesheet" href="css/section.css" />
-		<link rel="stylesheet" href="css/footer.css" /> 
 	</head>
 	<body>
 
 		<header>
-			<div class="container">
+			<div class="row">
 				<div class="brand">
 					<a href="#"><img src="images/logo.png" alt="mimimi" /></a>
 				</div>
@@ -20,7 +16,7 @@
 				</form>
 			</div>
 			<ul class="menu">
-				<div class="container">
+				<div class="row">
 					<li><a href="#">Аксессуары</a></li>
 					<li><a href="#">Украшения</a></li>
 					<li><a href="#">Для дома</a></li>
@@ -31,56 +27,53 @@
 			</ul>
 		</header>
 
-		<section class="shop">
-			<div class="container">
-				<div class="row main">
-					<div class="profile">
-						<div class="block">
-							<img src="images/temp/avatar100.jpg" />
-							<div class="status"><span class="label label-blue">Мастер</span></div>
-							<h3 class="title">Андрей Велес</h3>
-							<ul class="separated">
-								<li class="first"><a href="#">Избранное</a></li>
-								<li><a href="#">Отзывы</a></li>
-								<li><a href="#">Контакты</a></li>
-							</ul>
-						</div>
-						<div class="sharing block">
-							<img src="images/likes.png" />
-						</div>
+		<section id="shop">
+			<div class="row">
+				<div class="user-info">
+					<div class="block block-min profile">
+						<img src="images/temp/avatar100.jpg" class="avatar" />
+						<div class="status"><span class="label label-blue">Мастер</span></div>
+						<h3 class="title">Андрей Велес</h3>
+						<ul class="categories-column">
+							<li class="first"><a href="#">Избранное</a></li>
+							<li><a href="#">Отзывы</a></li>
+							<li><a href="#">Контакты</a></li>
+						</ul>
 					</div>
-					<div class="about-shop">
-						<div class="block">
-							<div class="shop">
-								<div class="title">О магазине</div>
-								<ul class="separated">
-									<li class="address">
-										Киев, Украина<br />
-										ул. Красноармейская, 136<br />
-										<a href="#">Показать на карте</a>
-									</li>
-									<li><a href="#">Продажи</a> <span class="counter">261</span></li>
-									<li><a href="#">Подписчики</a> <span class="counter">1561</span></li>
-									<li><a href="#">Информация</a></li>
-									<li><a href="#">Официальный сайт</a></li>
-								</ul>
-								<a href="#" class="like">В избранное</a>
-							</div>
-							<div class="cover"><img src="images/temp/shop.jpg" style="margin-top: -50px;"/></div>
-							<ul class="categories-in">
-								<li><a href="#">Брелки</a><span class="counter">20</span></li>
-								<li><a href="#">Декорации и оформление</a><span class="counter">5</span></li>
-								<li><a href="#">Открытки</a><span class="counter">17</span></li>
-								<li><a href="#">Украшения</a><span class="counter">161</span></li>
-								<li><a href="#">Фотографии</a><span class="counter">1</span></li>
-							</ul>
-						</div>
+					<div class="block block-min sharing">
+						<img src="images/likes.png" />
 					</div>
 				</div>
+				<div class="block block-cover block-3 shop">
+					<div class="block block-min block-inner shop-inner">
+						<h3 class="title">О магазине</h3>
+						<ul class="categories-column">
+							<li class="address">
+								Киев, Украина<br />
+								ул. Красноармейская, 136<br />
+								<a href="#">Показать на карте</a>
+							</li>
+							<li><a href="#">Продажи</a> <span class="counter">261</span></li>
+							<li><a href="#">Подписчики</a> <span class="counter">1561</span></li>
+							<li><a href="#">Информация</a></li>
+							<li><a href="#">Официальный сайт</a></li>
+						</ul>
+						<a href="#" class="button like">В избранное</a>
+					</div>
+					<div class="cover"><img src="images/temp/shop.jpg" style="margin-top: -50px;"/></div>
+					<ul class="categories-row">
+						<li><a href="#">Брелки</a><span class="counter">20</span></li>
+						<li><a href="#">Декорации и оформление</a><span class="counter">5</span></li>
+						<li><a href="#">Открытки</a><span class="counter">17</span></li>
+						<li><a href="#">Украшения</a><span class="counter">161</span></li>
+						<li><a href="#">Фотографии</a><span class="counter">1</span></li>
+					</ul>
+				</div>
+			</div>
 				<div class="row items">
-					<div class="block block-1">
+					<div class="block block-1 item">
 						<div class="image">
-							<a class="buy" href="#">Купить</a>
+							<a class="button buy" href="#">Купить</a>
 							<a class="like" href="#"></a>
 							<img src="images/temp/image1.jpg" />
 						</div>
@@ -95,9 +88,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="block block-1">
+					<div class="block block-1 item">
 						<div class="image">
-							<a class="buy" href="#">Купить</a>
+							<a class="button buy" href="#">Купить</a>
 							<div class="like"></div>
 							<img src="images/temp/image2.jpg" />
 						</div>
@@ -112,9 +105,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="block block-1">
+					<div class="block block-1 item">
 						<div class="image">
-							<a class="buy" href="#">Купить</a>
+							<a class="button buy" href="#">Купить</a>
 							<div class="like"></div>
 							<img src="images/temp/image3.jpg" />
 						</div>
@@ -131,9 +124,9 @@
 					</div>
 				</div>
 				<div class="row items">
-					<div class="block block-1">
+					<div class="block block-1 item">
 						<div class="image">
-							<a class="buy" href="#">Купить</a>
+							<a class="button buy" href="#">Купить</a>
 							<div class="like"></div>
 							<img src="images/temp/image4.jpg" />
 						</div>
@@ -148,9 +141,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="block block-2">
+					<div class="block block-2 item">
 						<div class="image">
-							<a class="buy" href="#">Купить</a>
+							<a class="button buy" href="#">Купить</a>
 							<div class="like"></div>
 							<img src="images/temp/image7.jpg" />
 						</div>
@@ -167,9 +160,9 @@
 					</div>			
 				</div>
 				<div class="row items">
-					<div class="block block-1">
+					<div class="block block-1 item">
 						<div class="image">
-							<a class="buy" href="#">Купить</a>
+							<a class="button buy" href="#">Купить</a>
 							<div class="like"></div>
 							<img src="images/temp/image6.jpg" />
 						</div>
@@ -184,9 +177,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="block block-1">
+					<div class="block block-1 item">
 						<div class="image">
-							<a class="buy" href="#">Купить</a>
+							<a class="button buy" href="#">Купить</a>
 							<div class="like"></div>
 							<img src="images/temp/image7.jpg" />
 						</div>
@@ -201,9 +194,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="block block-1">
+					<div class="block block-1 item">
 						<div class="image">
-							<a class="buy" href="#">Купить</a>
+							<a class="button buy" href="#">Купить</a>
 							<div class="like"></div>
 							<img src="images/temp/image8.jpg" />
 						</div>
@@ -220,9 +213,9 @@
 					</div>
 				</div>
 				<div class="row items">
-					<div class="block block-1">
+					<div class="block block-1 item">
 						<div class="image">
-							<a class="buy" href="#">Купить</a>
+							<a class="button buy" href="#">Купить</a>
 							<div class="like"></div>
 							<img src="images/temp/image9.jpg" />
 						</div>
@@ -237,9 +230,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="block block-1">
+					<div class="block block-1 item">
 						<div class="image">
-							<a class="buy" href="#">Купить</a>
+							<a class="button buy" href="#">Купить</a>
 							<div class="like"></div>
 							<img src="images/temp/image10.jpg" />
 						</div>
@@ -254,9 +247,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="block block-1">
+					<div class="block block-1 item">
 						<div class="image">
-							<a class="buy" href="#">Купить</a>
+							<a class="button buy" href="#">Купить</a>
 							<div class="like"></div>
 							<img src="images/temp/image11.jpg" />
 						</div>
@@ -273,9 +266,9 @@
 					</div>
 				</div>
 				<div class="row items">
-					<div class="block block-1">
+					<div class="block block-1 item">
 						<div class="image">
-							<a class="buy" href="#">Купить</a>
+							<a class="button buy" href="#">Купить</a>
 							<div class="like"></div>
 							<img src="images/temp/image12.jpg" />
 						</div>
@@ -290,9 +283,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="block block-1">
+					<div class="block block-1 item">
 						<div class="image">
-							<a class="buy" href="#">Купить</a>
+							<a class="button buy" href="#">Купить</a>
 							<div class="like"></div>
 							<img src="images/temp/image2.jpg" />
 						</div>
@@ -307,9 +300,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="block block-1">
+					<div class="block block-1 item">
 						<div class="image">
-							<a class="buy" href="#">Купить</a>
+							<a class="button buy" href="#">Купить</a>
 							<div class="like"></div>
 							<img src="images/temp/image1.jpg" />
 						</div>
@@ -335,7 +328,7 @@
 		</section>
 
 		<footer>
-			<div class="container">
+			<div class="row">
 				<div class="copyrights">
 					<img src="images/footer-logo.gif" />
 					<div class="date">&copy; 2013</div>

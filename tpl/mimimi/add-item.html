@@ -6,193 +6,189 @@
 {% endblock %}
 
 {% block(content) %}
-<section class="add-item add-edit item">
-    <div class="container">
-        {% if (page.item) %}
-        <div class="row">
-            <div class="content">
-                <div class="block">
-                    <h3 class="title">Добавление товара</h3>
-                    <div class="section">
-                        <div class="row">
-                            <select class="categories">
-                                <optgroup label="Accesories">
-                                    <option value="0">Accesories</option>
-                                    <option value="1">Sunglasses</option>
-                                    <option value="2">Pictures</option>
-                                    <option value="3">Lol</option>
-                                    <option value="4">Category</option>
-                                    <option value="5">Minecraft</option>
-                                    <option value="6">Lorem Ipsum</option>
-                                </optgroup>
-                                <optgroup label="Decorations">
-                                    <option value="8">For home</option>
-                                    <option value="9">For sex</option>
-                                    <option value="10">Art</option>
-                                    <option value="11">Clothes</option>
-                                    <option value="12">Misc</option>
-                                </optgroup>
-                            </select>
-                            <div class="column caption">
-                                Название
-                            </div>
-                            <div class="column input">
-                                <input type="text" class="item-title">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="column caption">
-                                Короткое описание
-                            </div>
-                            <div class="column input">
-                                <input type="text" class="item-short">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <textarea placeholder="Описание товара"></textarea>
-                        </div>
-                        <div class="row money">
-                            <div class="column caption">
-                                Цена
-                            </div>
-                            <div class="column input">
-                                <select class="currency">
-                                <optgroup label="Europe">
-                                    <option value="0">Dollars</option>
-                                    <option value="1">Roubles</option>
-                                    <option value="2">Hryvnas</option>
-                                    <option value="3">Euros</option>
-                                    <option value="4">Belorussian roubles</option>
-                                </optgroup>
-                                <optgroup label="America">
-                                    <option value="0">Dollars</option>
-                                    <option value="1">Roubles</option>
-                                    <option value="2">Hryvnas</option>
-                                    <option value="3">Euros</option>
-                                    <option value="4">Belorussian roubles</option>
-                                </optgroup>
-                            </select>
-                                <input type="text" class="item-currency squared">
-                            </div>
-                        </div>
-                        <h3 class="title">Дополнительная информация</h3>
-                        <div class="row">
-                            <div class="column caption">
-                                Предназначение
-                            </div>
-                            <div class="column input">
-                                <input type="text" class="item-occasion">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="column caption">
-                                Для кого
-                            </div>
-                            <div class="column input">
-                                <input type="text" class="item-who">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="column caption">
-                                Стиль
-                            </div>
-                            <div class="column input">
-                                <input type="text" class="item-style">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="column caption">
-                                Теги
-                            </div>
-                            <div class="column input">
-                                <input type="text" class="item-tags">
-                            </div>
-                        </div>
+<section class="add-edit" id="add-item">
+    {% if (page.item) %}
+    <div class="row">
+        <div class="block block-3 content">
+            <h3 class="title">Добавление товара</h3>
+            <div class="section">
+                <div class="line">
+                    <select class="categories">
+                        <optgroup label="Accesories">
+                            <option value="0">Accesories</option>
+                            <option value="1">Sunglasses</option>
+                            <option value="2">Pictures</option>
+                            <option value="3">Lol</option>
+                            <option value="4">Category</option>
+                            <option value="5">Minecraft</option>
+                            <option value="6">Lorem Ipsum</option>
+                        </optgroup>
+                        <optgroup label="Decorations">
+                            <option value="8">For home</option>
+                            <option value="9">For sex</option>
+                            <option value="10">Art</option>
+                            <option value="11">Clothes</option>
+                            <option value="12">Misc</option>
+                        </optgroup>
+                    </select>
+                    <div class="column caption">
+                        Название
                     </div>
-                    <div class="picture column">
-                        <h3 class="title">Главное фото</h3>
-                            <div class="upload">
-                                <input type="file" name="upload" class="file" />
-                            </div>
-                        <h4 class="title">Дополнительные фото</h4>
-                        <div class="upload additional">
-                            <input type="file" name="upload" class="file" />
-                        </div>
-                        <div class="upload additional">
-                            <input type="file" name="upload" class="file" />
-                        </div>
-                        <input type="button" value="Добавить еще" />
+                    <div class="column input">
+                        <input type="text" class="item-title">
                     </div>
-                    <div class="row submit">
-                        <input type="submit" value="Превью" class="preview" />
-                        <input type="submit" value="Добавить товар в магазин" class="add" />
+                </div>
+                <div class="line">
+                    <div class="column caption">
+                        Короткое описание
+                    </div>
+                    <div class="column input">
+                        <input type="text" class="item-short">
+                    </div>
+                </div>
+                <div class="line">
+                    <textarea placeholder="Описание товара"></textarea>
+                </div>
+                <div class="line money">
+                    <div class="column caption">
+                        Цена
+                    </div>
+                    <div class="column input">
+                        <select class="currency">
+                        <optgroup label="Europe">
+                            <option value="0">Dollars</option>
+                            <option value="1">Roubles</option>
+                            <option value="2">Hryvnas</option>
+                            <option value="3">Euros</option>
+                            <option value="4">Belorussian roubles</option>
+                        </optgroup>
+                        <optgroup label="America">
+                            <option value="0">Dollars</option>
+                            <option value="1">Roubles</option>
+                            <option value="2">Hryvnas</option>
+                            <option value="3">Euros</option>
+                            <option value="4">Belorussian roubles</option>
+                        </optgroup>
+                    </select>
+                        <input type="text" class="item-currency squared">
+                    </div>
+                </div>
+                <h3 class="title">Дополнительная информация</h3>
+                <div class="line">
+                    <div class="column caption">
+                        Предназначение
+                    </div>
+                    <div class="column input">
+                        <input type="text" class="item-occasion">
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="column caption">
+                        Для кого
+                    </div>
+                    <div class="column input">
+                        <input type="text" class="item-who">
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="column caption">
+                        Стиль
+                    </div>
+                    <div class="column input">
+                        <input type="text" class="item-style">
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="column caption">
+                        Теги
+                    </div>
+                    <div class="column input">
+                        <input type="text" class="item-tags">
                     </div>
                 </div>
             </div>
-            <div class="sidebar">
-                <div class="block sell">
-                    <a href="#" class="buy">Купить</a>
-                    <a href="#" class="like"></a>
-                    <div class="price">
-                        <div class="currency">162.35 ₴</div>
-                        <div class="usd">20.00 $</div>
+            <div class="picture column">
+                <h3 class="title">Главное фото</h3>
+                    <div class="upload">
+                        <input type="file" name="upload" class="file" />
                     </div>
+                <h4 class="title">Дополнительные фото</h4>
+                <div class="upload additional">
+                    <input type="file" name="upload" class="file" />
                 </div>
-                <div class="block networks">
-                    <img src="images/likes.png" />
+                <div class="upload additional">
+                    <input type="file" name="upload" class="file" />
                 </div>
-                <div class="block info">
-                    <div class="shop">
-                        <div class="title">О магазине</div>
-                        <ul class="separated">
-                            <li class="address">
-                                Киев, Украина<br />
-                                ул. Красноармейская, 136<br />
-                                <a href="#">Показать на карте</a>
-                            </li>
-                            <li><a href="#">Продажи</a> <span class="counter">261</span></li>
-                            <li><a href="#">Подписчики</a> <span class="counter">1561</span></li>
-                            <li><a href="#">Информация</a></li>
-                            <li><a href="#">Официальный сайт</a></li>
-                        </ul>
-                    </div>
-                    <div class="seller">
-                        <div class="title">О мастере</div>
-                        <ul class="separated">
-                            <li class="profile">
-                                <img src="images/temp/avatar50.jpg">
-                                <div class="user">
-                                    <strong><a href="#">Андрей Велес</a></strong>
-                                    Киев, Украина
-                                </div>
-                            </li>
-                            <li><a href="#">Избранное</a></li>
-                            <li><a href="#">Отзывы</a></li>
-                            <li><a href="#">Контакты</a></li>
-                            <li><a href="#">Профиль</a></li>
-                        </ul>
-                    </div>
+                <input type="button" value="Добавить еще" />
+            </div>
+            <div class="line submit">
+                <input type="submit" value="Превью" class="preview" />
+                <input type="submit" value="Добавить товар в магазин" class="add" />
+            </div>
+        </div>
+        <div class="block block-min block-no-style" id="sidebar">
+            <div class="block block-min sell">
+                <a href="#" class="button buy">Купить</a>
+                <a href="#" class="button like"></a>
+                <div class="price">
+                    <div class="currency">162.35 ₴</div>
+                    <div class="usd">20.00 $</div>
                 </div>
-                <div class="block more-related">
-                    <div class="title">Еще в этом магазине</div>
-                    <div class="images">
-                        <img src="images/temp/image1-min.jpg" />
-                        <img src="images/temp/image2-min.jpg" />
-                        <img src="images/temp/image3-min.jpg" />
-                        <img src="images/temp/image4-min.jpg" />
-                        <img src="images/temp/image5-min.jpg" />
-                        <img src="images/temp/image6.jpg" />
-                    </div>
-                    <a class="more-link" href="#">Еще 216 товаров</a>
-                </div>
-                <div class="block social-stats">
-                    <div class="title">Статистика</div>
-                    <ul class="stats">
-                        <li>Просмотров <span class="counter">1671</span></li>
-                        <li><a href="#">Добавленно в избранное</a> <span class="counter">126</span></li>
-                        <li><a href="#">Покупок</a> <span class="counter">8</span></li>
+            </div>
+            <div class="block block-min networks">
+                <img src="images/likes.png" />
+            </div>
+            <div class="block block-min info">
+                <div class="shop">
+                    <h3 class="title">О магазине</h3>
+                    <ul class="categories-column">
+                        <li class="address">
+                            Киев, Украина<br />
+                            ул. Красноармейская, 136<br />
+                            <a href="#">Показать на карте</a>
+                        </li>
+                        <li><a href="#">Продажи</a> <span class="counter">261</span></li>
+                        <li><a href="#">Подписчики</a> <span class="counter">1561</span></li>
+                        <li><a href="#">Информация</a></li>
+                        <li><a href="#">Официальный сайт</a></li>
                     </ul>
                 </div>
+                <div class="seller">
+                    <h3 class="title">О мастере</h3>
+                    <ul class="categories-column">
+                        <li class="profile">
+                            <img src="images/temp/avatar50.jpg">
+                            <div class="user">
+                                <strong><a href="#">Андрей Велес</a></strong>
+                                Киев, Украина
+                            </div>
+                        </li>
+                        <li><a href="#">Избранное</a></li>
+                        <li><a href="#">Отзывы</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Профиль</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="block block-min more-related">
+                <h3 class="title">Еще в этом магазине</h3>
+                <div class="images">
+                    <img src="images/temp/image1-min.jpg" />
+                    <img src="images/temp/image2-min.jpg" />
+                    <img src="images/temp/image3-min.jpg" />
+                    <img src="images/temp/image4-min.jpg" />
+                    <img src="images/temp/image5-min.jpg" />
+                    <img src="images/temp/image6.jpg" />
+                </div>
+                <a class="more-link" href="#">Еще 216 товаров</a>
+            </div>
+            <div class="block block-min social-stats">
+                <h3 class="title">Статистика</h3>
+                <ul class="categories-column stats">
+                    <li>Просмотров <span class="counter">1671</span></li>
+                    <li><a href="#">Избранное</a> <span class="counter">126</span></li>
+                    <li><a href="#">Покупок</a> <span class="counter">8</span></li>
+                </ul>
             </div>
         </div>
     </div>

@@ -1,4 +1,5 @@
 header {background: #fff; z-index: 100; width: 100%; margin-bottom: 25px; position: relative; padding-bottom: 10px; border-bottom: 1px solid #e1e1e1;}
+header .row {position: relative;}
 header .brand {text-align: center; padding: 20px 0px;}
 header form.search {position: absolute; right: 0px; margin-top: -57px;}
 header ul.menu {background-image: none; background: #fcfcfc; border-bottom: 1px solid #e1e1e1; border-top: 1px solid #e1e1e1; min-height: 35px; margin: 0px auto 0px auto; width: 100% !important; text-align: center; display: block;}

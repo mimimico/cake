@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="css/style.css" /> 
-		<link rel="stylesheet" href="css/default.css" /> 
-		<link rel="stylesheet" href="css/header.css" /> 
-		<link rel="stylesheet" href="css/section.css" />
-		<link rel="stylesheet" href="css/footer.css" />  
+		<meta charset="utf-8" /> 
+		<link rel="stylesheet" href="css/style.css" />  
 	</head>
 	<body>
-
 		<header>
-			<div class="container">
+			<div class="row">
 				<div class="brand">
 					<a href="#"><img src="images/logo.png" alt="mimimi" /></a>
 				</div>
@@ -20,7 +15,7 @@
 				</form>
 			</div>
 			<ul class="menu">
-				<div class="container">
+				<div class="row">
 					<li><a href="#">Аксессуары</a></li>
 					<li><a href="#">Украшения</a></li>
 					<li><a href="#">Для дома</a></li>
@@ -30,200 +25,287 @@
 				</div>
 			</ul>
 		</header>
-
-		<section class="user">
-			<div class="container">
-				<div class="row main">
-					<div class="profile column">
-						<div class="block">
-							<img src="images/temp/avatar100.jpg" />
-							<div class="status"><span class="label label-blue">Мастер</span></div>
-							<h3 class="title">Андрей Велес</h3>
-							<ul class="separated">
-								<li class="first"><a href="#">Избранное</a></li>
-								<li><a href="#">Отзывы</a></li>
-								<li><a href="#">Контакты</a></li>
-							</ul>
-							<div class="rating">
-								<div id="half"></div>
-							</div>
+		<section id="user">
+			<div class="row">
+				<div class="block block-cover block-max profile">
+					<div class="block block-min block-inner profile-inner">
+						<img src="images/temp/avatar100.jpg" class="avatar" />
+						<div class="status"><span class="label label-red">Покупатель</span></div>
+						<h3 class="title">Андрей Велес</h3>
+						<div class="location">
+							Киев, Украина <br />
+							ул. Красноармейская, 136 <br />
+							<a href="#">Показать на карте</a>
 						</div>
 					</div>
-					<div class="column">
-						<div class="chat">
-							<div class="block chat-unclicked">
-								<h1 class="title">Сообщения</h1>
-								<ul class="messages">
-									<li class="message">
-										<img src="images/temp/avatar100.jpg" />
-										<div class="caption">
-											<a href="#" class="username">mrVeles</a>
-											Я купил ваш товар, но мне он не понравился. Что с ним делать?
-											<div class="date">21.01.2013</div>
-										</div>
-									</li>
-									<li class="message">
-										<img src="images/temp/avatar100.jpg" />
-										<div class="caption">
-											<a href="#" class="username">mrVeles</a>
-											Я купил ваш товар, но мне он не понравился. Что с ним делать?
-											<div class="date">21.01.2013</div>
-										</div>
-									</li>
-									<li class="message">
-										<img src="images/temp/avatar100.jpg" />
-										<div class="caption">
-											<a href="#" class="username">mrVeles</a>
-											Я купил ваш товар, но мне он не понравился. Что с ним делать?
-											<div class="date">21.01.2013</div>
-										</div>
-									</li>
-									<li class="message">
-										<img src="images/temp/avatar100.jpg" />
-										<div class="caption">
-											<a href="#" class="username">mrVeles</a>
-											Я купил ваш товар, но мне он не понравился. Что с ним делать?
-											<div class="date">21.01.2013</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<div class="block chat-active">
-								<a href="#" class="back"></a>
-								<h1 class="title">mrVeles</h1>
-								<ul class="messages">
-									<li class="message sender">
-										Вы уверены, что это нормальная стоимость?
-										<div class="date">21.01.2013</div>
-									</li>
-									<li class="message reply">
-										Да, абсолютно.
-										<div class="date">21.01.2013</div>
-									</li>
-									<li class="message sender">
-										Мой номер +380636872493
-										<div class="date">21.01.2013</div>
-									</li>
-									<li class="message reply">
-										Вот и отлично, я позвоню
-										<div class="date">21.01.2013</div>
-									</li>
-									<li class="message reply">
-										Это был тестовый разговор между эником и бэником, а далее пойдет активное тестирование сервиса сообщений на mimimi.co
-										<div class="date">21.01.2013</div>
-									</li>
-									<li class="message sender">
-										Блин, крутой сайт! Тут даже чат есть!
-										<div class="date">21.01.2013</div>
-									</li>
-									<li class="message sender">
-										А еще в этом чате есть определенные правила: <br />
-										- Сообщение может отправлять только мастер и только после транзаксации <br />
-										- Если у пользователя нет ни одного сообщения, он не видет этот блок. Круто, да? <br />
-										- И еще фича: уведомления на сообщения появляются прямо в хедере сайта! У них очень классный разработчик и он это реализует ;)
-										<div class="date">21.01.2013</div>
-									</li>
-									<li class="message reply">
-										Определенно, буду пользоваться им постоянно!
-										<div class="date">21.01.2013</div>
-									</li>
-								</ul>
-								<form class="new-message">
-									<input type="text" class="squared no-image" placeholder="Ответ" />
-									<input type="submit" value="Отправить" />
-								</form>
-							</div>
-						</div>
+					<div class="cover"><img src="images/temp/shop.jpg"/></div>
+					<ul class="categories-row">
+						<li><a href="#">Брелки</a><span class="counter">20</span></li>
+						<li><a href="#">Декорации и оформление</a><span class="counter">5</span></li>
+						<li><a href="#">Открытки</a><span class="counter">17</span></li>
+						<li><a href="#">Украшения</a><span class="counter">161</span></li>
+						<li><a href="#">Фотографии</a><span class="counter">1</span></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="block block-1 item">
+					<div class="image">
+						<a class="button buy" href="#">Купить</a>
+						<a class="like" href="#"></a>
+						<img src="images/temp/image1.jpg" />
 					</div>
-					<div class="column">
-						<div class="favorites">
-							<div class="block">
-								<div class="title">Избранное</div>
-								<ul>
-									<li class="comment">
-										<img src="images/temp/image5-min.jpg" />
-										<div class="caption">
-											<h4><a href="#">Blue Sapphire Gemstone Bracelet</a></h4>
-											<a class="category" href="#">Домашний декор</a>
-										</div>
-									</li>
-									<li class="comment">
-										<img src="images/temp/image4-min.jpg" />
-										<div class="caption">
-											<h4><a href="#">Vintage Wooden Swedish Clogs</a></h4>
-											<a class="category" href="#">Обувь</a>
-									</li>
-									<li class="comment">
-										<img src="images/temp/image3-min.jpg" />
-										<div class="caption">
-											<h4><a href="#">Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</a></h4>
-											<a class="category" href="#">Украшения</a>
-										</div>
-									</li>
-								</ul>
-							</div>
+					<div class="caption">
+						<div class="description">
+							<a href="#"><h4>Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</h4></a>
+							<a href="#" class="category">Украшения</a>
 						</div>
-						<div class="comments">
-							<div class="block">
-								<div class="title">Комментарии</div>
-								<ul>
-									<li class="comment">
-										<img src="images/temp/image1-min.jpg" />
-										<div class="caption">
-											<h4><a href="#">Vintage Wooden Swedish Clogs</a></h4>
-											<div class="date">21.01.2013</div>
-											Но чтобы вы поняли, откуда возникает это превратное представление людей, порицающих наслаждение и восхваляющих страдания, я раскрою перед вами всю картину и разъясню.
-										</div>
-									</li>
-									<li class="comment">
-										<img src="images/temp/image2-min.jpg" />
-										<div class="caption">
-											<h4><a href="#">Vintage Wooden Swedish Clogs</a></h4>
-											<div class="date">21.01.2013</div>
-											Приносило никакого примером из, стал возлюбил но страдания — примером человек несло
-										</div>
-									</li>
-									<li class="comment">
-										<img src="images/temp/image3-min.jpg" />
-										<div class="caption">
-											<h4><a href="#">Vintage Wooden Swedish Clogs</a></h4>
-											<div class="date">21.01.2013</div>
-											И кто мог бы по справедливости упрекнуть стремящегося к наслаждению
-										</div>
-									</li>
-									<li class="comment">
-										<img src="images/temp/image4-min.jpg" />
-										<div class="caption">
-											<h4><a href="#">Vintage Wooden Swedish Clogs</a></h4>
-											<div class="date">21.01.2013</div>
-											But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. 
-										</div>
-									</li>
-									<li class="comment">
-										<img src="images/temp/image5-min.jpg" />
-										<div class="caption">
-											<h4><a href="#">Vintage Wooden Swedish Clogs</a></h4>
-											<div class="date">21.01.2013</div>
-											которое не приносило бы с собой никакого наслаждения?
-										</div>
-									</li>
-									<li class="comment">
-										<img src="images/temp/image6.jpg" />
-										<div class="caption">
-											<h4><a href="#">Vintage Wooden Swedish Clogs</a></h4>
-											<div class="date">21.01.2013</div>
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit
-										</div>
-									</li>
-								</ul>
-							</div>
+						<div class="price">
+							<div class="currency">162.35 ₴</div>
+							<div class="usd">20.00 $</div>
 						</div>
 					</div>
 				</div>
+				<div class="block block-1 item">
+					<div class="image">
+						<a class="button buy" href="#">Купить</a>
+						<div class="like"></div>
+						<img src="images/temp/image2.jpg" />
+					</div>
+					<div class="caption">
+						<div class="description">
+							<a href="#"><h4>Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</h4></a>
+							<a href="#" class="category">Украшения</a>
+						</div>
+						<div class="price">
+							<div class="currency">162.35 ₴</div>
+							<div class="usd">20.00 $</div>
+						</div>
+					</div>
+				</div>
+				<div class="block block-1 item">
+					<div class="image">
+						<a class="button buy" href="#">Купить</a>
+						<div class="like"></div>
+						<img src="images/temp/image3.jpg" />
+					</div>
+					<div class="caption">
+						<div class="description">
+							<a href="#"><h4>Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</h4></a>
+							<a href="#" class="category">Украшения</a>
+						</div>
+						<div class="price">
+							<div class="currency">162.35 ₴</div>
+							<div class="usd">20.00 $</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="block block-1 item">
+					<div class="image">
+						<a class="button buy" href="#">Купить</a>
+						<div class="like"></div>
+						<img src="images/temp/image4.jpg" />
+					</div>
+					<div class="caption">
+						<div class="description">
+							<a href="#"><h4>Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</h4></a>
+							<a href="#" class="category">Украшения</a>
+						</div>
+						<div class="price">
+							<div class="currency">162.35 ₴</div>
+							<div class="usd">20.00 $</div>
+						</div>
+					</div>
+				</div>
+				<div class="block block-2 item">
+					<div class="image">
+						<a class="button buy" href="#">Купить</a>
+						<div class="like"></div>
+						<img src="images/temp/image7.jpg" />
+					</div>
+					<div class="caption">
+						<div class="description">
+							<a href="#"><h4>Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</h4></a>
+							<a href="#" class="category">Украшения</a>
+						</div>
+						<div class="price">
+							<div class="currency">162.35 ₴</div>
+							<div class="usd">20.00 $</div>
+						</div>
+					</div>
+				</div>			
+			</div>
+			<div class="row">
+				<div class="block block-1 item">
+					<div class="image">
+						<a class="button buy" href="#">Купить</a>
+						<div class="like"></div>
+						<img src="images/temp/image6.jpg" />
+					</div>
+					<div class="caption">
+						<div class="description">
+							<a href="#"><h4>Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</h4></a>
+							<a href="#" class="category">Украшения</a>
+						</div>
+						<div class="price">
+							<div class="currency">162.35 ₴</div>
+							<div class="usd">20.00 $</div>
+						</div>
+					</div>
+				</div>
+				<div class="block block-1 item">
+					<div class="image">
+						<a class="button buy" href="#">Купить</a>
+						<div class="like"></div>
+						<img src="images/temp/image7.jpg" />
+					</div>
+					<div class="caption">
+						<div class="description">
+							<a href="#"><h4>Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</h4></a>
+							<a href="#" class="category">Украшения</a>
+						</div>
+						<div class="price">
+							<div class="currency">162.35 ₴</div>
+							<div class="usd">20.00 $</div>
+						</div>
+					</div>
+				</div>
+				<div class="block block-1 item">
+					<div class="image">
+						<a class="button buy" href="#">Купить</a>
+						<div class="like"></div>
+						<img src="images/temp/image8.jpg" />
+					</div>
+					<div class="caption">
+						<div class="description">
+							<a href="#"><h4>Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</h4></a>
+							<a href="#" class="category">Украшения</a>
+						</div>
+						<div class="price">
+							<div class="currency">162.35 ₴</div>
+							<div class="usd">20.00 $</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="block block-1 item">
+					<div class="image">
+						<a class="button buy" href="#">Купить</a>
+						<div class="like"></div>
+						<img src="images/temp/image9.jpg" />
+					</div>
+					<div class="caption">
+						<div class="description">
+							<a href="#"><h4>Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</h4></a>
+							<a href="#" class="category">Украшения</a>
+						</div>
+						<div class="price">
+							<div class="currency">162.35 ₴</div>
+							<div class="usd">20.00 $</div>
+						</div>
+					</div>
+				</div>
+				<div class="block block-1 item">
+					<div class="image">
+						<a class="button buy" href="#">Купить</a>
+						<div class="like"></div>
+						<img src="images/temp/image10.jpg" />
+					</div>
+					<div class="caption">
+						<div class="description">
+							<a href="#"><h4>Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</h4></a>
+							<a href="#" class="category">Украшения</a>
+						</div>
+						<div class="price">
+							<div class="currency">162.35 ₴</div>
+							<div class="usd">20.00 $</div>
+						</div>
+					</div>
+				</div>
+				<div class="block block-1 item">
+					<div class="image">
+						<a class="button buy" href="#">Купить</a>
+						<div class="like"></div>
+						<img src="images/temp/image11.jpg" />
+					</div>
+					<div class="caption">
+						<div class="description">
+							<a href="#"><h4>Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</h4></a>
+							<a href="#" class="category">Украшения</a>
+						</div>
+						<div class="price">
+							<div class="currency">162.35 ₴</div>
+							<div class="usd">20.00 $</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="block block-1 item">
+					<div class="image">
+						<a class="button buy" href="#">Купить</a>
+						<div class="like"></div>
+						<img src="images/temp/image12.jpg" />
+					</div>
+					<div class="caption">
+						<div class="description">
+							<a href="#"><h4>Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</h4></a>
+							<a href="#" class="category">Украшения</a>
+						</div>
+						<div class="price">
+							<div class="currency">162.35 ₴</div>
+							<div class="usd">20.00 $</div>
+						</div>
+					</div>
+				</div>
+				<div class="block block-1 item">
+					<div class="image">
+						<a class="button buy" href="#">Купить</a>
+						<div class="like"></div>
+						<img src="images/temp/image2.jpg" />
+					</div>
+					<div class="caption">
+						<div class="description">
+							<a href="#"><h4>Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</h4></a>
+							<a href="#" class="category">Украшения</a>
+						</div>
+						<div class="price">
+							<div class="currency">162.35 ₴</div>
+							<div class="usd">20.00 $</div>
+						</div>
+					</div>
+				</div>
+				<div class="block block-1 item">
+					<div class="image">
+						<a class="button buy" href="#">Купить</a>
+						<div class="like"></div>
+						<img src="images/temp/image1.jpg" />
+					</div>
+					<div class="caption">
+						<div class="description">
+							<a href="#"><h4>Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry</h4></a>
+							<a href="#" class="category">Украшения</a>
+						</div>
+						<div class="price">
+							<div class="currency">162.35 ₴</div>
+							<div class="usd">20.00 $</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<a class="block more">
+					<img src="images/more.png" />
+					<div class="text">Загрузить больше товаров</div>
+				</a>
+			</div>
 		</section>
 
 		<footer>
-			<div class="container">
+			<div class="row">
 				<div class="copyrights">
 					<img src="images/footer-logo.gif" />
 					<div class="date">&copy; 2013</div>

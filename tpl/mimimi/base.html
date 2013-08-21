@@ -3,15 +3,11 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="css/style.css" /> 
-        <link rel="stylesheet" href="css/default.css" /> 
-        <link rel="stylesheet" href="css/header.css" /> 
-        <link rel="stylesheet" href="css/section.css" />
-        <link rel="stylesheet" href="css/footer.css" /> 
         <title>{% page.title %}</title>
     </head>
     <body>
         <header>
-            <div class="container">
+            <div class="row">
                 <div class="profile">
                     <div class="userpic">
                         <img src="images/temp/avatar50.jpg">
@@ -30,7 +26,7 @@
                 </form>
             </div>
             <ul class="menu">
-                <div class="container">
+                <div class="row">
                     {% foreach(page.categories::cat)%}
                     <li><a href="#">{% cat.name %}</a></li>
                     {% endfor %}
@@ -41,7 +37,7 @@
         {% block(content) %} {% endblock %}
 
         <footer>
-            <div class="container">
+            <div class="row">
                 <div class="copyrights">
                     <img src="images/footer-logo.gif" />
                     <div class="date">&copy; 2013</div>
