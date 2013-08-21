@@ -12,7 +12,7 @@ peCore::init(
     array(
         /* Basic project settings */
         "title"     => " | Proto Engine",
-        "host"      => "http://176.8.247.124:8080/proto/",
+        "host"      => "http://localhost:8080/proto/",
         "siteTheme" => "mimimi",
         "tplDirs"   => array("css", "slider", "script", "js", "images"),
         "debug"     => true,
@@ -37,7 +37,8 @@ peCore::init(
             "components.peLanguage",
             "components.peSession",
             "components.peTime",
-            "components.peResponse"
+            "components.peResponse",
+            "models.miUser"
         )
     )
 );

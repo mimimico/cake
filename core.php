@@ -1,5 +1,6 @@
 <?php
-/*
+
+/**
  *  @Author: Vladislav Gritsenko (Inlife)
  *  @Name: peCore
  *  @Project: Proto Engine 3

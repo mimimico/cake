@@ -28,7 +28,7 @@ class miUser extends peModel
             if (!empty($registered)) $this->error(16); //acc exists
             
             $this->password = $this->hash($this->password);
-            $this->registered = time();
+            $this->registered = date("Y-m-d H:i:s");
             $query->insert()->values($this)->run();
             
             $hash = $this->hash($this->email, $this->password);
@@ -76,13 +76,63 @@ class miUser extends peModel
             if (!empty($result)) {
                 $this->insert($result);
                 $this->setLocal();
-                $query->update()->run(); // update user for 
+                $this->redirect();
             } else {
                 $this->error(20); // logging in error
             }
         } else {
             $this->error(13); //
         }
+    }
+    
+    public function facebookLogin()
+    {
+        peLoader::import("models.miFacebook");
+        $fb = miFacebook::get();
+        if ($fb->getUser()) {
+            $data = (object)$fb->api("/me");
+            $this->email = $data->email;
+            $this->fbid = $data->id;
+            $query = $this->query()->table("accounts");
+            $registered = $query->select()->where(array("fbid" => $this->fbid))->run(true);
+            if (empty($registered)) {
+                $this->registered = date("Y-m-d H:i:s");
+                $this->activated = 1;
+                $query->insert()->values($this)->run();
+            } else {
+                $this->insert($registered);
+            }
+            $this->setLocal();
+            $this->redirect();
+        }
+    }
+    
+    public function vkontakteLogin()
+    {
+        peLoader::import("models.miVkontakte"); 
+        $vk = miVkontakte::get();
+        if ($vk->getUser()) {
+            $response = $vk->api("users.get");
+            $data = (object)$response["response"][0];
+            $this->vkid = $data->uid;
+            $query = $this->query()->table("accounts");
+            $registered = $query->select()->where(array("vkid" => $this->vkid))->run(true);
+            if (empty($registered)) {
+                $this->registered = date("Y-m-d H:i:s");
+                $this->activated = 1;
+                $query->insert()->values($this)->run();
+            } else {
+                $this->insert($registered);
+            }
+            $this->setLocal();
+            $this->redirect();
+        }
+    }
+    
+    public function logout()
+    {
+        $this->removeLocal();
+        $this->redirect();
     }
     
     public static function logined()
@@ -95,10 +145,35 @@ class miUser extends peModel
         return peSession::get("pe_local_user");
     }
     
+    public function removeLocal()
+    {
+        return peSession::remove("pe_local_user");
+    }
+    
     public function setLocal()
     {
         return peSession::set("pe_local_user", $this);
     }
+    
+    public static function getLinks()
+    {
+        peLoader::import("models.miFacebook");
+        peLoader::import("models.miVkontakte");
+        
+        $links = new peResponse();
+        
+        $links->facebook = miFacebook::get()->getLoginUrl(
+            self::url(array("name" => "user", "action" => "facebook")),
+            array("scope" => array("email", "user_about_me"))
+        );
+        
+        $links->vkontakte = miVkontakte::get()->getLoginUrl(
+            peHttp::url(array("name" => "user", "action" => "vkontakte")),
+            array("scope" => array("notify", "offline"))
+        );
+        
+        return $links;
+    }    
     
     public function getAvatar($size = 50)
     {

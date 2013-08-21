@@ -9,7 +9,6 @@ require("project.php");
 
 peLoader::import("providers.peController");
 peLoader::import("providers.peTemplate");
-peLoader::import("models.miUser");
 
 peTemplate::main(
     peController::getData()

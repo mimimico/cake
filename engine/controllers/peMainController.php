@@ -13,6 +13,7 @@ class peMainController extends peController
         /* Imports */
         peLoader::import("models.miCategory");
         peLoader::import("models.miItem");
+        peLoader::import("models.miUser");
         
         /* Generating response */
         $categories = new miCategory();
@@ -24,6 +25,9 @@ class peMainController extends peController
         $response->page->title = "Главная" . peProject::getTitle();
         $response->page->items = $items->bind("displayItemPage");
         $response->page->categories = $categories->bind("displayCategories");
+        //$response->user = miUser::getLocal();
+        $response->user->logined = miUser::logined();
+        $response->user->links = miUser::getLinks();
         
         return $response;
     }
