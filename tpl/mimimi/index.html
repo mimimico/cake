@@ -1,7 +1,5 @@
 {% extends(base) %}
 {% block(scripts) %}
-<script type="text/javascript" src="scripts/nivo.slider.load.js"></script>
-<script type="text/javascript" src="scripts/jquery.nivo.slider.pack.js"></script>
 <script type="text/javascript">
     $(".create-account").click(function () {
         $('div#login').replaceWith($('div#registration'));
@@ -11,75 +9,77 @@
 {% endblock %}
 
 {% block(content) %}
-<section id="content">
-    <div class="row">
-        {% if (user.logined) %}
-        <div class="block block-min profile">
-            <a href="{%url(user::index)%}">
-                <img src="images/temp/avatar100.jpg" class="avatar" />
-            </a>
-            <div class="status"><span class="label label-blue">Мастер</span></div>
-            <h3 class="title">Андрей Велес</h3>
-            <ul class="categories-column">
-                <li><a href="#">Избранное</a></li>
-                <li><a href="#">Отзывы</a></li>
-                <li><a href="{%url(user::logout)%}">LOGOUT</a></li>
-            </ul>
-            <div class="rating">
-                <div id="half"></div>
-            </div>
-        </div>
-        {% else %}
-        <div class="block-min user-fields">
-            <div id="login">
-                <div class="block block-min login">
-                    <h3 class="title">Вход на сайт</h3>
-                    <form method="post" action="{%url(user::login)%}">
-                        <input type="text" class="email" name="email" placeholder="{%l(fields_email)%}" />
-                        <input type="password" class="password" name="password" placeholder="{%l(fields_pass)%}" />
-                        <input type="submit" value="{%l(button_login)%}" />
-                    </form>
-                </div> 
-                <a href="{% user.links.facebook %}">
-                    <input type="button" class="social social-facebook" value="{%l(button_fblogin)%}" />
+<div class="row">
+    <section id="content">
+            {% if (user.logined) %}
+            <div class="block block-min profile">
+                <a href="{%url(user::index)%}">
+                    <img src="images/temp/avatar100.jpg" class="avatar" />
                 </a>
-                <a href="{% user.links.vkontakte %}">
-                    <input type="button" class="social social-vk" value="{%l(button_vklogin)%}" />
-                </a>
-                <input type="button" class="social create-account" value="{%l(button_register)%}" />
-            </div>
-            <div id="registration"  style="display: none;">
-                <div class="block block-min registration">
-                    <h3 class="title">Регистрация</h3>
-                    <form method="post" action="{%url(user::register)%}">
-                        <input type="text" name="email" class="email" placeholder="{%l(fields_email)%}" />
-                        <input type="password" name="password" class="password" placeholder="{%l(fields_pass)%}" />
-                        <input type="password" name="repassword" class="password" placeholder="{%l(fields_repass)%}" />
-                        <a href="#" class="back">{%l(button_back)%}</a>
-                        <input type="submit" value="{%l(button_register)%}" />
-                    </form>
+                <div class="status"><span class="label label-blue">Мастер</span></div>
+                <h3 class="title">Андрей Велес</h3>
+                <ul class="categories-column">
+                    <li><a href="#">Избранное</a></li>
+                    <li><a href="#">Отзывы</a></li>
+                    <li><a href="{%url(user::logout)%}">LOGOUT</a></li>
+                </ul>
+                <div class="rating">
+                    <div id="half"></div>
                 </div>
-                <a href="{% user.links.facebook %}">
-                    <input type="button" class="social social-facebook" value="{%l(button_fblogin)%}" />
-                </a>
-                <a href="{% user.links.vkontakte %}">
-                    <input type="button" class="social social-vk" value="{%l(button_vklogin)%}" />
-                </a>    
+            </div>
+            {% else %}
+            <div class="block-min user-fields">
+                <div id="login">
+                    <div class="block block-min login">
+                        <h3 class="title">Вход на сайт</h3>
+                        <form method="post" action="{%url(user::login)%}">
+                            <input type="text" class="email" name="email" placeholder="{%l(fields_email)%}" />
+                            <input type="password" class="password" name="password" placeholder="{%l(fields_pass)%}" />
+                            <input type="submit" value="{%l(button_login)%}" />
+                        </form>
+                    </div> 
+                    <a href="{% user.links.facebook %}">
+                        <input type="button" class="social social-facebook" value="{%l(button_fblogin)%}" />
+                    </a>
+                    <a href="{% user.links.vkontakte %}">
+                        <input type="button" class="social social-vk" value="{%l(button_vklogin)%}" />
+                    </a>
+                    <input type="button" class="social create-account" value="{%l(button_register)%}" />
+                </div>
+                <div id="registration"  style="display: none;">
+                    <div class="block block-min registration">
+                        <h3 class="title">Регистрация</h3>
+                        <form method="post" action="{%url(user::register)%}">
+                            <input type="text" name="email" class="email" placeholder="{%l(fields_email)%}" />
+                            <input type="password" name="password" class="password" placeholder="{%l(fields_pass)%}" />
+                            <input type="password" name="repassword" class="password" placeholder="{%l(fields_repass)%}" />
+                            <a href="#" class="back">{%l(button_back)%}</a>
+                            <input type="submit" value="{%l(button_register)%}" />
+                        </form>
+                    </div>
+                    <a href="{% user.links.facebook %}">
+                        <input type="button" class="social social-facebook" value="{%l(button_fblogin)%}" />
+                    </a>
+                    <a href="{% user.links.vkontakte %}">
+                        <input type="button" class="social social-vk" value="{%l(button_vklogin)%}" />
+                    </a>    
+                </div>
+            </div>
+            {% endif %}
+            <div class="block block-3 promotion">
             </div>
         </div>
-        {% endif %}
-        <div class="block block-3 promotion">
+        <div class="row">
+            <div id="loaded-content">
+            {% include(item_blocks) %}
+            </div>
         </div>
-        <div id="loaded-content">
-        {% include(item_blocks) %}
+        <div class="row">
+            <a id="loader" class="block more">
+                <img src="images/more.png" />
+                <div class="text">Загрузить больше товаров</div>
+            </a>
         </div>
-        </div>
-    </div>
-    <div class="row">
-        <a id="loader" class="block more">
-            <img src="images/more.png" />
-            <div class="text">Загрузить больше товаров</div>
-        </a>
-    </div>
-</section>
+    </section>
+</div>
 {% endblock %}

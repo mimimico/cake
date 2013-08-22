@@ -220,10 +220,6 @@ footer {
 	display: block; 
 	float: left;
 }
- 
-footer.row {
-	position: relative;
-}
 
 footer .copyrights {
 	display: inline-block; 
@@ -313,8 +309,8 @@ footer .feedback {
 			box-shadow: none !important;
 			position: absolute;
 			z-index: 2;
-			height: 75%;
-			margin-top: 4%;
+			height: 300px;
+			margin-top: 10px;
 			display: block;
 			float: none;
 		}
@@ -416,6 +412,10 @@ section#content .profile {
 	float: left;
 	padding: 20px 5px;
 	text-align: center;
+}
+
+section#shop .profile {
+	height: 267px;
 }
 
 .user-info {
@@ -662,16 +662,18 @@ section#edit-profile a.back {
 	float: left;
 	margin-top: 6px;
 }
-
+/* CONTENT */
+#content {float: left; display: block;}
+#content .all-info {margin-right: 0px;}
 /* SIDEBAR */
-#sidebar {}
+#sidebar {float: right; display: block;}
 .sell {
 	overflow: hidden;
 	padding: 9px 0px 6px 0px;
 	margin: 0px 0px 8px 0px !important;
 }
 .sell a.button {margin-top: 2px;}
-.sell a.buy {margin-left: 10px;}
+.sell a.buy {margin-left: 10px; color: #fff !important;}
 .sell a.like {
 	width: 30px;
 	height: 30px;
@@ -1094,7 +1096,7 @@ ul.comments li.comment .block .name {
 .switcher {
 	border: 1px solid #e1e1e1;
 	padding: 0px;
-	margin: 0px 0px 25px 0px;
+	margin: 0px 100px 25px 0px;
 	border-radius: 6px;
 }
 

@@ -21,10 +21,10 @@ a.button {
 	-webkit-transition: 0.3s 0s ease background-color;
 }
 
-a.buy {background: url("../images/cart.png") no-repeat #759c43 6px 5px;}
-a.buy:hover {background-color: #527526;}
-a.like {background: #dd9798 url("../images/like-white.png") no-repeat 6px 6px;}
-a.like:hover {background-color: #9c4343;}
+a.buy {background: url("../images/cart.png") no-repeat #759c43 6px 5px; color: #fff !important;}
+a.buy:hover {background-color: #527526; color: #fff !important;}
+a.like {background: #dd9798 url("../images/like-white.png") no-repeat 6px 6px; color: #fff !important;}
+a.like:hover {background-color: #9c4343; color: #fff !important;}
 
 
 ul.categories-row {

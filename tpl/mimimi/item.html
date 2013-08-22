@@ -9,7 +9,7 @@
 <section id="item">
     {% if (page.item) %}
     <div class="row">
-        <div class="block block-3 block-no-style">
+        <div class="block block-3 block-no-style" id="content">
             <div class="block block-3 all-info">
                 <h3 class="title">
                     {% page.item.title %}
@@ -74,9 +74,8 @@
                     </li>
                     {% endfor %}
                     <li class="comment add">
-                        <h3 class="title noborder">Оставить отзыв</h3>
                         <form>
-                            <textarea name="comment"></textarea>
+                            <textarea name="comment" placeholder="Оставить отзыв"></textarea>
                             <input type="submit" value="Отправить" />
                         </form>
                     </li>
@@ -114,9 +113,8 @@
                             ул. Красноармейская, 136<br />
                             <a href="#">Показать на карте</a>
                         </li>
-                        <li><a href="#">Продажи</a> <span class="counter">261</span></li>
                         <li><a href="#">Подписчики</a> <span class="counter">1561</span></li>
-                        <li><a href="#">Информация</a></li>
+                        <li><a href="#">На страницу магазина</a></li>
                         <li><a href="#">Официальный сайт</a></li>
                     </ul>
                 </div>
@@ -154,7 +152,6 @@
                 <ul class="categories-column stats">
                     <li>Просмотров <span class="counter">1671</span></li>
                     <li><a href="#">Избранное</a> <span class="counter">126</span></li>
-                    <li><a href="#">Покупок</a> <span class="counter">8</span></li>
                 </ul>
             </div>
         </div>
