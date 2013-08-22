@@ -25,6 +25,22 @@ body, html {
 a {
 	color: #999; 
 	text-decoration: none;
+	transition: 			color .2s 0s ease,
+							border .5s 0s ease,
+							background-color .3s 0s ease,
+							opacity .3s 0s ease;
+	-o-transition: 			color .2s 0s ease,
+							border .5s 0s ease,
+							background-color .3s 0s ease,
+							opacity .3s 0s ease;
+	-moz-transition: 		color .2s 0s ease,
+							border .5s 0s ease,
+							background-color .3s 0s ease,
+							opacity .3s 0s ease;
+	-webkit-transition: 	color .2s 0s ease,
+							border .5s 0s ease,
+							background-color .3s 0s ease,
+							opacity .3s 0s ease;
 }
 
 a:active {
@@ -46,24 +62,19 @@ h1, h2, h3, h5 {
 /* HEADER */
 header {
 	background: #fff; 
-	z-index: 100; 
 	width: 100%; 
 	margin-bottom: 25px; 
-	position: relative; 
 	padding-bottom: 10px; 
 	border-bottom: 1px solid #e1e1e1;
 }
-
-header .row {
-	position: relative;
-}
-
+header .row {overflow: visible; position: relative;}
 header .brand {
 	text-align: center; 
 	padding: 20px 0px;
 }
 
-header form.search {
+header .search {position: relative;}
+header .search form {
 	position: absolute; 
 	right: 0px; 
 	margin-top: -57px;
@@ -119,12 +130,16 @@ header .header-profile .userpic img {
 	border-radius: 6px;
 }
 
-header .header-profile h3 {
-	display: block; 
-	float: left; 
-	margin: 9px 0px 0px 0px; 
-	padding-right: 12px; 
+header .header-profile a.settings {
+	width: 20px;
+	height: 20px;
+	background: url("../images/settings.svg") no-repeat;
+	display: block;
+	float: left;
+	background-size: 20px 20px;
+	margin-top: 10px;
 	border-right: 1px solid #e1e1e1;
+	padding-right: 8px;
 }
 
 header .header-profile .inbox {
@@ -132,10 +147,11 @@ header .header-profile .inbox {
 	position: relative; 
 	display: block; 
 	float: left; 
-	padding: 10px 12px 0px 12px;
+	padding: 12px 12px 0px 6px;
+
 }
 
-header .header-profile .inbox a {
+header .header-profile .inbox a.icon {
 	background: url("../images/icons-inbox.png") no-repeat; 
 	width: 20px; 
 	height: 20px; 
@@ -143,7 +159,7 @@ header .header-profile .inbox a {
 	float: left;
 }
 
-header .header-profile .inbox a:hover {
+header .header-profile .inbox a.icon:hover {
 	background-position: 0px -20px;
 }
 
@@ -155,6 +171,42 @@ header .header-profile .inbox .counter {
 	padding: 2px 5px 0px 4px; 
 	margin: -5px 0px 0px 11px; 
 	position: absolute;
+}
+
+header .header-profile .notifications {
+	position: absolute !important;
+	top: 50px;
+	z-index: 999;
+	left: -10px;
+	display: block;
+	background: #fff;
+	overflow: visible;
+}
+
+header .header-profile .notifications .triangle {
+	height: 16px;
+	width: 16px;
+	position: absolute;
+	background: url("../images/notification-bg-triangle.png") no-repeat;
+	top: -16px;
+	left: 17px;
+}
+
+header .header-profile .notifications ul.categories-column {
+	width: 80%;
+	border: 0px;
+}
+header .header-profile .notifications ul.categories-column li {padding: 20px 0px;}
+header .header-profile .notifications ul.categories-column li img.avatar {
+	display: block;
+	float: left;
+	width: 40px;
+	height: 40px;
+}
+
+header .header-profile .notifications ul.categories-column li p {margin-left: 60px;}
+header .header-profile .notifications ul.categories-column li:last-child {
+	border: 0px;
 }
 
 /* FOOTER */
@@ -371,10 +423,11 @@ section#content .profile {
 	float: left;
 	overflow: hidden;
 	text-align: center;
+	max-height: 393px;
 }
 	.user-info .profile {
 		float: none;
-		padding: 20px 0px;
+		padding: 23px 0px 22px 0px;
 		text-align: center;
 	}
 
@@ -1020,7 +1073,7 @@ ul.comments li.comment .avatar {
 	display: block;
 	float: left;
 	position: relative;
-	z-index: 15;
+	z-index: 3;
 }
 
 ul.comments li.comment .avatar img {
@@ -1035,4 +1088,33 @@ ul.comments li.comment .block .name {
 	margin: 9px 0px 8px 0px;
 	padding-bottom: 7px;
 	border-bottom: 1px solid #e1e1e1;
+}
+
+/* SWITCHER */
+.switcher {
+	border: 1px solid #e1e1e1;
+	padding: 0px;
+	margin: 0px 0px 25px 0px;
+	border-radius: 6px;
+}
+
+.switcher a.master {
+	width: 50%;
+	display: block;
+	float: left;
+}
+
+.switcher a.active {
+	background: #e0f9b9;
+}
+
+.switcher a:hover {
+	background-color: #f1fce0;
+}
+
+.switcher a.user {
+	width: 49.9%;
+	display: block;
+	float: right;
+	border-left: 1px solid #e1e1e1;
 }
