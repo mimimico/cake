@@ -3,25 +3,11 @@
 <script type="text/javascript" src="scripts/nivo.slider.load.js"></script>
 <script type="text/javascript" src="scripts/jquery.nivo.slider.pack.js"></script>
 <script type="text/javascript">
-    var al_page = 1;
-    $(window).load(function() {
-        $('#loader').click(function() {
-            $.ajax({
-                url: "{% url(main::getItems) %}&page=" + al_page,
-            }).done(function(data) {
-                $('#loaded-content').append(data);
-            });
-            al_page++;
-        });
-    });
-
     $(".create-account").click(function () {
         $('div#login').replaceWith($('div#registration'));
         $('div#registration').show();
     });
-
 </script>
-
 {% endblock %}
 
 {% block(content) %}
@@ -29,7 +15,9 @@
     <div class="row">
         {% if (user.logined) %}
         <div class="block block-min profile">
-            <img src="images/temp/avatar100.jpg" class="avatar" />
+            <a href="{%url(user::index)%}">
+                <img src="images/temp/avatar100.jpg" class="avatar" />
+            </a>
             <div class="status"><span class="label label-blue">Мастер</span></div>
             <h3 class="title">Андрей Велес</h3>
             <ul class="categories-column">

@@ -13,7 +13,6 @@ class peMainController extends peController
         /* Imports */
         peLoader::import("models.miCategory");
         peLoader::import("models.miItem");
-        peLoader::import("models.miUser");
         
         /* Generating response */
         $categories = new miCategory();

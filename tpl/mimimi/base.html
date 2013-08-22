@@ -56,6 +56,19 @@
             </div>
         </footer>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript">   
+            var al_page = 1;
+            $(window).load(function() {
+                $('#loader').click(function() {
+                    $.ajax({
+                        url: "{% url(main::getItems) %}&page=" + al_page,
+                    }).done(function(data) {
+                        $('#loaded-content').append(data);
+                    });
+                    al_page++;
+                });
+            });
+        </script>
         {% block(scripts) %} {% endblock %}
     </body>
 </html>

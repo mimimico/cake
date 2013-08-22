@@ -157,21 +157,23 @@ class miUser extends peModel
     
     public static function getLinks()
     {
-        peLoader::import("models.miFacebook");
-        peLoader::import("models.miVkontakte");
-        
-        $links = new peResponse();
-        
-        $links->facebook = miFacebook::get()->getLoginUrl(
-            self::url(array("name" => "user", "action" => "facebook")),
-            array("scope" => array("email", "user_about_me"))
-        );
-        
-        $links->vkontakte = miVkontakte::get()->getLoginUrl(
-            peHttp::url(array("name" => "user", "action" => "vkontakte")),
-            array("scope" => array("notify", "offline"))
-        );
-        
+        $links = array();
+        if (!self::logined()) {
+            peLoader::import("models.miFacebook");
+            peLoader::import("models.miVkontakte");
+
+            $links = new peResponse();
+
+            $links->facebook = miFacebook::get()->getLoginUrl(
+                self::url(array("name" => "user", "action" => "facebook")),
+                array("scope" => array("email", "user_about_me"))
+            );
+
+            $links->vkontakte = miVkontakte::get()->getLoginUrl(
+                peHttp::url(array("name" => "user", "action" => "vkontakte")),
+                array("scope" => array("notify", "offline"))
+            );
+        }
         return $links;
     }    
     

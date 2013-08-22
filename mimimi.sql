@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.6
+-- version 4.0.5
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Авг 03 2013 г., 10:26
--- Версия сервера: 5.5.20
--- Версия PHP: 5.3.9
+-- Время создания: Авг 21 2013 г., 10:36
+-- Версия сервера: 5.5.29
+-- Версия PHP: 5.4.10
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -30,10 +30,31 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `uid` int(255) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `registered` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `lastlogin` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `activated` tinyint(1) NOT NULL DEFAULT '0',
+  `registered` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `lastonline` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `fbid` bigint(255) NOT NULL DEFAULT '0',
+  `vkid` bigint(255) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20 ;
+
+--
+-- Дамп данных таблицы `accounts`
+--
+
+INSERT INTO `accounts` (`uid`, `email`, `password`, `activated`, `registered`, `lastonline`, `fbid`, `vkid`) VALUES
+(1, 'asdasd@asdas.com', 'ad1a4b6f8f611f4a8eb8d2a2ecc3ea85', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0),
+(5, 'vladis-g@ukr.net', '4e861126c005acd26e36c75ef947bcde', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0),
+(6, 'asd@ads.asd', 'ad1a4b6f8f611f4a8eb8d2a2ecc3ea85', 0, '0000-00-00 00:00:00', '2013-08-14 11:49:54', 0, 0),
+(7, 'asd@asd.asd', 'ad1a4b6f8f611f4a8eb8d2a2ecc3ea85', 1, '0000-00-00 00:00:00', '2013-08-14 12:02:27', 0, 0),
+(8, 'asd@asd.asdasd', 'ad1a4b6f8f611f4a8eb8d2a2ecc3ea85', 0, '0000-00-00 00:00:00', '2013-08-14 12:18:10', 0, 0),
+(9, 'test@gmail.com', 'a57b16f5af2693e058b43854315db883', 0, '0000-00-00 00:00:00', '2013-08-17 17:15:58', 0, 0),
+(10, 'asd@asdasd.asd', 'ad1a4b6f8f611f4a8eb8d2a2ecc3ea85', 0, '0000-00-00 00:00:00', '2013-08-17 17:18:40', 0, 0),
+(11, 'test1@gmail.com', 'a57b16f5af2693e058b43854315db883', 0, '0000-00-00 00:00:00', '2013-08-17 17:20:03', 0, 0),
+(12, 'asd@asdasdasd.asdasd', 'ad1a4b6f8f611f4a8eb8d2a2ecc3ea85', 0, '0000-00-00 00:00:00', '2013-08-20 10:10:20', 0, 0),
+(13, 'a@asd.com', 'ad1a4b6f8f611f4a8eb8d2a2ecc3ea85', 1, '2013-08-20 09:18:50', '2013-08-20 10:18:50', 0, 0),
+(18, 'vladgritsenko@gmail.com', '', 1, '2013-08-20 12:49:06', '2013-08-20 13:49:06', 100000470641337, 0),
+(19, '', '', 1, '2013-08-20 17:08:41', '2013-08-21 08:25:52', 0, 8075635);
 
 -- --------------------------------------------------------
 

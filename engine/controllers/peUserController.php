@@ -10,7 +10,36 @@ class peUserController extends peController
 {
     public static function indexAction()
     {
+        peLoader::import("models.miCategory");
+        peLoader::import("models.miItem");
+        peLoader::import("models.miUser");
+        
+        /* Generating response */
+        $categories = new miCategory();
+        $items = new miItem();
+        $items->categories = $categories;
+        
         $response = new peResponse("user");
+        
+        $response->page->title = "User" . peProject::getTitle();
+        $response->page->items = $items->bind("displayItemPage");
+        $response->page->categories = $categories->bind("displayCategories");
+        //$response->user = miUser::getLocal();
+        $response->user->logined = miUser::logined();
+        $response->user->links = miUser::getLinks();
+        
+        return $response;
+    }
+    
+    public static function editAction()
+    {
+        peLoader::import("models.miCategory");
+        
+        $categories = new miCategory();
+        
+        $response = new peResponse("edit-profile");
+        $response->page->categories = $categories->bind("displayCategories");
+        
         return $response;
     }
     

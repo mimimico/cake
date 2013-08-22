@@ -36,7 +36,7 @@ class miItem extends peModel
         list($small, $big) = $this->getItemsPage($page);
         $categories = $this->categories->getSubCategories();
         if (empty($small) || empty($big)) { return; }
-        $row = rand(1,2);
+        if (count($small) < 7) $row = 1; else $row = rand(1,2);
         $pos = rand(0,1);
         $items = array();
         for($i = 0; $i < 4; $i++) {
