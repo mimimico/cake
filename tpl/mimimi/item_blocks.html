@@ -4,9 +4,8 @@
     {% if (item.title) %}
     <div class="block block-{%item.size%} item">
         <div class="image">
-            <a class="buy" href="{% url(item::index)%}&id={% item.uid %}">{% l(button_buy) %}</a>
             <a class="like" href="#"></a>
-            <img src="{%item.image%}" />
+            <a href="{% url(item::index)%}&id={% item.uid %}"><img src="{%item.image%}" /></a>
         </div>
         <div class="caption">
             <div class="description">

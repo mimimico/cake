@@ -1,8 +1,0 @@
-@import url("http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic");
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,cyrillic");
-* {padding: 0px; margin: 0px; outline: 0px; border: 0px;}
-body, html {background: #f4f4f4; font-family: "PT Sans", Tahoma, Sans; font-size: 13px; padding-left: 0px !important; padding-right: 0px !important; height: 100%; color: #444; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; width: 100%; overflow-x: hidden;}
-a {color: #999; text-decoration: none;}
-a:active {color: #888; text-decoration: none;}
-a:hover, a:focus {color: #9c4343; text-decoration: none;}
-h1, h2, h3, h5 {color: #444;}

@@ -12,7 +12,7 @@ h3.title {
 a.button {
 	border-radius: 6px;
 	color: #fff;
-	padding: 6px 12px 6px 38px;
+	padding: 6px 12px 6px 38px !important;
 	float: left;
 	font-weight: bold;
 	transition: 0.3s 0s ease background-color;
@@ -44,8 +44,10 @@ ul.categories-row {
 ul.categories-column {
 	border-top: 1px solid #e1e1e1;
 	text-align: left !important;
-	margin: 0px 30px 0px 20px;
 	display: inline-block;
+	margin: 0px auto; 
+	display: block;
+	width: 180px;
 }
 	
 	ul.categories-column li {
@@ -54,20 +56,10 @@ ul.categories-column {
 		float: left;
 		border-bottom: 1px solid #e1e1e1;
 		padding: 6px 0px;
-		padding-left: 10px;
-	}
-
-	ul.categories-column li:hover {
-		background: #fcfcfc;
 	}
 
 	ul.categories-column li.address {
-		background: url("../images/list-point-map.png") transparent no-repeat left 7px !important;
-		padding-left: 25px !important;
-	}
-
-	ul.categories-column li.address:hover {
-		background-color: transparent !important;
+		background: url("../images/list-point-map.png") transparent no-repeat right 7px !important;
 	}
 
 .counter {
