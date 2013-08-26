@@ -71,7 +71,6 @@ class miItem extends peModel
         list($small, $big) = $this->getItemsPage($page);
         $categories = $this->categories->getSubCategories();
         $likes = $this->getLikes();
-        pre($likes);
         if (empty($small) || empty($big)) { return; }
         if (count($small) < 7) $row = 1; else $row = rand(1,2);
         $pos = rand(0,1);

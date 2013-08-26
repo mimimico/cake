@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Авг 21 2013 г., 10:36
+-- Время создания: Авг 26 2013 г., 17:33
 -- Версия сервера: 5.5.29
 -- Версия PHP: 5.4.10
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `fbid` bigint(255) NOT NULL DEFAULT '0',
   `vkid` bigint(255) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
 
 --
 -- Дамп данных таблицы `accounts`
@@ -54,7 +54,8 @@ INSERT INTO `accounts` (`uid`, `email`, `password`, `activated`, `registered`, `
 (12, 'asd@asdasdasd.asdasd', 'ad1a4b6f8f611f4a8eb8d2a2ecc3ea85', 0, '0000-00-00 00:00:00', '2013-08-20 10:10:20', 0, 0),
 (13, 'a@asd.com', 'ad1a4b6f8f611f4a8eb8d2a2ecc3ea85', 1, '2013-08-20 09:18:50', '2013-08-20 10:18:50', 0, 0),
 (18, 'vladgritsenko@gmail.com', '', 1, '2013-08-20 12:49:06', '2013-08-20 13:49:06', 100000470641337, 0),
-(19, '', '', 1, '2013-08-20 17:08:41', '2013-08-21 08:25:52', 0, 8075635);
+(19, '', '', 1, '2013-08-20 17:08:41', '2013-08-21 08:25:52', 0, 8075635),
+(20, 'admin@gmail.com', '148ba2c9bfb655f6f89f1b66fd70f371', 0, '2013-08-26 14:16:30', '2013-08-26 15:16:30', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -145,6 +146,29 @@ INSERT INTO `items` (`uid`, `shopid`, `title`, `image`, `category`, `price`, `si
 (15, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image2.jpg', 7, '20', 1),
 (16, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image10.jpg', 7, '20', 1),
 (17, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image4.jpg', 7, '20', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `likes`
+--
+
+CREATE TABLE IF NOT EXISTS `likes` (
+  `uid` int(255) NOT NULL AUTO_INCREMENT,
+  `itemid` int(255) NOT NULL,
+  `userid` int(255) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Дамп данных таблицы `likes`
+--
+
+INSERT INTO `likes` (`uid`, `itemid`, `userid`, `date`) VALUES
+(1, 16, 18, '0000-00-00 00:00:00'),
+(2, 14, 18, '0000-00-00 00:00:00'),
+(3, 9, 18, '0000-00-00 00:00:00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
