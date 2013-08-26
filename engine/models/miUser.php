@@ -13,9 +13,9 @@ class miUser extends peModel
     
     public function like($item, $date = null)
     {
-        $item = peRequest::getInput($item, peInput_Int);
         $date = (!empty($date)) ? $date : date("Y-m-d H:i:s");
         if ($item instanceof miItem) $item = $item->uid;
+        $item = peRequest::getInput($item, peInput_Int);
         
         $liked = $this->query()->table("likes")->select()->where(
             array("itemid" => $item, "userid" => $this->uid)

@@ -14,7 +14,7 @@ class miItem extends peModel
         if (!miUser::logined()) {
             $name = "mi_like_" . $this->uid;
             if (!peCookie::get($name)) {
-                peCookie::set($name, time());
+                peCookie::set($name, date("Y-m-d H:i:s"));
             }
         } else {
             miUser::getLocal()->like($this);
@@ -26,7 +26,7 @@ class miItem extends peModel
         if (!miUser::logined()) {
             $likes = array();
             foreach(peCookie::get() as $name => $value) {
-                if (strpos("mi_like_", $name) !== false) {
+                if (strpos($name, "mi_like_") !== false) {
                     list(,$id) = explode("like_", $name);
                     $likes[$id] = $value;
                 }
