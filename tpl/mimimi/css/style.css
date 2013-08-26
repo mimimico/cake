@@ -795,6 +795,14 @@ section#edit-profile a.back {
 		right: 10px;
 	}
 
+	.item .image .liked {
+		background: url("../images/like-action.png") no-repeat;
+	}
+
+	.item .image .liked:hover {
+		background: url("../images/like-action.png") no-repeat !important;
+	}
+
 	.item .image .like:hover {
 		background: url("../images/like-hover.png") no-repeat;
 	}
