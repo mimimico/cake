@@ -11,6 +11,45 @@ class miUser extends peModel
 {           
     const DEFAULT_AVATAR = "http://example.com/image.png";
     
+    public function like($item, $date = null)
+    {
+        $item = peRequest::getInput($item, peInput_Int);
+        $date = (!empty($date)) ? $date : date("Y-m-d H:i:s");
+        if ($item instanceof miItem) $item = $item->uid;
+        
+        $liked = $this->query()->table("likes")->select()->where(
+            array("itemid" => $item, "userid" => $this->uid)
+        )->run(true);
+        
+        if (empty($liked)) {
+            $this->query()->insert()->table("likes")->values(
+                array("itemid" => $item, "userid" => $this->uid, "date" => $date)
+            )->run();
+            return true;
+        }
+        return false;
+    }
+    
+    public function getLikes()
+    {
+        $data = $this->query()->table("likes")->select()->where(array("userid" => $this->uid))->run();
+        $likes = array();
+        foreach($data as $like) {
+            $likes[$like->itemid] = $like;
+        }
+        return $likes;
+    }
+    
+    public function transferLikes()
+    {
+        foreach(peCookie::get() as $name => $value) {
+            if (strpos($name, "mi_like_") !== false) {
+                list(,$id) = explode("_like_", $name);
+                $this->like($id, peCookie::remove($name));
+            }
+        }
+    }
+    
     public function create()
     {
         if (self::logined()) $this->error(21); //already logined
@@ -76,6 +115,7 @@ class miUser extends peModel
             if (!empty($result)) {
                 $this->insert($result);
                 $this->setLocal();
+                $this->transferLikes();
                 $this->redirect();
             } else {
                 $this->error(20); // logging in error
@@ -85,38 +125,32 @@ class miUser extends peModel
         }
     }
     
-    public function facebookLogin()
+    public function socialLogin($type = 0)
     {
-        peLoader::import("models.miFacebook");
-        $fb = miFacebook::get();
-        if ($fb->getUser()) {
-            $data = (object)$fb->api("/me");
-            $this->email = $data->email;
-            $this->fbid = $data->id;
-            $query = $this->query()->table("accounts");
-            $registered = $query->select()->where(array("fbid" => $this->fbid))->run(true);
-            if (empty($registered)) {
-                $this->registered = date("Y-m-d H:i:s");
-                $this->activated = 1;
-                $query->insert()->values($this)->run();
-            } else {
-                $this->insert($registered);
-            }
-            $this->setLocal();
-            $this->redirect();
+        if ($type) {
+            peLoader::import("models.miFacebook");
+            $handler = miFacebook::get();
+        } else {
+            peLoader::import("models.miVkontakte");
+            $handler = miVkontakte::get();
         }
-    }
-    
-    public function vkontakteLogin()
-    {
-        peLoader::import("models.miVkontakte"); 
-        $vk = miVkontakte::get();
-        if ($vk->getUser()) {
-            $response = $vk->api("users.get");
-            $data = (object)$response["response"][0];
-            $this->vkid = $data->uid;
+        
+        if ($handler->getUser()) {
+            
             $query = $this->query()->table("accounts");
-            $registered = $query->select()->where(array("vkid" => $this->vkid))->run(true);
+            
+            if ($type) {
+                $data = (object)$handler->api("/me");
+                $this->email = $data->email;
+                $this->fbid = $data->id;
+                $registered = $query->select()->where(array("fbid" => $this->fbid))->run(true);
+            } else {
+                $response = $handler->api("users.get");
+                $data = (object)$response["response"][0];
+                $this->vkid = $data->uid;
+                $registered = $query->select()->where(array("vkid" => $this->vkid))->run(true);
+            }
+            
             if (empty($registered)) {
                 $this->registered = date("Y-m-d H:i:s");
                 $this->activated = 1;
@@ -124,6 +158,7 @@ class miUser extends peModel
             } else {
                 $this->insert($registered);
             }
+            $this->transferLikes();
             $this->setLocal();
             $this->redirect();
         }

@@ -70,12 +70,12 @@ class peUserController extends peController
     public static function facebookAction()
     {
         $user = new miUser();
-        $user->facebookLogin();
+        $user->socialLogin(1);
     }
     
     public static function vkontakteAction()
     {
         $user = new miUser();
-        $user->vkontakteLogin();
+        $user->socialLogin(0);
     }
 }

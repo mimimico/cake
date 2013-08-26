@@ -9,18 +9,53 @@
 
 class miItem extends peModel 
 {
+    public function like()
+    {
+        if (!miUser::logined()) {
+            $name = "mi_like_" . $this->uid;
+            if (!peCookie::get($name)) {
+                peCookie::set($name, time());
+            }
+        } else {
+            miUser::getLocal()->like($this);
+        }
+    }
+    
+    public function getLikes()
+    {
+        if (!miUser::logined()) {
+            $likes = array();
+            foreach(peCookie::get() as $name => $value) {
+                if (strpos("mi_like_", $name) !== false) {
+                    list(,$id) = explode("like_", $name);
+                    $likes[$id] = $value;
+                }
+            }
+            return $likes;
+        } else {
+            return miUser::getLocal()->getLikes();
+        }
+    }
+    
     public function getItemsPage($page = 0)
     {
         $query = $this->query()->select()->table("items")->order("uid", true);
         return array(
             $query->where(array("size" => 1))->limit($page * 10, 10)->run(),
-            $query->where(array("size" => 2))->limit($page, 1)->run(true)
+            $query->where(array("size" => 2))->limit($page, 1)->run(true),
         );
     }
     
     public function getItem($id = 0) 
     {
         return $this->query()->select()->table("items")->where(array("uid" => $id))->run(true);
+    }
+    
+    public static function get($input)
+    {
+        $item = new self;
+        $item->insert($item->getItem($input->id));
+        return $item;
     }
     
     public function view_displayItem($params) 
@@ -35,6 +70,8 @@ class miItem extends peModel
         
         list($small, $big) = $this->getItemsPage($page);
         $categories = $this->categories->getSubCategories();
+        $likes = $this->getLikes();
+        pre($likes);
         if (empty($small) || empty($big)) { return; }
         if (count($small) < 7) $row = 1; else $row = rand(1,2);
         $pos = rand(0,1);
@@ -52,6 +89,9 @@ class miItem extends peModel
                     $price = new stdClass();
                     $price->usd = $items[$i][$j]->price;
                     $price->uah = $price->usd * 8;
+                    if (isset($likes[$items[$i][$j]->uid])) {
+                        $items[$i][$j]->liked = "liked";
+                    }
                     $items[$i][$j]->price = $price;
                     $cname = $categories[$items[$i][$j]->category]->name;
                     $items[$i][$j]->category = $cname;

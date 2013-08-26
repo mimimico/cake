@@ -357,6 +357,7 @@ section#shop .shop-inner {
 	top: 0px;
 	right: 0px;
 	margin-top: 6%;
+        height: 65%;/* added by Inlife, 22.08.13 20:14*/
 }
 
 section#shop .shop-inner a.like {

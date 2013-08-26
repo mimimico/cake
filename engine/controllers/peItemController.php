@@ -6,6 +6,8 @@
  *  @Project: Proto Engine 3
  */
 
+peLoader::import("models.miItem");
+        
 class peItemController extends peController
 {
     public static function indexAction()
@@ -13,7 +15,6 @@ class peItemController extends peController
         /* Imports */
         peLoader::import("models.miCategory");
         peLoader::import("models.miComment");
-        peLoader::import("models.miItem");
         
         /* Generating response */
         $categories = new miCategory();
@@ -39,5 +40,12 @@ class peItemController extends peController
         $categories = new miCategory();
         $response->page->categories = $categories->bind("displayCategories");
         return $response;
+    }
+    
+    public static function likeAction()
+    {
+        $item = miItem::get(new peRequest("id:i"));
+        $item->like();
+        self::redirect();
     }
 }

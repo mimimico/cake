@@ -36,6 +36,7 @@ peCore::init(
             "components.peQuery",
             "components.peLanguage",
             "components.peSession",
+            "components.peCookie",
             "components.peTime",
             "components.peResponse",
             "models.miUser"

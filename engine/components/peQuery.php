@@ -64,7 +64,7 @@ class peQuery
         return self::$_requests;
     }
     
-    private function query($single = false)
+    public function prepare()
     {
         /* Adding method*/
         if (empty($this->_method)) {
@@ -126,8 +126,15 @@ class peQuery
             }
         }
         
+        return $query->get();
+    }
+    
+    private function query($single = false)
+    {
+        $query = $this->prepare();
+        
         /* Running query */
-        $result = self::cacherun($query->get());
+        $result = self::cacherun($query);
         if (self::getPointer()->errno) {
             $p = self::getPointer();
             peCore::error("Mysqli: query error (" . $p->errno . "), " . $p->error);

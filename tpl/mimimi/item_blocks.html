@@ -4,7 +4,8 @@
     {% if (item.title) %}
     <div class="block block-{%item.size%} item">
         <div class="image">
-            <a class="like" href="#"></a>
+            <a class="like {% item.liked %}"
+               href="{% url(item::like) %}&id={% item.uid %}"></a>
             <a href="{% url(item::index)%}&id={% item.uid %}"><img src="{%item.image%}" /></a>
         </div>
         <div class="caption">

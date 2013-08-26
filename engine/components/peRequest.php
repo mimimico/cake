@@ -63,7 +63,7 @@ class peRequest
         }
     }
     
-    static protected function getInput($input, $format = peInput_Str, $limit = 255)
+    static public function getInput($input, $format = peInput_Str, $limit = 255)
     {
         if ($format & peIO_Trim)    $input = trim($input);
         if ($format & peIO_NltoBr)  $input = nl2br($input);
