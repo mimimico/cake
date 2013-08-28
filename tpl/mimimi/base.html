@@ -83,10 +83,19 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript">   
           var al_page = 1;
+          function getURLParameter(name) {
+            return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+          }
+          
           $(window).load(function() {
               $('#loader').click(function() {
+                  var additional = "cname=main";
+                  if (location.search.indexOf("name")) {
+                      additional = location.search.substr(1).replace("name", "cname").replace("action", "caction");
+                  }
+                  console.log("{% url(main::getItems) %}&page=" + al_page + "&" + additional);
                   $.ajax({
-                      url: "{% url(main::getItems) %}&page=" + al_page,
+                      url: "{% url(main::getItems) %}&page=" + al_page + "&" + additional,
                   }).done(function(data) {
                       $('#loaded-content').append(data);
                   });

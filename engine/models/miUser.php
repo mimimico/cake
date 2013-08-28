@@ -7,7 +7,7 @@
  */
 
 
-class miUser extends peModel 
+class miUser extends peModel
 {           
     const DEFAULT_AVATAR = "http://example.com/image.png";
     
@@ -150,6 +150,8 @@ class miUser extends peModel
                 $this->vkid = $data->uid;
                 $registered = $query->select()->where(array("vkid" => $this->vkid))->run(true);
             }
+            $this->firstname = $data->first_name;
+            $this->lastname = $data->last_name;
             
             if (empty($registered)) {
                 $this->registered = date("Y-m-d H:i:s");

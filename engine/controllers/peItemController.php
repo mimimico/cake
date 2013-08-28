@@ -23,7 +23,8 @@ class peItemController extends peController
         $items->categories = $categories;
         
         $request = new peRequest("id:i");
-        $response = new peResponse("item", false);
+        if (!$request->id) self::error(404);
+        $response = new peResponse("item");
         
         $response->page->title = "Главная" . peProject::getTitle();
         $response->page->categories = $categories->bind("displayCategories");

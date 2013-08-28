@@ -21,13 +21,12 @@ class peMainController extends peController
         
         $response = new peResponse("index");
         
-        $response->page->title = "Главная" . peProject::getTitle();
-        $response->page->items = $items->bind("displayItemPage");
+        $response->page->title = "Main" . peProject::getTitle();
+        $response->page->items = $items->bind("displayItemPage", 0, "main");
         $response->page->categories = $categories->bind("displayCategories");
-        //$response->user = miUser::getLocal();
+        
         $response->user->logined = miUser::logined();
         $response->user->links = miUser::getLinks();
-        
         return $response;
     }
     
@@ -43,10 +42,13 @@ class peMainController extends peController
         
         $items->categories = $categories;
         
-        $input = new peRequest("page:i");
-        $response = new peResponse("item_blocks");
+        $input = new peRequest("page:i", "cname", "id:i");
+        if (!$input->cname) $input->cname = "main";
+        if (!$input->id) $input->id = miUser::getLocal()->uid;
         
-        $response->page->items = $items->bind("displayItemPage", $input->page);
+        $response = new peResponse("item_blocks", false);
+        
+        $response->page->items = $items->bind("displayItemPage", $input->page, $input->cname, $input->id);
         
         return $response;
     }

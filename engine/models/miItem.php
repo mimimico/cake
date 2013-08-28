@@ -46,6 +46,16 @@ class miItem extends peModel
         );
     }
     
+    public function getUserItems($userid, $page = 0)
+    {
+        $query = $this->query()->select()->table("items")->order("uid", true);
+        $condition = "uid IN (". $this->query()->select("itemid")->table("likes")->where(array("userid" => $userid))->prepare() .")";
+        return array(
+            $query->where(array($condition, "size" => 1))->limit($page * 10, 10)->run(),
+            $query->where(array($condition, "size" => 2))->limit($page, 1)->run(true),
+        );
+    }
+    
     public function getItem($id = 0) 
     {
         return $this->query()->select()->table("items")->where(array("uid" => $id))->run(true);
@@ -67,11 +77,20 @@ class miItem extends peModel
     public function view_displayItemPage($params)
     {
         $page = $this->getParam($params);
+        $type = $this->getParam($params, 1);
         
-        list($small, $big) = $this->getItemsPage($page);
+        $rawitems = array();
+        
+        if ($type === 0 || $type == "main") {
+            $rawitems = $this->getItemsPage($page);
+        } else if ($type == "user") {
+            $rawitems = $this->getUserItems($this->getParam($params, 2), $page); 
+        }
+        
+        list($small, $big) = $rawitems;
         $categories = $this->categories->getSubCategories();
         $likes = $this->getLikes();
-        if (empty($small) || empty($big)) { return; }
+        if (empty($small) && empty($big)) { return; }
         if (count($small) < 7) $row = 1; else $row = rand(1,2);
         $pos = rand(0,1);
         $items = array();

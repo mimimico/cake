@@ -19,10 +19,12 @@ class peUserController extends peController
         $items = new miItem();
         $items->categories = $categories;
         
+        $request = new peRequest("id:i");
+        if (!$request->id) $request->id = miUser::getLocal()->uid;
         $response = new peResponse("user");
         
         $response->page->title = "User" . peProject::getTitle();
-        $response->page->items = $items->bind("displayItemPage");
+        $response->page->items = $items->bind("displayItemPage", 0, "user", $request->id);
         $response->page->categories = $categories->bind("displayCategories");
         //$response->user = miUser::getLocal();
         $response->user->logined = miUser::logined();

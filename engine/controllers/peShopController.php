@@ -18,6 +18,7 @@ class peShopController extends peController
         $items = new miItem();
         $items->categories = $categories;
         
+        $request = new peRequest("id:i");
         $response = new peResponse("shop");
         
         $response->page->title = "Shop" . peProject::getTitle();
