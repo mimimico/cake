@@ -6,6 +6,7 @@ return array(
     "button_sell" => "Sell",
     "button_fblogin" => "Login using Facebook",
     "button_vklogin" => "Login using Vkontakte",
+    "button_loadmore" => "Load more items",
     
     "fields_email" => "E-mail",
     "fields_pass" => "Password",

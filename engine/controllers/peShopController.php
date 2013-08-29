@@ -18,13 +18,28 @@ class peShopController extends peController
         $items = new miItem();
         $items->categories = $categories;
         
-        $request = new peRequest("id:i");
-        $response = new peResponse("shop");
+        $request = new peRequest("id:i", "mode:i");
+        if (!$request->id || !miUser::getUser($request->id)->isMaster()) self::error(404);
+        if (!$request->mode) $request->mode = 1;
         
+        if ($request->mode === 1) {
+            $type = "shop";
+        } else {
+            $type = "user";
+        }
+        
+        $response = new peResponse("shop", false);
         $response->page->title = "Shop" . peProject::getTitle();
-        $response->page->items = $items->bind("displayItemPage");
+        $response->page->items = $items->bind("displayItemPage", 0, $type, $request->id);
         $response->page->categories = $categories->bind("displayCategories");
-        //$response->user = miUser::getLocal();
+        if ($request->mode === 1) {
+            $response->page->active->master = "active";
+            $response->page->mode = true;
+        }  else {
+            $response->page->active->user = "active";
+            $response->page->mode = false;
+        }
+        $response->user->uid = $request->id;
         $response->user->logined = miUser::logined();
         $response->user->links = miUser::getLinks();
         

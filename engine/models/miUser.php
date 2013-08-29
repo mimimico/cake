@@ -166,6 +166,23 @@ class miUser extends peModel
         }
     }
     
+    public function isMaster()
+    {
+        if ($this->type == 1) {
+            return true;
+        }
+        return false;
+    }
+    
+    public static function getUser($id)
+    {
+        $user = new self;
+        $result = $user->query()->select()->table("accounts")->where(array("uid" => $id))->run(true);
+        if (!$result) return false;
+        $user->insert($result);
+        return $user;
+    }
+    
     public function logout()
     {
         $this->removeLocal();

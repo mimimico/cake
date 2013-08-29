@@ -48,11 +48,22 @@ class miItem extends peModel
     
     public function getUserItems($userid, $page = 0)
     {
+        $comments = $this->query()->select("itemid")->table("comments")->where(array("userid=". $userid))->prepare();
+        $likes = $this->query()->select("itemid")->table("likes")->where(array("userid=$userid UNION ($comments)"))->prepare();
         $query = $this->query()->select()->table("items")->order("uid", true);
-        $condition = "uid IN (". $this->query()->select("itemid")->table("likes")->where(array("userid" => $userid))->prepare() .")";
+        $condition = "uid IN (" . $likes . ")";
         return array(
             $query->where(array($condition, "size" => 1))->limit($page * 10, 10)->run(),
             $query->where(array($condition, "size" => 2))->limit($page, 1)->run(true),
+        );
+    }
+    
+    public function getShopItems($userid, $page = 0) 
+    {
+        $query = $this->query()->select()->table("items")->order("uid", true);
+        return array(
+            $query->where(array("userid" => $userid, "size" => 1))->limit($page * 10, 10)->run(),
+            $query->where(array("userid" => $userid, "size" => 2))->limit($page, 1)->run(true),
         );
     }
     
@@ -78,13 +89,16 @@ class miItem extends peModel
     {
         $page = $this->getParam($params);
         $type = $this->getParam($params, 1);
+        $userid = $this->getParam($params, 2);
         
         $rawitems = array();
         
         if ($type === 0 || $type == "main") {
             $rawitems = $this->getItemsPage($page);
         } else if ($type == "user") {
-            $rawitems = $this->getUserItems($this->getParam($params, 2), $page); 
+            $rawitems = $this->getUserItems($userid, $page); 
+        } else if ($type == "shop") {
+            $rawitems = $this->getShopItems($userid, $page);
         }
         
         list($small, $big) = $rawitems;

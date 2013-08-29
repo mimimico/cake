@@ -69,17 +69,7 @@
             <div class="block block-3 promotion">
             </div>
         </div>
-        <div class="row">
-            <div id="loaded-content">
-            {% include(item_blocks) %}
-            </div>
-        </div>
-        <div class="row">
-            <a id="loader" class="block more">
-                <img src="images/more.png" />
-                <div class="text">Загрузить больше товаров</div>
-            </a>
-        </div>
+        {% include(item_container) %}
     </section>
 </div>
 {% endblock %}

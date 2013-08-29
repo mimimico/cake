@@ -20,14 +20,6 @@
             </ul>
         </div>
     </div>
-    <div id="loaded-content">
-        {% include(item_blocks) %}
-    </div>
-    <div class="row">
-        <a id="loader" class="block more">
-            <img src="images/more.png" />
-            <div class="text">Загрузить больше товаров</div>
-        </a>
-    </div>
+   {% include(item_container) %}
 </section>
 {% endblock %}
