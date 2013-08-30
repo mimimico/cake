@@ -24,7 +24,9 @@ class peMainController extends peController
         $response->page->title = "Main" . peProject::getTitle();
         $response->page->items = $items->bind("displayItemPage", 0, "main");
         $response->page->categories = $categories->bind("displayCategories");
-        
+        if (miUser::logined()) {
+            $response->user = miUser::getLocal();
+        }
         $response->user->logined = miUser::logined();
         $response->user->links = miUser::getLinks();
         return $response;

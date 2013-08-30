@@ -115,6 +115,7 @@ class miUser extends peModel
             
             if (!empty($result)) {
                 $this->insert($result);
+                $this->load();
                 $this->setLocal();
                 $this->transferLikes();
                 $this->redirect();
@@ -125,6 +126,7 @@ class miUser extends peModel
             $this->error(13);
         }
     }
+    
     
     public function socialLogin($type = 0)
     {
@@ -144,11 +146,15 @@ class miUser extends peModel
                 $data = (object)$handler->api("/me");
                 $this->email = $data->email;
                 $this->fbid = $data->id;
+                $this->avatar = "https://graph.facebook.com/".$data->id."/picture?width=100&height=100";
                 $registered = $query->select()->where(array("fbid" => $this->fbid))->run(true);
             } else {
-                $response = $handler->api("users.get");
+                $response = $handler->api("users.get", array(
+                    "fields" => "uid,first_name,last_name,photo,photo_medium"
+                ));
                 $data = (object)$response["response"][0];
                 $this->vkid = $data->uid;
+                $this->avatar = $data->photo_medium;
                 $registered = $query->select()->where(array("vkid" => $this->vkid))->run(true);
             }
             $this->firstname = $data->first_name;
@@ -161,9 +167,24 @@ class miUser extends peModel
             } else {
                 $this->insert($registered);
             }
+            $this->load();
             $this->transferLikes();
             $this->setLocal();
             $this->redirect();
+        }
+    }
+    
+    public function load()
+    {
+        if ($this->firstname || $this->lastname) {
+            $this->name = $this->firstname . " " . $this->lastname;
+        } else {
+            $this->name = $this->email;
+        }
+        if ($this->fbid || $this->vkid) {
+            $this->image = $this->avatar;
+        } else {
+            $this->image = $this->getAvatar(100);
         }
     }
     
@@ -181,13 +202,13 @@ class miUser extends peModel
         $result = $user->query()->select()->table("accounts")->where(array("uid" => $id))->run(true);
         if (!$result) return false;
         $user->insert($result);
+        $user->load();
         return $user;
     }
     
     public function logout()
     {
         $this->removeLocal();
-        $this->redirect();
     }
     
     public static function logined()
@@ -226,7 +247,7 @@ class miUser extends peModel
 
             $links->vkontakte = miVkontakte::get()->getLoginUrl(
                 peHttp::url(array("name" => "user", "action" => "vkontakte")),
-                array("scope" => array("notify", "offline"))
+                array("scope" => array("notify", "offline", "photo"))
             );
         }
         return $links;

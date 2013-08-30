@@ -34,6 +34,8 @@ class peImage
     {
         if (!$name) {
             $name = $this->image->name;
+        } else {
+            $name .= "." . $this->getExtension();
         }
         if ($this->checkType() && $this->checkExtension()) {
             if ($this->image->size <= $this->required_size) {
@@ -61,9 +63,14 @@ class peImage
         return in_array($this->image->type, self::$types);
     }
     
-    protected function checkExtension()
+    protected function getExtension()
     {
         $ext = explode(".", $this->image->name);
-        return in_array(end($ext), self::$extensions);
+        return end($ext);
+    }
+    
+    protected function checkExtension() 
+    {
+        return in_array($this->getExtension(), self::$extensions);
     }
 }

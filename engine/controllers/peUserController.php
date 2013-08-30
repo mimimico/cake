@@ -67,6 +67,7 @@ class peUserController extends peController
     public static function logoutAction()
     {
         if (miUser::logined()) miUser::getLocal()->logout();
+        self::redirect();
     }
     
     public static function facebookAction()

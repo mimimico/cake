@@ -14,9 +14,15 @@ class miComment extends peModel
         if ($data->comment && $data->id) {
             if (!miUser::logined()) $this->error(23);
             $user = miUser::getLocal();
+            
             $this->query()->insert()->table("comments")->values(array(
                 "userid" => $user->uid, "itemid" => $data->id, "text" => $data->comment  
             ))->run();
+            
+            $this->redirect($this->url(array(
+                "name" => "item", "action" => "index", "id" => $data->id
+            )));
+            
         } else {
             $this->error(13);
         }

@@ -9,6 +9,31 @@
 
 class miItem extends peModel 
 {
+    public function create($data)
+    {
+        if ($data->title && $data->category && $data->description && $data->price) {
+            if (!miUser::logined()) $this->error(23);
+            if (!miUser::getLocal()->isMaster()) $this->error(36); // only masters
+            
+            $image = new peImage("upload", 1000 * 1000); // 300 kb
+            
+            if ($image->save(md5(time()))) {
+                $this->image = $image->getUrl();
+            } else {
+                $this->error(35); // wrong image
+            }
+            $this->insert($data);
+            $this->userid = miUser::getLocal()->uid;
+                    
+            $this->query()->insert()->table("items")->values($this)->run();
+            
+            $this->redirect();
+            
+        } else {
+            $this->error(13);
+        }
+    }
+    
     public function like()
     {
         if (!miUser::logined()) {

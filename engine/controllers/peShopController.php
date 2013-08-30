@@ -54,4 +54,13 @@ class peShopController extends peController
         $response->page->categories = $categories->bind("displayCategories");
         return $response;
     }
+    
+    public static function handleAddAction()
+    {
+        peLoader::import("models.miItem");
+        $item = new miItem();
+        $item->create(new peRequest(
+            "title", "description", "price", "category"
+        ));
+    }
 }

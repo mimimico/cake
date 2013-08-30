@@ -19,7 +19,7 @@ class peErrorController
         if (isset($errors[$param->code])) {
             print($errors[$param->code]);
         } else {
-            print("Unknown error");
+            print("Unknown error #" . $param->code);
         }
         die();
     }
