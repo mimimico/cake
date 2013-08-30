@@ -52,19 +52,19 @@ class miUser extends peModel
     
     public function create()
     {
-        if (self::logined()) $this->error(21); //already logined
+        if (self::logined()) $this->error(21);
             
         if (isset($this->email) && isset($this->password) && isset($this->repassword)) {
             
-            if (!$this->validEmail()) $this->error(14); //non-valid email
+            if (!$this->validEmail()) $this->error(14);
             
-            if ($this->password != $this->repassword) $this->error(15); //passwords are different
+            if ($this->password != $this->repassword) $this->error(15);
             unset($this->repassword);
             
             $query = $this->query()->table("accounts");
             
             $registered = $query->select()->where(array("email" => $this->email))->run(true);
-            if (!empty($registered)) $this->error(16); //acc exists
+            if (!empty($registered)) $this->error(16);
             
             $this->password = $this->hash($this->password);
             $this->registered = date("Y-m-d H:i:s");
@@ -79,13 +79,13 @@ class miUser extends peModel
             self::redirect();   //notification about mail
             
         } else {
-            $this->error(13); //empty fields
+            $this->error(13);
         }
     }
     
     public function activate($input)
     {
-        if (self::logined()) $this->error(21);//
+        if (self::logined()) $this->error(21);
         
         $query = $this->query()->table("accounts");
         
@@ -94,7 +94,7 @@ class miUser extends peModel
                 "email" => $input->email, "activated" => 0
             ))->run(true);
             
-            if (empty($result) || $input->email != $result->email) $this->error(22); // activated or not exists
+            if (empty($result) || $input->email != $result->email) $this->error(22); 
             
             if ($this->hash($result->email, $result->password) == $input->hash) {
                 $query->update()->set(array("activated" => 1))->where(array("email" => $input->email))->run();
@@ -104,9 +104,10 @@ class miUser extends peModel
     
     public function login($input)
     {
-        if (self::logined()) $this->error(21); //already logined
+        if (self::logined()) $this->error(21);
         
         if ($input->email && $input->password) {
+            if (!$this->validEmail($input->email)) $this->error(14);
             $query = $this->query()->table("accounts");
             $result = $query->select()->where(array(
                 "email" => $input->email, "password" => $this->hash($input->password), "activated" => 1
@@ -118,10 +119,10 @@ class miUser extends peModel
                 $this->transferLikes();
                 $this->redirect();
             } else {
-                $this->error(20); // logging in error
+                $this->error(20); 
             }
         } else {
-            $this->error(13); //
+            $this->error(13);
         }
     }
     
@@ -245,9 +246,10 @@ class miUser extends peModel
         return true;
     }
     
-    public function validEmail()
+    public function validEmail($email = null)
     {
-        return preg_match('|([a-z0-9_\.\-]{1,40})@([a-z0-9\.\-]{1,30})\.([a-z]{2,6})|is', $this->email); 
+        $email = (empty($email)) ? $this->email : $email;
+        return preg_match('|([a-z0-9_\.\-]{1,40})@([a-z0-9\.\-]{1,30})\.([a-z]{2,6})|is', $email); 
     }
     
     public function hash($string)

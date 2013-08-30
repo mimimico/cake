@@ -44,7 +44,12 @@ class peMainController extends peController
         
         $input = new peRequest("page:i", "cname", "id:i");
         if (!$input->cname) $input->cname = "main";
-        if (!$input->id) $input->id = miUser::getLocal()->uid;
+        if (!$input->id) {
+            if (miUser::logined())
+                $input->id = miUser::getLocal()->uid;
+            else 
+                $input->id = 0;
+        }
         
         $response = new peResponse("item_blocks", false);
         

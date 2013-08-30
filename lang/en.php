@@ -4,6 +4,7 @@ return array(
     "button_register" => "Register",
     "button_buy" => "Buy",
     "button_sell" => "Sell",
+    "button_login" => "Login",
     "button_fblogin" => "Login using Facebook",
     "button_vklogin" => "Login using Vkontakte",
     "button_loadmore" => "Load more items",

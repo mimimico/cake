@@ -36,11 +36,7 @@ class peItemController extends peController
     
     public static function addAction()
     {
-        peLoader::import("models.miCategory");
-        $response = new peResponse("add-item");
-        $categories = new miCategory();
-        $response->page->categories = $categories->bind("displayCategories");
-        return $response;
+        self::redirect(self::url(array("name" => "shop", "action" => "add")));
     }
     
     public static function likeAction()
@@ -48,5 +44,13 @@ class peItemController extends peController
         $item = miItem::get(new peRequest("id:i"));
         $item->like();
         self::redirect();
+    }
+    
+    public static function addCommentAction()
+    {
+        peLoader::import("models.miComment");
+        $request = new peRequest("comment:t", "id:i");
+        $comment = new miComment();
+        $comment->create($request);
     }
 }

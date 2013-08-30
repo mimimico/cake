@@ -74,7 +74,8 @@
                     </li>
                     {% endfor %}
                     <li class="comment add">
-                        <form>
+                        <form action="{% url(item::addcomment) %}" method="POST">
+                            <input type="hidden" name="id" value="{% page.item.uid %}"/>
                             <textarea name="comment" placeholder="Оставить отзыв"></textarea>
                             <input type="submit" value="Отправить" />
                         </form>
