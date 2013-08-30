@@ -370,6 +370,12 @@ section#shop .shop-inner a.like {
 }
 
 /* SECTION # CONTENT */
+.user-fields input[type="text"], 
+.user-fields input[type="password"] {
+	padding: 0px 0px 0px 40px;
+	max-width: 160px !important;
+}
+
 section#content .user-fields {
 	display: block; 
 	overflow: hidden; 
@@ -460,7 +466,7 @@ section#content .user-fields .block-min a.back {
 	margin-left: 18px;
 }
 
-/* ADD-ITEM */
+/* ADD-EDIT */
 section.add-edit .section {
 	width: 500px;
 	margin-left: 25px;
@@ -545,17 +551,24 @@ section.add-edit .picture input[type="file"].file {
 	opacity: 0;
 	cursor: pointer;
 }
-
-section#add-item input[type="text"].item-currency {
-	width: 120px;
-}
-
 section.add-edit .submit {
 	display: block;
 	width: 100%;
 	float: right;
 	padding-right: 25px;
 	padding-bottom: 15px;
+}
+
+/* ADD-ITEM */
+section.add-edit .input {
+	width: 600px;
+}
+section#add-item input[type="text"],
+section#add-item input[type="password"] {
+	width: 560px;
+}
+section#add-item .section {
+	width: 750px;
 }
 
 section#add-item .submit input[type="submit"].add {
@@ -565,6 +578,12 @@ section#add-item .submit input[type="submit"].add {
 	padding: 8px 20px;
 	border-radius: 6px;
 }
+
+
+section#add-item input[type="text"].item-currency {
+	width: 120px;
+}
+
 
 section#add-item .submit input[type="submit"].add:hover {
 	background-color: #527526 !important;
@@ -579,7 +598,7 @@ section#add-item select.currency {
 }
 
 section#add-item select.categories {
-	width: 485px;
+	width: 710px;
 	height: 30px;
 	margin-bottom: 20px;
 }
@@ -589,10 +608,10 @@ section#add-item .submit input[type="submit"] {
 }
 
 section#add-item textarea {
-	width: 460px;
-	min-height: 300px;
-	min-width: 460px;
-	max-width: 460px;
+	width: 710px;
+	min-height: 200px;
+	min-width: 710px;
+	max-width: 710px;
 }
 
 section#add-item .picture h4.title {
