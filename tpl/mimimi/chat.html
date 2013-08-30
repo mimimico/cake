@@ -1,0 +1,111 @@
+{% extends(base) %}
+{% block(content) %}
+<section id="chat">
+    <div class="row">
+        <div class="user-info">
+            <div class="block block-min profile">
+                <img src="images/temp/avatar100.jpg" />
+                <div class="status"><span class="label label-blue">Мастер</span></div>
+                <h3 class="title">Андрей Велес</h3>
+                <ul class="categories-column">
+                    <li><a href="#">Избранное</a></li>
+                    <li><a href="#">Отзывы</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+                <div class="rating">
+                    <div id="half"></div>
+                </div>
+            </div>
+            <div class="block block-min sharing">
+                <img src="images/likes.png" />
+            </div>
+        </div>
+        <div class="block block-3 chat">
+            <div class="block block-1 block-no-style users">
+                <ul class="user-list">
+                    <li class="active">
+                        <a href="#">
+                            <img src="images/temp/avatar50.jpg" />
+                            <div class="sender">
+                                <h4>mrVeles</h4>
+                                <p>Lorem ipsum dolor sit amet...</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/temp/image1-min.jpg" />
+                            <div class="sender">
+                                <h4>mrVeles</h4>
+                                <p>We got some questions concerning connections...</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/temp/image2-min.jpg" />
+                            <div class="sender">
+                                <h4>mrVeles</h4>
+                                <p>The team of drupal.org wrote a great step by step...</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/temp/image3-min.jpg" />
+                            <div class="sender">
+                                <h4>mrVeles</h4>
+                                <p>If you want to send emails with MAMP PRO...</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/temp/image4-min.jpg" />
+                            <div class="sender">
+                                <h4>mrVeles</h4>
+                                <p>We got some questions concerning the setup of FTP...</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="block block-1 block-no-style messages">
+                <ul class="message-list">
+                    <li class="request message">
+                        Вы покупаете?
+                        <span>23.04.12</span>
+                    </li>
+                    <li class="reply message">
+                        Да
+                        <span>23.04.12</span>
+                    </li>
+                    <li class="reply message">
+                        Это невероятно крутой товар!
+                        <span>23.04.12</span>
+                    </li>
+                    <li class="request message">
+                        Не хотите в комплект к этому товару еще горсть кокаина? Неплохо же, верно?
+                        <span>23.04.12</span>
+                    </li>
+                    <li class="request message">
+                        Всего долларов десять доплатите и будет все няняня ^_^
+                        <span>23.04.12</span>
+                    </li>
+                    <li class="reply message">
+                        Но кокаин же сейчас не в моде. Сейчас все балдеют от старого доброго герыча!
+                        <span>23.04.12</span>
+                    </li>
+                    <li class="request message">
+                        Мистер Тарантино, вы не могли бы публично обсуждать такие темы?
+                        <span>23.04.12</span>
+                    </li>
+                </ul>
+                <form method="post" class="post-message">
+                    <input type="text" class="squared" placeholder="Ответ..." />
+                    <input type="button" value="Ответить">
+                </form>
+            </div>
+        </div>
+</section>
+{% endblock %}

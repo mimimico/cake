@@ -946,6 +946,118 @@ section#item .all-info .description a:visited {
 
 section#item .reviews .sell-bottom {float: right;}
 section#item .reviews .add input[type="submit"] {margin-top: 25px;}
+
+/* CHAT */
+section#chat .chat {
+}
+section#chat .chat .block {
+	margin-bottom: 0px;
+}
+section#chat .user-info {
+	max-height: 425px;
+}
+
+section#chat .chat .users {
+	width: 250px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px;
+}
+section#chat .chat .users li {
+	display: block;
+	float: left;
+	width: 100%;
+	background: #fcfcfc;
+	border-bottom: 1px solid #e1e1e1;
+	padding: 10px 0px 10px 0px;
+}
+
+section#chat .chat .users li.active {
+	box-shadow: none;
+	background: #fff;
+}
+section#chat .chat .users li:hover {
+	background: #fff;
+}
+section#chat .chat .users li img {
+	width: 50px;
+	height: 50px;
+	border-radius: 4px;
+	display: block;
+	margin-left: 10px;
+	float: left;
+}
+
+section#chat .chat .users li .sender {
+	margin-left: 70px;
+}
+
+section#chat .chat .users li a p {
+	color: #444 !important;
+}
+
+section#chat .chat .messages {
+	width: 490px;
+	border-left: 1px solid #e1e1e1;
+}
+
+section#chat .chat .messages ul {
+	list-style-type: none;
+	padding-bottom: 30px;
+	height: 400px;
+	overflow: scroll;
+	border-bottom: 1px solid #e1e1e1;
+}
+
+section#chat .chat .messages .message {
+	border-radius: 20px;
+	width: 50%;
+	padding: 10px;
+	margin: 10px 10px 10px 10px;
+	position: relative;
+}
+section#chat .chat .messages .message span {
+	position: absolute;
+	bottom: -15px;
+	color: #e1e1e1;
+	font-size: 10px;
+}
+section#chat .chat .messages .request {
+	background: #e1e1e1;
+	float: left;
+}
+
+section#chat .chat .messages .request span {
+	left: 10px;
+} 
+
+section#chat .chat .messages .reply {
+	background: #9c4343;
+	color: #fff;
+	text-align: right; 
+	float: right;
+}
+
+section#chat .chat .messages .reply span {
+	right: 10px;
+} 
+
+section#chat .chat .post-message {
+	padding: 10px 0px;
+	overflow: hidden;
+	margin: 0px 80px;
+}
+
+section#chat .chat .post-message input[type="text"] {
+	float: left;
+	width: 200px;
+	padding: 0px 10px 0px 10px;
+}
+
+section#chat .chat .post-message input[type="button"] {
+	float: right;
+	height: 34px;
+}
+
 /* MORE */
 a.more {
 	width: 307px;

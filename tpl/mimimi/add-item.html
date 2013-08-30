@@ -7,13 +7,13 @@
 
 {% block(content) %}
 <section class="add-edit" id="add-item">
+    {% if (page.item) %}
     <div class="row">
         <div class="block block-max content">
-            <form action="{% url(shop::handleadd) %}" method="POST" enctype="multipart/form-data">
             <h3 class="title">Добавление товара</h3>
             <div class="section">
                 <div class="line">
-                    <select name="category" class="categories">
+                    <select class="categories">
                         <optgroup label="Accesories">
                             <option value="0">Accesories</option>
                             <option value="1">Sunglasses</option>
@@ -35,19 +35,19 @@
                         Название
                     </div>
                     <div class="column input">
-                        <input type="text" name="title" class="item-title">
+                        <input type="text" class="item-title">
                     </div>
                 </div>
-                <!--div class="line">
+                <div class="line">
                     <div class="column caption">
                         Короткое описание
                     </div>
                     <div class="column input">
                         <input type="text" class="item-short">
                     </div>
-                </div-->
+                </div>
                 <div class="line">
-                    <textarea name="description" placeholder="Описание товара"></textarea>
+                    <textarea placeholder="Описание товара"></textarea>
                 </div>
                 <div class="line money">
                     <div class="column caption">
@@ -70,10 +70,10 @@
                             <option value="4">Belorussian roubles</option>
                         </optgroup>
                     </select>
-                        <input type="text" name="price" class="item-currency squared">
+                        <input type="text" class="item-currency squared">
                     </div>
                 </div>
-                <!--h3 class="title">Дополнительная информация</h3>
+                <h3 class="title">Дополнительная информация</h3>
                 <div class="line">
                     <div class="column caption">
                         Предназначение
@@ -105,28 +105,28 @@
                     <div class="column input">
                         <input type="text" class="item-tags">
                     </div>
-                </div-->
+                </div>
             </div>
             <div class="picture column">
                 <h3 class="title">Главное фото</h3>
                     <div class="upload">
                         <input type="file" name="upload" class="file" />
                     </div>
-                <!--h4 class="title">Дополнительные фото</h4>
+                <h4 class="title">Дополнительные фото</h4>
                 <div class="upload additional">
                     <input type="file" name="upload" class="file" />
                 </div>
                 <div class="upload additional">
                     <input type="file" name="upload" class="file" />
                 </div>
-                <input type="button" value="Добавить еще" /-->
+                <input type="button" value="Добавить еще" />
             </div>
             <div class="line submit">
-                <!--input type="submit" value="Превью" class="preview" /-->
+                <input type="submit" value="Превью" class="preview" />
                 <input type="submit" value="Добавить товар в магазин" class="add" />
             </div>
-            </form>
         </div>
     </div>
+    {% endif %}
 </section>
 {% endblock %}
