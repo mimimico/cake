@@ -26,7 +26,9 @@ class peUserController extends peController
         $response->page->title = "User" . peProject::getTitle();
         $response->page->items = $items->bind("displayItemPage", 0, "user", $request->id);
         $response->page->categories = $categories->bind("displayCategories");
-        //$response->user = miUser::getLocal();
+        if (miUser::logined()) {
+            $response->user = miUser::getLocal();
+        }
         $response->user->logined = miUser::logined();
         $response->user->links = miUser::getLinks();
         

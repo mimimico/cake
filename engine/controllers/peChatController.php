@@ -6,20 +6,28 @@
  *  @Project: Proto Engine 3
  */
 
-class peShopController extends peController
+class peChatController extends peController
 {
     public static function indexAction()
     {
         /* Imports */
         peLoader::import("models.miCategory");
+        peLoader::import("models.miChat");
         
         /* Generating response */
         $categories = new miCategory();
+        $chat = new miChat();
         
-        $response = new peResponse("chat");
+        $request = new peRequest("id:i");
+        if (!miUser::logined()) self::error(23);
+        
+        $response = new peResponse("chat", false);
         
         $response->page->title = "chat" . peProject::getTitle();
+        
         $response->page->categories = $categories->bind("displayCategories");
+        $response->chat->users = $chat->bind("displayChatUsers");
+        $response->chat->messages = $chat->bind("displayChatMessages", $request->id);
         
         if (miUser::logined()) $response->user = miUser::getLocal();
         $response->user->logined = miUser::logined();

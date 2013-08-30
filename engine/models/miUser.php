@@ -9,7 +9,7 @@
 
 class miUser extends peModel
 {           
-    const DEFAULT_AVATAR = "http://example.com/image.png";
+    const DEFAULT_AVATAR = "https://i2.sndcdn.com/avatars-000045339377-uj67gq-t500x500.jpg?0769104";
     
     public function like($item, $date = null)
     {
@@ -186,6 +186,7 @@ class miUser extends peModel
         } else {
             $this->image = $this->getAvatar(100);
         }
+        $this->master = $this->isMaster();
     }
     
     public function isMaster()

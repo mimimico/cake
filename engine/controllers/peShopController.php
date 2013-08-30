@@ -19,7 +19,10 @@ class peShopController extends peController
         $items->categories = $categories;
         
         $request = new peRequest("id:i", "mode:i");
-        if (!$request->id || !miUser::getUser($request->id)->isMaster()) self::error(404);
+        if (!$request->id) self::error(404);
+        $user = miUser::getUser($request->id);
+        if (!$user->isMaster()) self::error(404);
+        
         if (!$request->mode) $request->mode = 1;
         
         if ($request->mode === 1) {
@@ -39,9 +42,7 @@ class peShopController extends peController
             $response->page->active->user = "active";
             $response->page->mode = false;
         }
-        $response->user->uid = $request->id;
-        $response->user->logined = miUser::logined();
-        $response->user->links = miUser::getLinks();
+        $response->shop = $user;
         
         return $response;
     }

@@ -23,86 +23,29 @@
         <div class="block block-3 chat">
             <div class="block block-1 block-no-style users">
                 <ul class="user-list">
-                    <li class="active">
-                        <a href="#">
-                            <img src="images/temp/avatar50.jpg" />
+                    {% foreach(chat.users::messager) %}
+                    <li {% messager.active %}>
+                        <a href="{% url(chat::index) %}&id={% messager.uid %}">
+                            <img src="{% messager.image %}" />
                             <div class="sender">
-                                <h4>mrVeles</h4>
-                                <p>Lorem ipsum dolor sit amet...</p>
+                                <h4>{% messager.name %}</h4>
                             </div>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <img src="images/temp/image1-min.jpg" />
-                            <div class="sender">
-                                <h4>mrVeles</h4>
-                                <p>We got some questions concerning connections...</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="images/temp/image2-min.jpg" />
-                            <div class="sender">
-                                <h4>mrVeles</h4>
-                                <p>The team of drupal.org wrote a great step by step...</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="images/temp/image3-min.jpg" />
-                            <div class="sender">
-                                <h4>mrVeles</h4>
-                                <p>If you want to send emails with MAMP PRO...</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="images/temp/image4-min.jpg" />
-                            <div class="sender">
-                                <h4>mrVeles</h4>
-                                <p>We got some questions concerning the setup of FTP...</p>
-                            </div>
-                        </a>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="block block-1 block-no-style messages">
                 <ul class="message-list">
-                    <li class="request message">
-                        Вы покупаете?
-                        <span>23.04.12</span>
+                    {% foreach(chat.messages::message) %}
+                    <li class="{% message.type %} message">
+                        {% message.text %}
+                        <span>{% message.date %}</span>
                     </li>
-                    <li class="reply message">
-                        Да
-                        <span>23.04.12</span>
-                    </li>
-                    <li class="reply message">
-                        Это невероятно крутой товар!
-                        <span>23.04.12</span>
-                    </li>
-                    <li class="request message">
-                        Не хотите в комплект к этому товару еще горсть кокаина? Неплохо же, верно?
-                        <span>23.04.12</span>
-                    </li>
-                    <li class="request message">
-                        Всего долларов десять доплатите и будет все няняня ^_^
-                        <span>23.04.12</span>
-                    </li>
-                    <li class="reply message">
-                        Но кокаин же сейчас не в моде. Сейчас все балдеют от старого доброго герыча!
-                        <span>23.04.12</span>
-                    </li>
-                    <li class="request message">
-                        Мистер Тарантино, вы не могли бы публично обсуждать такие темы?
-                        <span>23.04.12</span>
-                    </li>
+                    {% endfor %}
                 </ul>
-                <form method="post" class="post-message">
-                    <input type="text" class="squared" placeholder="Ответ..." />
+                <form method="post" action="{% url(chat::send) %}&id={% chat.user %}" class="post-message">
+                    <input type="text" class="squared" name="message" placeholder="Ответ..." />
                     <input type="button" value="Ответить">
                 </form>
             </div>

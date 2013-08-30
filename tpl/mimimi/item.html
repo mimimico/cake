@@ -25,41 +25,7 @@
                     </div>
                 </div>
                 <div class="description">
-                    <p>
-                        Under the Ocean, an 8x10 fine art photograph of a sea turtle at play in the waters off St. John in the US Virgin Islands. 
-                    </p>
-                    <p>
-                        Title: Under the Ocean
-                    </p>
-                    <p>
-                        Print Information: This photograph will be printed on premium, professional, archival paper which is guaranteed to last 100 years in normal household viewing conditions. It will be signed on the back by me. Frame and mat shown are for illustrative purposes only and are not included in the purchase price. 
-                    </p>
-                    <p>
-                        Please see my shop policies before making a purchase for details about shipping and returns: http://www.etsy.com/shop_policy.php?user_id=7998386
-                    </p>
-                    <p>
-                        All of my photography is available in other sizes and finishes or can be converted to black and white or sepia. Custom orders are welcome. Please send me a message if you would like more details!
-                    </p>
-                    <p>
-                        Return to my shop: <a href="www.etsy.com/shop/briole">www.etsy.com/shop/briole</a>
-                    </p>
-                    <p>
-                        <strong>******PLEASE NOTE - this print is only available up to 16" x 20" ******</strong><br />
-                        Looking for a different size? Check here: <a href="http://www.etsy.com/shop/Briole?section_id=8069363">http://www.etsy.com/shop/Briole?section_id=6715152</a>
-                    </p>
-                    <p>
-                        Save on select sizes when you buy three or more prints. Click here for options: <a href="http://www.etsy.com/shop/Briole?section_id=8069363">http://www.etsy.com/shop/Briole?section_id=8069363</a>
-                    </p>
-                    <p>
-                        Please note that the resolution has been reduced for web viewing purposes. Your purchased print will be a high resolution copy. 
-                    </p>
-                    <p>
-                        Thanks for looking! <br />
-                        Heather
-                    </p>
-                    <p>
-                        Purchasing an image does not transfer the rights for reproduction, they are copyright protected and may not be reproduced without my permission. © Briole Photography
-                    </p>
+                   {% page.item.description %}
                 </div>
             </div>
             <div class="block block-3 block-no-style reviews">
@@ -74,7 +40,8 @@
                     </li>
                     {% endfor %}
                     <li class="comment add">
-                        <form>
+                        <form action="{% url(item::addcomment) %}" method="POST">
+                            <input type="hidden" name="id" value="{% page.item.uid %}"/>
                             <textarea name="comment" placeholder="Оставить отзыв"></textarea>
                             <input type="submit" value="Отправить" />
                         </form>
