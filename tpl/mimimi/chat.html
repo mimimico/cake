@@ -44,9 +44,9 @@
                     </li>
                     {% endfor %}
                 </ul>
-                <form method="post" action="{% url(chat::send) %}&id={% chat.user %}" class="post-message">
+                <form method="post" action="{% url(chat::send) %}&id={% chat.partner %}" class="post-message">
                     <input type="text" class="squared" name="message" placeholder="Ответ..." />
-                    <input type="button" value="Ответить">
+                    <input type="submit" value="Ответить">
                 </form>
             </div>
         </div>

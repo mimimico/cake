@@ -28,10 +28,18 @@ class peChatController extends peController
         $response->page->categories = $categories->bind("displayCategories");
         $response->chat->users = $chat->bind("displayChatUsers");
         $response->chat->messages = $chat->bind("displayChatMessages", $request->id);
+        $response->chat->partner = $chat->getPartner($request->id);
         
         if (miUser::logined()) $response->user = miUser::getLocal();
         $response->user->logined = miUser::logined();
         
         return $response;
+    }
+    
+    public static function sendAction()
+    {
+        peLoader::import("models.miChat");
+        $chat = new miChat();
+        $chat->send(new peRequest("id:i", "message:t"));
     }
 }

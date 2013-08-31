@@ -9,9 +9,27 @@
 
 class miChat extends peModel 
 {
-    public function send($data, $user)
+    public function send($data)
     {
-        
+        if ($data->id && $data->message) {
+            $user = miUser::getLocal();
+            $this->query()->insert()->table("messages")->values(array(
+                "userid" => $data->id, "senderid" => $user->uid, "text" => $data->message
+            ))->run();
+            
+            $this->redirect($this->url(array(
+                "name" => "chat", "action" => "index", "id" => $data->id
+            )));
+        } else {
+            $this->error(13);
+        }
+    }
+    
+    public function getPartner($senderid = 0)
+    {
+        $userid = miUser::getLocal()->uid;
+        if (!$senderid) $senderid = $this->getLastSender($userid);
+        return $senderid;
     }
     
     public function getLastSender($userid)
@@ -25,15 +43,15 @@ class miChat extends peModel
     
     public function view_displayChatMessages($params)
     {
-        $senderid = $this->getParam($params);
         $userid = miUser::getLocal()->uid;
-        if (!$senderid) $senderid = $this->getLastSender($userid);
+        $senderid = $this->getParam($params);
+        $senderid = $this->getPartner($senderid);
         if ($senderid && $userid) {
             $messages = $this->query()->select()->table("messages")->where(array(
                 "(userid=$userid AND senderid=$senderid) OR (userid=$senderid AND senderid=$userid)"
-            ))->order("uid", true)->run();
+            ))->run();
             foreach($messages as $message) {
-                if ($message->senderid == $userid) {
+                if ($message->senderid != $userid) {
                     $message->type = "request";
                 }  else {
                     $message->type = "reply";
@@ -48,7 +66,7 @@ class miChat extends peModel
         $user = miUser::getLocal();
         $uids = $this->query()->select("DISTINCT senderid")->table("messages")->where(array("userid" => $user->uid))->prepare();
         $order = $this->query()->select("GROUP_CONCAT(DISTINCT senderid ORDER BY uid SEPARATOR ',')")->table("messages")->where(array("userid" => $user->uid))->prepare();
-        $result = $this->query()->select()->table("accounts")->where(array("uid IN ($uids)"))->order("FIND_IN_SET (uid,($order))")->run();
+        $result = $this->query()->select()->table("accounts")->where(array("uid IN ($uids)"))->order("FIND_IN_SET (uid,($order))", true)->run();
         $users = array();
         foreach($result as $id => $messanger) {
             $users[$id] = new miUser();

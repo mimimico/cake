@@ -29,7 +29,7 @@ class peItemController extends peController
         $response->page->title = "Главная" . peProject::getTitle();
         $response->page->categories = $categories->bind("displayCategories");
         $response->page->item = $items->getItem($request->id);
-        $response->page->item->comments = $comments->bind("displayComments", $request->id);
+        $response->item->comments = $comments->bind("displayComments", $request->id);
         
         return $response;
     }
@@ -52,5 +52,12 @@ class peItemController extends peController
         $request = new peRequest("comment:t", "id:i");
         $comment = new miComment();
         $comment->create($request);
+    }
+    
+    public static function buyAction()
+    {
+        $request = new peRequest("id:i");
+        $item = new miItem();
+        $item->buy($request);
     }
 }

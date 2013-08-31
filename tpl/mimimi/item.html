@@ -18,11 +18,11 @@
                     <div class="original">
                         <img src="{% page.item.image %}" />
                     </div>
-                    <div class="minimized">
+                    <!--div class="minimized">
                         <div class="crop"><img src="images/temp/minimized1.jpg" /></div>
                         <div class="crop"><img src="images/temp/minimized2.jpg" /></div>
                         <div class="crop"><img src="images/temp/minimized3.jpg" /></div>
-                    </div>
+                    </div-->
                 </div>
                 <div class="description">
                    {% page.item.description %}
@@ -30,11 +30,11 @@
             </div>
             <div class="block block-3 block-no-style reviews">
                 <ul class="comments">
-                    {% foreach(page.item.comments::comment) %}
+                    {% foreach(item.comments::comment) %}
                     <li class="comment">
-                        <div class="avatar"><img src="images/temp/avatar50.jpg" /></div>
+                        <div class="avatar"><img src="{% comment.image %}" /></div>
                         <div class="block">
-                            <div class="name"><strong><a href="#">Andrew Veles</a></strong><span class="counter">{% comment.date %}</span></div>
+                            <div class="name"><strong><a href="#">{% comment.name %}</a></strong><span class="counter">{% comment.date %}</span></div>
                             <div class="text">{% comment.text %}</div>
                         </div>
                     </li>
@@ -49,11 +49,11 @@
                 </ul>
                 <div class="block block-min block-no-style sell-bottom">
                     <div class="block block-min sell">
-                        <a href="#" class="button buy">Купить</a>
-                        <a href="#" class="button like"></a>
+                        <a href="{% url(item::buy)%}&id={% page.item.uid %}" class="button buy">Купить</a>
+                        <a href="{% url(item::like) %}&id={% page.item.uid %}" class="button like"></a>
                         <div class="price">
-                            <div class="currency">162.35 ₴</div>
-                            <div class="usd">20.00 $</div>
+                            <div class="currency">{% page.item.price.uah %}  ₴</div>
+                            <div class="usd">{% page.item.price.usd %} $</div>
                         </div>
                     </div>
                 </div>

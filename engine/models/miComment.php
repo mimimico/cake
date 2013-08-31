@@ -30,12 +30,22 @@ class miComment extends peModel
     
     public function getComments($condition)
     {
-        return $this->query()->select()->table("comments")->where($condition)->order("uid", true)->run();
+        return $this->query()->select()->table(
+            "comments JOIN accounts ON accounts.uid=comments.userid"
+        )->where($condition)->order("comments.uid", true)->run();
     }
     
     public function view_displayComments($params)
     {
         $itemid = $this->getParam($params);
-        return $this->getComments(array("itemid" => $itemid));
+        $result = $this->getComments(array("itemid" => $itemid));
+        $users = array();
+        foreach($result as $comment) {
+            $user = new miUser();
+            $user->insert($comment);
+            $user->load();
+            $users[] = $user;
+        }
+        return $users;
     }
 }

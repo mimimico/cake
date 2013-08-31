@@ -62,6 +62,22 @@ class miItem extends peModel
         }
     }
     
+    public function buy($data)
+    {
+        if ($data->id) {
+            peLoader::import("models.miChat");
+            $result = $this->getItem($data->id);
+            if (!empty($result)) {
+                $this->insert($result);
+                $msg = new stdClass();
+                $msg->message = "Добрый день, я бы хотел заказать ваш товар под именем " . $this->title;
+                $msg->id = $this->userid;
+                $chat = new miChat();
+                $chat->send($msg);
+            }
+        }
+    }
+    
     public function getItemsPage($page = 0)
     {
         $query = $this->query()->select()->table("items")->order("uid", true);
@@ -94,7 +110,12 @@ class miItem extends peModel
     
     public function getItem($id = 0) 
     {
-        return $this->query()->select()->table("items")->where(array("uid" => $id))->run(true);
+        $item = $this->query()->select()->table("items")->where(array("uid" => $id))->run(true);
+        $price = new stdClass();
+        $price->usd = $item->price;
+        $price->uah = $price->usd * 8;
+        $item->price = $price;
+        return $item;
     }
     
     public static function get($input)
@@ -107,7 +128,12 @@ class miItem extends peModel
     public function view_displayItem($params) 
     {
         $id = $this->getParam($params);
-        return $this->getItem($id);
+        $item = $this->getItem($id);
+        $price = new stdClass();
+        $price->usd = $item->price;
+        $price->uah = $price->usd * 8;
+        $item->price = $price;
+        return $item;
     }
     
     public function view_displayItemPage($params)
@@ -146,10 +172,10 @@ class miItem extends peModel
                     $price = new stdClass();
                     $price->usd = $items[$i][$j]->price;
                     $price->uah = $price->usd * 8;
+                    $items[$i][$j]->price = $price;
                     if (isset($likes[$items[$i][$j]->uid])) {
                         $items[$i][$j]->liked = "liked";
                     }
-                    $items[$i][$j]->price = $price;
                     $cname = $categories[$items[$i][$j]->category]->name;
                     $items[$i][$j]->category = $cname;
                     if (strlen($items[$i][$j]->title) > 31 && $items[$i][$j]->size == 1) {

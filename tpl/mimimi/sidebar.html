@@ -1,10 +1,10 @@
 <div class="block block-min block-no-style" id="sidebar">
     <div class="block block-min sell">
-        <a href="#" class="button buy">Купить</a>
-        <a href="#" class="button like"></a>
+        <a href="{% url(item::buy)%}&id={% page.item.uid %}" class="button buy">Купить</a>
+        <a href="{% url(item::like) %}&id={% page.item.uid %}" class="button like"></a>
         <div class="price">
-            <div class="currency">162.35 ₴</div>
-            <div class="usd">20.00 $</div>
+            <div class="currency">{% page.item.price.uah %}  ₴</div>
+            <div class="usd">{% page.item.price.usd %} $</div>
         </div>
     </div>
     <div class="block block-min networks">
