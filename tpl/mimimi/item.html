@@ -36,7 +36,10 @@
                             <img src="{% comment.image %}" />
                         </a></div>
                         <div class="block">
-                            <div class="name"><strong><a href="#">{% comment.name %}</a></strong><span class="counter">{% comment.date %}</span></div>
+                            <div class="name">
+                                <strong><a href="{% url(user::index) %}&id={% comment.userid %}">{% comment.name %}</a></strong>
+                                <span class="counter">{% comment.date %}</span>
+                            </div>
                             <div class="text">{% comment.text %}</div>
                         </div>
                     </li>

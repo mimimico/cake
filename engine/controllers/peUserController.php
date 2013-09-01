@@ -29,7 +29,7 @@ class peUserController extends peController
         
         $response->user = miUser::getUser($request->id);
         if ($response->user->isMaster()) {
-            $this->redirect($this->url(array(
+            self::redirect(self::url(array(
                 "name" => "shop", "action" => "index", "id" => $request->id
             )));
         }
