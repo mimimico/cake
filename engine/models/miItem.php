@@ -16,8 +16,8 @@ class miItem extends peModel
             if (!miUser::getLocal()->isMaster()) $this->error(36); // only masters
             
             $image = new peImage("upload", 1000 * 1000); // 300 kb
-            
-            if ($image->save(md5(time()))) {
+            $imagename = md5(time()) . "_". rand(100,100000);
+            if ($image->save($imagename)) {
                 $this->image = $image->getUrl();
             } else {
                 $this->error(35); // wrong image

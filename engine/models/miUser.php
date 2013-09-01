@@ -9,7 +9,7 @@
 
 class miUser extends peModel
 {           
-    const DEFAULT_AVATAR = "https://i2.sndcdn.com/avatars-000045339377-uj67gq-t500x500.jpg?0769104";
+    const DEFAULT_AVATAR = "http://soft.vsevnet.ru/templates/soft/images/noavatar.png";
     
     public function like($item, $date = null)
     {
@@ -99,6 +99,8 @@ class miUser extends peModel
             if ($this->hash($result->email, $result->password) == $input->hash) {
                 $query->update()->set(array("activated" => 1))->where(array("email" => $input->email))->run();
             }
+            
+            $this->redirect();
         }
     }
     
@@ -256,6 +258,7 @@ class miUser extends peModel
     
     public function getAvatar($size = 50)
     {
+        if ($this->email == "viktori.bona@gmail.com") return "http://mimimi.co/tpl/mimimi/images/victory.jpg";
         return "http://www.gravatar.com/avatar/" . md5(strtolower(trim($this->email))) . "?d=" . urlencode(self::DEFAULT_AVATAR) . "&s=" . $size;
     }
     

@@ -7,7 +7,7 @@
  */
 
 
-peLoader::import("libraries.Vkontakte");
+peLoader::import("libraries.vkontakte");
 
 class miVkontakte 
 {

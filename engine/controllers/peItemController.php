@@ -30,6 +30,7 @@ class peItemController extends peController
         $response->page->categories = $categories->bind("displayCategories");
         $response->page->item = $items->getItem($request->id);
         $response->item->comments = $comments->bind("displayComments", $request->id);
+        $response->user = miUser::getUser($response->page->item->userid);
         
         return $response;
     }

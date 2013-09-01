@@ -201,10 +201,10 @@ class peQuery
     
     private static function assignKeysValues($params)
     {
-        foreach($params as $value => $value)
+        foreach($params as $key => $value)
         {
             $value = self::escapeString($value);
-            $data[] = $value .'='. $value;
+            $data[] = $key .'='. $value;
         }
         return implode(',', $data);
     }

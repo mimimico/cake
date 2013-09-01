@@ -32,7 +32,9 @@
                 <ul class="comments">
                     {% foreach(item.comments::comment) %}
                     <li class="comment">
-                        <div class="avatar"><img src="{% comment.image %}" /></div>
+                        <div class="avatar"><a href="{% url(user::index) %}&id={% comment.userid %}">
+                            <img src="{% comment.image %}" />
+                        </a></div>
                         <div class="block">
                             <div class="name"><strong><a href="#">{% comment.name %}</a></strong><span class="counter">{% comment.date %}</span></div>
                             <div class="text">{% comment.text %}</div>
@@ -59,7 +61,68 @@
                 </div>
             </div>
         </div>
-        {% include(sidebar) %}
+        <div class="block block-min block-no-style" id="sidebar">
+            <div class="block block-min sell">
+                <a href="{% url(item::buy)%}&id={% page.item.uid %}" class="button buy">Купить</a>
+                <a href="{% url(item::like) %}&id={% page.item.uid %}" class="button like"></a>
+                <div class="price">
+                    <div class="currency">{% page.item.price.uah %}  ₴</div>
+                    <div class="usd">{% page.item.price.usd %} $</div>
+                </div>
+            </div>
+            <!--div class="block block-min networks">
+                <img src="images/likes.png" />
+            </div-->
+            <div class="block block-min info">
+                <!--div class="shop">
+                    <h3 class="title">О магазине</h3>
+                    <ul class="categories-column">
+                        <li class="address">
+                            Киев, Украина<br />
+                            ул. Красноармейская, 136<br />
+                            <a href="#">Показать на карте</a>
+                        </li>
+                        <li><a href="#">Подписчики</a> <span class="counter">1561</span></li>
+                        <li><a href="#">На страницу магазина</a></li>
+                        <li><a href="#">Официальный сайт</a></li>
+                    </ul>
+                </div-->
+                <div class="seller">
+                    <h3 class="title">О мастере</h3>
+                    <ul class="categories-column">
+                        <li class="profile">
+                            <a href="{% url(user::index)%}&id={% user.uid %}"><img src="{% user.image %}">
+                            <div class="user">
+                                <strong><a href="{% url(user::index)%}&id={% user.uid %}">{% user.name %}</a></strong>
+                                Киев, Украина
+                            </div>
+                        </li>
+                        <li><a href="{% url(user::index)%}&id={% user.uid %}">Избранное</a></li>
+                        <li><a href="{% url(user::index)%}&id={% user.uid %}">Отзывы</a></li>
+                        <li><a href="{% url(user::index)%}&id={% user.uid %}">Профиль</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--div class="block block-min more-related">
+                <h3 class="title">Еще в этом магазине</h3>
+                <div class="images">
+                    <img src="images/temp/image1-min.jpg" />
+                    <img src="images/temp/image2-min.jpg" />
+                    <img src="images/temp/image3-min.jpg" />
+                    <img src="images/temp/image4-min.jpg" />
+                    <img src="images/temp/image5-min.jpg" />
+                    <img src="images/temp/image6.jpg" />
+                </div>
+                <a class="more-link" href="#">Еще 216 товаров</a>
+            </div>
+            <div class="block block-min social-stats">
+                <h3 class="title">Статистика</h3>
+                <ul class="categories-column stats">
+                    <li>Просмотров <span class="counter">1671</span></li>
+                    <li><a href="#">Избранное</a> <span class="counter">126</span></li>
+                </ul>
+            </div-->
+        </div>
     </div>
     {% endif %}
 </section>

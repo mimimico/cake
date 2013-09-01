@@ -16,12 +16,12 @@
                 <a href="{% url(user::index) %}">
                     <img src="{% user.image %}" class="avatar" />
                 </a>
-                <div class="status"><span class="label label-blue">Мастер</span></div>
+                <!--div class="status"><span class="label label-blue">Мастер</span></div-->
                 <h3 class="title">{% user.name %}</h3>
                 <ul class="categories-column">
                     <li><a href="#">Избранное</a></li>
                     <li><a href="#">Отзывы</a></li>
-                    <li><a href="{%url(user::logout)%}">LOGOUT</a></li>
+                    <li><a href="{%url(user::logout)%}">Выход</a></li>
                 </ul>
                 <div class="rating">
                     <div id="half"></div>
@@ -67,6 +67,7 @@
             </div>
             {% endif %}
             <div class="block block-3 promotion">
+                <image src="images/temp/promotion1.jpg" width="100%">
             </div>
         </div>
         {% include(item_container) %}
