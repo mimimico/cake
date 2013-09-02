@@ -209,6 +209,19 @@ header .header-profile .notifications ul.categories-column li:last-child {
 	border: 0px;
 }
 
+.notification-alert {
+	display: block;
+	position: fixed;
+	opacity: 0.9;
+	z-index: 999;
+	width: 100%;
+	color: #fff;
+	background: #d27f7f;
+	text-align: center;
+	padding: 20px 0px;
+	font-size: 15px;
+	font-weight: bold;
+}
 /* FOOTER */
 footer {
 	height: 60px; 
@@ -430,7 +443,8 @@ section#shop .profile {
 	float: left;
 	overflow: hidden;
 	text-align: center;
-	max-height: 393px;
+	max-height: 425px;
+	padding-left: 4px;
 }
 	.user-info .profile {
 		float: none;
@@ -443,6 +457,13 @@ section#shop .profile {
 			margin: 0px auto;
 			width: 100px;
 			margin-top: 120px;
+		}
+
+		.user-info .create-master {
+			padding-top: 20px;
+			display: block;
+			width: 100%;
+			float: left;
 		}
 
 	.user-info .sharing {
@@ -541,6 +562,7 @@ section.add-edit .input {
 section.add-edit input[type="text"],
 section.add-edit input[type="password"] {
 	width: 310px;
+	display: inline-block;
 	padding: 0px 10px 0px 10px !important;
 }
 
@@ -560,7 +582,7 @@ section.add-edit .submit {
 }
 
 /* ADD-ITEM */
-section.add-edit .input {
+section#add-item .input {
 	width: 600px;
 }
 section#add-item input[type="text"],
@@ -1060,7 +1082,8 @@ section#chat .chat .post-message input[type="button"] {
 
 /* MORE */
 a.more {
-	width: 307px;
+	width: 200px;
+	text-align: center;
 	height: 31px;
 	color: #9c4343;
 	text-transform: uppercase;
