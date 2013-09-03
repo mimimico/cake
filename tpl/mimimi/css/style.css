@@ -195,6 +195,8 @@ header .header-profile .notifications .triangle {
 header .header-profile .notifications ul.categories-column {
 	width: 80%;
 	border: 0px;
+	max-height: 300px;
+	overflow: scroll;
 }
 header .header-profile .notifications ul.categories-column li {padding: 20px 0px;}
 header .header-profile .notifications ul.categories-column li img.avatar {
@@ -1280,4 +1282,30 @@ ul.comments li.comment .block .name {
 	display: block;
 	float: right;
 	border-left: 1px solid #e1e1e1;
+}
+
+/* ADD-ITEM-BLOCK */
+.add-item-link {
+	height: 313px;
+	width: 310px;
+	padding: 0px !important;
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
+	text-transform: uppercase;
+	border: 6px dashed #e1e1e1;
+	padding: 20px;
+	position: relative;
+	background: url("../images/add-photo.png") no-repeat center center;
+}
+
+.add-item-link span {
+	position: absolute;
+	width: 132px;
+	height: 18px;
+	top: 60%;
+	left: 50%;
+	margin-left: -64px;
+	display: block;
+
 }
