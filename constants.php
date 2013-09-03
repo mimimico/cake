@@ -69,7 +69,7 @@ define("peTpl_ExpressionR", "\s{0,5}\%\}/i");
 define("peTpl_Imploder", null);
 define("peTpl_Extension", ".html");
 define("peTpl_CacheExt", ".chtm");
-define("peTpl_CacheTime", 1);
+define("peTpl_CacheTime", 0);
 define("peTpl_Cache", true);
 define("peTpl_CacheMap", "!peCache_Map_File!");
 define("peTpl_CacheMapSym", ":");

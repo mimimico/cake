@@ -6,21 +6,42 @@ class peErrorController
     {
         $param = new peRequest("code:i", "back:i");
         $errors = array(
-            13 => "empty fileds",
-            14 => "non valid email",
-            15 => "diff pass",
-            16 => "acc exists",
-            20 => "acc not exists, or not activated",
-            21 => "already logined",
-            22 => "acc not exists, or activated",
-            23 => "you must be logined",
-            404 => "404, page doesn't exists",
+            13 => "err_empty_fileds",
+            14 => "err_non_valid_email",
+            15 => "err_diff_pass",
+            16 => "err_acc_exists",
+            20 => "err_acc_not_exists_or_not_activated",
+            21 => "err_already_logined",
+            22 => "err_acc_not_exists_or_activated",
+            23 => "err_you_must_be_logined",
+            404 => "err_404",
         );
         if (isset($errors[$param->code])) {
-            print($errors[$param->code]);
+            $message = $errors[$param->code];
         } else {
-            print("Unknown error #" . $param->code);
+            $message = "err_unknown";
         }
-        die();
+        
+        peLoader::import("models.miCategory");
+        peLoader::import("models.miItem");
+        
+        /* Generating response */
+        $categories = new miCategory();
+        $items = new miItem();
+        $items->categories = $categories;
+        
+        $response = new peResponse("index");
+        
+        $response->page->title = "Main" . peProject::getTitle();
+        $response->page->items = $items->bind("displayItemPage", 0, "main");
+        $response->page->categories = $categories->bind("displayCategories");
+        if (miUser::logined()) {
+            $response->user = miUser::getLocal();
+        }
+        $response->user->logined = miUser::logined();
+        $response->user->links = miUser::getLinks();
+        $response->error->message = peLanguage::get($message);
+        $response->page->error = true;
+        return $response;
     }
 }

@@ -58,6 +58,7 @@ class peTpl_variable
                                 return $value[0]->_recall($value);
                             }
                         }
+                        if ($value instanceof peResponse && $value->isEmpty()) $value = false;
                         if ($ignore) return $value;
                         if (empty($value)) $value = null;
                         $tpl[$n] = preg_replace(

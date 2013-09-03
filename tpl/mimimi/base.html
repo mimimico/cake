@@ -6,11 +6,13 @@
         <title>{% page.title %}</title>
     </head>
     <body>
+        {% if (page.error) %}
         <div class="notification-alert">
-              <div class="row">
-                    Это ошибка и Влад должен подключить обработчик.
-              </div>
+            <div class="row">
+                  {% error.message %}
+            </div>
         </div>
+        {% endif %}
         <header>
             <div class="row">
                 <!--div class="header-profile">

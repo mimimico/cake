@@ -40,8 +40,8 @@ class peResponse
     public function isEmpty()
     {
         $result = true;
-        foreach($this->data as $element)
-            if (!empty($element)) $result = false;
+        foreach($this->data as $name => $element)
+            if (!empty($element) && $name != "cache") $result = false;
         return $result;
     }
 }

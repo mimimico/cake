@@ -144,7 +144,7 @@ class miItem extends peModel
         
         $rawitems = array();
         
-        if ($type === 0 || $type == "main") {
+        if ($type === 0 || $type == "main" || $type == "error") {
             $rawitems = $this->getItemsPage($page);
         } else if ($type == "user") {
             $rawitems = $this->getUserItems($userid, $page); 
