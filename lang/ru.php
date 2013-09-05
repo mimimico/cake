@@ -13,6 +13,9 @@ return array(
     "fields_pass" => "Пароль",
     "fields_repass" => "Повторите пароль",
     
+    "user_status_master" => "Мастер",
+    "user_status_user" => "Пользователь",
+    
     "category_accessories" => "Accessories",
     "category_decorations" => "Decorations",
     "category_forhome" => "For Home",
@@ -22,13 +25,16 @@ return array(
     
     "subcategory_sunglasses" => "Sunglasses",
     "subcategory_pictures" => "Pictures",
+    
+    "err_image_bigger" => "Размер изображения не должен привышать 1 МБ",
     "err_empty_fileds" => "Одно, или несколько полей не заполнены",
-    "err_non_valid_email" => "",
-    "err_diff_pass" => "",
-    "err_acc_exists" => "",
-    "err_acc_not_exists_or_not_activated" => "",
-    "err_already_logined" => "",
-    "err_acc_not_exists_or_activated" => "",
-    "err_you_must_be_logined" => "",
-    "err_404" => "",
+    "err_non_valid_email" => "Введенный вами E-Mail имеет неправильный формат",
+    "err_diff_pass" => "Пароли не совпадают",
+    "err_acc_exists" => "Такой аккаунт уже зарегистрирован",
+    "err_acc_not_exists_or_not_activated" => "Такой аккаунт не зарегистрирован, либо еще не активирован",
+    "err_already_logined" => "Вы уже вошли",
+    "err_acc_not_exists_or_activated" => "Аккаунт не зарегистрирован, или уже активирован",
+    "err_you_must_be_logined" => "Вы должны быть авторизованы",
+    "err_404" => "Такой страницы не существует",
+    "err_image_upload" => "Произошла ошибка во время загрузки, попробуйте использовать другое изображение",
 );

@@ -83,6 +83,16 @@ class miUser extends peModel
         }
     }
     
+    public function removeImage()
+    {
+        $this->query()->update()->table("accounts")->set(array("avatar" => ""))->where(array("uid" => $this->uid))->run();
+        unset($this->avatar);
+        $this->removeLocal();
+        $this->unload();
+        $this->load();
+        $this->setLocal();
+    }
+    
     public function activate($input)
     {
         if (self::logined()) $this->error(21);
@@ -102,6 +112,31 @@ class miUser extends peModel
             
             $this->redirect();
         }
+    }
+    
+    public function update($data)
+    {
+        if (!$this->validEmail($data->email)) $this->error(14);
+        if ($data->password != $data->repassword) $this->error(15);
+        if (!$data->password) unset($data->password);
+        else $data->password = $this->hash($data->password);
+        
+        if ($data->email != $this->email) {
+            $result = $this->query()->select()->table("accounts")->where(array("email" => $data->email))->run(true);
+            if (!empty($result)) $this->error(16);
+        }
+        $this->insert($data);
+        $this->removeLocal();
+        $this->unload();
+        $image = new peImage("upload", 1000 * 1000); // 1000 kb
+        $imagename = md5(time()) . "_". rand(100,100000);
+        if ($image->save($imagename)) {
+            $this->avatar = $image->getUrl();
+        }
+        
+        $this->query()->update()->table("accounts")->set($this)->where(array("email" => $this->email))->run();
+        $this->load();
+        $this->setLocal();
     }
     
     public function login($input)
@@ -188,7 +223,40 @@ class miUser extends peModel
         } else {
             $this->image = $this->getAvatar(100);
         }
+        if (!$this->image) {
+            $this->image = $this->getAvatar(100);
+        }
         $this->master = $this->isMaster();
+        $this->not_master = !$this->master;
+        if ($this->master) {
+            $this->status = "user_status_master";
+        } else {
+            $this->status = "user_status_user";
+        }
+        $this->status = peLanguage::get($this->status);
+    }
+    
+    public function unload()
+    {
+        if (!$this->password) unset($this->password);
+        unset($this->repassword);
+        unset($this->name);
+        unset($this->master);
+        unset($this->not_master);
+        unset($this->image);
+        unset($this->status);
+        unset($this->logined);
+        unset($this->links);
+    }
+    
+    public function setType($type = 0)
+    {
+        $this->type = $type;
+        $this->removeLocal();
+        $this->unload();
+        $this->load();
+        $this->setLocal();
+        $this->query()->update()->table("accounts")->where(array("uid" => $this->uid))->set(array("type" => $type))->run();
     }
     
     public function isMaster()

@@ -16,11 +16,11 @@
                 <a href="{% url(user::index) %}">
                     <img src="{% user.image %}" class="avatar" />
                 </a>
-                <!--div class="status"><span class="label label-blue">Мастер</span></div-->
+                <div class="status"><span class="label label-blue">{% user.status %}</span></div>
                 <h3 class="title">{% user.name %}</h3>
                 <ul class="categories-column">
-                    <li><a href="#">Избранное</a></li>
-                    <li><a href="#">Отзывы</a></li>
+                    <li><a href="{%url(chat::index)%}">Сообщения</a></li>
+                    <li><a href="{%url(user::edit)%}">Настройки</a></li>
                     <li><a href="{%url(user::logout)%}">Выход</a></li>
                 </ul>
                 <div class="rating">

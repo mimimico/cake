@@ -43,3 +43,11 @@ peCore::init(
         )
     )
 );
+
+peHook::addHook("onGetData", function($args) {
+    if (miUser::logined()) {
+        $args[0]->cuser = miUser::getLocal();
+    } else {
+        $args[0]->cuser->logined = false;
+    }
+});

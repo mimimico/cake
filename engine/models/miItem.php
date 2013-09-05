@@ -15,7 +15,7 @@ class miItem extends peModel
             if (!miUser::logined()) $this->error(23);
             if (!miUser::getLocal()->isMaster()) $this->error(36); // only masters
             
-            $image = new peImage("upload", 1000 * 1000); // 300 kb
+            $image = new peImage("upload", 1000 * 1000); // 1000 kb
             $imagename = md5(time()) . "_". rand(100,100000);
             if ($image->save($imagename)) {
                 $this->image = $image->getUrl();
@@ -141,6 +141,7 @@ class miItem extends peModel
         $page = $this->getParam($params);
         $type = $this->getParam($params, 1);
         $userid = $this->getParam($params, 2);
+        $owner = $this->getParam($params, 3);
         
         $rawitems = array();
         
@@ -153,22 +154,31 @@ class miItem extends peModel
         }
         
         list($small, $big) = $rawitems;
+        if ($owner) {
+            $lobj = new stdClass();
+            $lobj->button = true;
+            array_unshift($small, $lobj);
+        }
         $categories = $this->categories->getSubCategories();
         $likes = $this->getLikes();
+        
         if (empty($small) && empty($big)) { return; }
-        if (count($small) < 7) $row = 1; else $row = rand(1,2);
+        if (count($small) < 4) $row = 0; 
+        elseif (count($small) < 7) $row = 1; 
+        else $row = rand(1,2);
+        
         $pos = rand(0,1);
         $items = array();
         for($i = 0; $i < 4; $i++) {
             for($j = 0; $j < 3; $j++) {
-                if ($i == $row && ($j == $pos || $j == $pos + 1)) {
+                if ($i == $row && ($j == $pos || $j == $pos + 1) && !empty($big)) {
                     if ($j == $pos) {
                         $items[$i][$j] = $big;
                     }
                 } else {
                     $items[$i][$j] = array_shift($small);
                 }
-                if (isset($items[$i][$j])) {
+                if (isset($items[$i][$j]) && !$items[$i][$j] instanceof stdClass) {
                     $price = new stdClass();
                     $price->usd = $items[$i][$j]->price;
                     $price->uah = $price->usd * 8;

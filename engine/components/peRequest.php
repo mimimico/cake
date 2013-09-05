@@ -62,6 +62,18 @@ class peRequest
             return null;
         }
     }
+
+    public function __isset($name)
+    {
+        return isset($this->_data[strtolower($name)]);
+    }
+    
+    public function __unset($name)
+    {
+        unset($this->_data[strtolower($name)]);
+        return true;
+    }
+    
     
     static public function getInput($input, $format = peInput_Str, $limit = 255)
     {

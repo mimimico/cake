@@ -4,28 +4,33 @@
     <div class="row">
         <div class="user-info">
             <div class="block block-min profile">
-                <img src="images/temp/avatar100.jpg" />
-                <div class="status"><span class="label label-blue">Мастер</span></div>
-                <h3 class="title">Андрей Велес</h3>
+                <a href="{% url(user::index) %}">
+                    <img src="{% user.image %}" class="avatar" />
+                </a>
+                <div class="status"><span class="label label-blue">{% user.status %}</span></div>
+                <h3 class="title">{% user.name %}</h3>
                 <ul class="categories-column">
-                    <li><a href="#">Избранное</a></li>
-                    <li><a href="#">Отзывы</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a href="{%url(chat::index)%}">Сообщения</a></li>
+                    <li><a href="{%url(user::edit)%}">Настройки</a></li>
+                    <li><a href="{%url(user::logout)%}">Выход</a></li>
                 </ul>
+                {% if (user.not_master) %}
                 <div class="create-master">
-                    <input type="button" value="Создать магазин"/>
+                    <a href="{%url(user::createshop)%}"><input type="button" value="Создать магазин"/></a>
                 </div>
+                {% endif %}
             </div>
         </div>
         <div class="block block-3 content">
             <h3 class="title">Редактирование профиля</h3>
+            <form action="{% url(user::update) %}" method="post" enctype="multipart/form-data">
             <div class="section">
                 <div class="line">
                     <div class="column caption">
                         Имя
                     </div>
                     <div class="column input">
-                        <input type="text" value="Андрей" placeholder="Имя" />
+                        <input type="text" name="firstname" value="{% user.firstname %}" placeholder="Имя" />
                     </div>
                 </div>
                 <div class="line">
@@ -33,7 +38,7 @@
                         Фамилия
                     </div>
                     <div class="column input">
-                        <input type="text" value="Велес" placeholder="Имя" />
+                        <input type="text" name="lastname" value="{% user.lastname %}" placeholder="Имя" />
                     </div>
                 </div>
                 <div class="line">
@@ -41,7 +46,7 @@
                         Пароль
                     </div>
                     <div class="column input">
-                        <input type="password" value="thisispassword" placeholder="Password" />
+                        <input type="password" name="password" value="" placeholder="Password" />
                     </div>
                 </div>
                 <div class="line">
@@ -49,7 +54,7 @@
                         Повторите пароль
                     </div>
                     <div class="column input">
-                        <input type="password" value="thisispassword" placeholder="Repeat password" />
+                        <input type="password" name="repassword" value="" placeholder="Repeat password" />
                     </div>
                 </div>
                 <div class="line">
@@ -57,10 +62,10 @@
                         E-mail
                     </div>
                     <div class="column input">
-                        <input type="text" value="mrveles@icloud.com" placeholder="E-mail" />
+                        <input type="text" name="email" value="{% user.email %}" placeholder="E-mail" />
                     </div>
                 </div>
-                <div class="line date">
+                <!--div class="line date">
                     <div class="column caption">
                         Дата рождения
                     </div>
@@ -200,15 +205,15 @@
                         </select>
                         <br /><input type="checkbox" checked="" /> Не показывать год
                     </div>
-                </div>
+                </div-->
                 <div class="line phone">
                     <div class="column caption">
                         Телефон
                     </div>
                     <div class="column input">
-                        <input type="text" class="country" value="+38" maxlength="5" placeholder="Страна" />
-                        <input type="text" class="city" value="063" maxlength="4" placeholder="Город" />
-                        <input type="text" class="number" value="687 24 93" maxlength="9" placeholder="Номер" />
+                        <!--input type="text" class="country" value="+38" maxlength="5" placeholder="Страна" />
+                        <input type="text" class="city" value="063" maxlength="4" placeholder="Город" /-->
+                        <input type="text" class="number" name="phone" value="{% user.phone %}" style="width:310px !important;" placeholder="Номер" />
                     </div>
                 </div>
 
@@ -217,11 +222,10 @@
                         Адрес
                     </div>
                     <div class="column input">
-                        <input type="text" class="map-country" placeholder="Страна" />
-
-                        <input type="text" class="map-city" placeholder="Город" />
-                        <input type="text" class="map-address" placeholder="Адрес" />
-                        <input type="text" class="map-index" placeholder="Индекс" />
+                        <input type="text" name="country" class="map-country" value="{% user.country %}" placeholder="Страна" />
+                        <input type="text" name="city" class="map-city" value="{% user.city %}" placeholder="Город" />
+                        <input type="text" name="address" class="map-address" value="{% user.address %}" placeholder="Адрес" />
+                        <input type="text" name="postindex" class="map-index" value="{% user.postindex %}" placeholder="Индекс" />
                     </div>
                 </div>
             </div>
@@ -231,19 +235,15 @@
                     <input type="file" name="upload" class="file" />
                 </div>
                 <ul>
-                    <li><a href="#">Удалить</a></li>
-                    <li><a href="#">Загрузить новое фото</a></li>
-                    <li><a href="#">Изменить фото</a></li>
+                    <li><a href="{%url(user::removeimage)%}">Удалить</a></li>
+                    <!--li><a href="#">Загрузить новое фото</a></li-->
                 </ul>
             </div>
             <div class="line">
-                <a href="#" class="back">&larr; Вернуться в профиль</a>
+                <a href="{% url(user::index) %}" class="back">&larr; Вернуться в профиль</a>
                 <input type="submit" class="button" value="Сохранить" />
             </div>
-        </div>
-</section>
-{% endblock %}�ть" />
-            </div>
+            </form>
         </div>
 </section>
 {% endblock %}

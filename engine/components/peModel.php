@@ -42,11 +42,8 @@ abstract class peModel extends peHttp
     
     public function __unset($name)
     {
-        if (isset($this->_data[strtolower($name)])) {
-            unset($this->_data[strtolower($name)]);
-            return true;
-        }
-        return false;
+        unset($this->_data[strtolower($name)]);
+        return true;
     }
     
     public function bind() 

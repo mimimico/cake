@@ -10,6 +10,7 @@ class peImage
 {
     public $image;
     public $name;
+    public $errors = true;
     public $required_size;
     
     protected static $types = array(
@@ -25,13 +26,14 @@ class peImage
             $this->image = (object)$_FILES[$name];
             $this->required_size = $size;
             if (!$this->image->error) {
-                return true;
+                $this->errors = false;
             }
         }
     }
     
     public function save($name = null)
     {
+        if ($this->errors) return false;
         if (!$name) {
             $name = $this->image->name;
         } else {

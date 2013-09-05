@@ -30,10 +30,15 @@ class peShopController extends peController
         } else {
             $type = "user";
         }
-        
+        $user->owner = false;
+        if (miUser::logined()) {
+            if (miUser::getLocal()->uid == $user->uid) {
+                $user->owner = true;
+            }
+        }
         $response = new peResponse("shop", false);
         $response->page->title = "Shop" . peProject::getTitle();
-        $response->page->items = $items->bind("displayItemPage", 0, $type, $request->id);
+        $response->page->items = $items->bind("displayItemPage", 0, $type, $request->id, $user->owner);
         $response->page->categories = $categories->bind("displayCategories");
         if ($request->mode === 1) {
             $response->page->active->master = "active";

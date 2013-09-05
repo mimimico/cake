@@ -77,19 +77,19 @@
                 <img src="images/likes.png" />
             </div-->
             <div class="block block-min info">
-                <!--div class="shop">
+                <div class="shop">
                     <h3 class="title">О магазине</h3>
                     <ul class="categories-column">
                         <li class="address">
-                            Киев, Украина<br />
-                            ул. Красноармейская, 136<br />
-                            <a href="#">Показать на карте</a>
+                            {% user.city %}, {% user.country %} <br />
+                            {% user.address %}<br />
+                            <!--a href="#">Показать на карте</a-->
                         </li>
-                        <li><a href="#">Подписчики</a> <span class="counter">1561</span></li>
-                        <li><a href="#">На страницу магазина</a></li>
+                        <li><a href="{%url(shop::index)%}&id={% user.uid %}">Подписчики</a> <span class="counter">0</span></li>
+                        <li><a href="{%url(shop::index)%}&id={% user.uid %}">На страницу магазина</a></li>
                         <li><a href="#">Официальный сайт</a></li>
                     </ul>
-                </div-->
+                </div>
                 <div class="seller">
                     <h3 class="title">О мастере</h3>
                     <ul class="categories-column">
@@ -97,7 +97,7 @@
                             <a href="{% url(user::index)%}&id={% user.uid %}"><img src="{% user.image %}">
                             <div class="user">
                                 <strong><a href="{% url(user::index)%}&id={% user.uid %}">{% user.name %}</a></strong>
-                                Киев, Украина
+                                {% user.city %}, {% user.country %}
                             </div>
                         </li>
                         <li><a href="{% url(user::index)%}&id={% user.uid %}">Избранное</a></li>

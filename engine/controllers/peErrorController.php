@@ -6,6 +6,7 @@ class peErrorController
     {
         $param = new peRequest("code:i", "back:i");
         $errors = array(
+            7  => "err_image_bigger",
             13 => "err_empty_fileds",
             14 => "err_non_valid_email",
             15 => "err_diff_pass",
@@ -14,6 +15,7 @@ class peErrorController
             21 => "err_already_logined",
             22 => "err_acc_not_exists_or_activated",
             23 => "err_you_must_be_logined",
+            35 => "err_image_upload",
             404 => "err_404",
         );
         if (isset($errors[$param->code])) {

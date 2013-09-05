@@ -4,19 +4,21 @@
     <div class="row">
         <div class="block block-cover block-max profile">
             <div class="block block-min block-inner profile-inner">
-                <img src="{% user.image %}" class="avatar" />
-                <!--div class="status"><span class="label label-red">Покупатель</span></div-->
+                <a href="{% url(user::index) %}">
+                    <img src="{% user.image %}" class="avatar" />
+                </a>
+                <div class="status"><span class="label label-blue">{% user.status %}</span></div>
                 <h3 class="title">{% user.name %}</h3>
                 <div class="location">
-                    Киев, Украина <br />
-                    ул. Красноармейская, 136 <br />
-                    <a href="#">Показать на карте</a>
+                    {% user.city %}, {% user.country %} <br />
+                    {% user.address %}<br />
+                    <!--a href="#">Показать на карте</a-->
                 </div>
             </div>
             <div class="cover"><img src="images/temp/shop.jpg"/></div>
             <ul class="categories-row">
-                <li><a href="#">Избранное</a><span class="counter">20</span></li>
-                <li><a href="#">Отзывы</a><span class="counter">5</span></li>
+                <li><a href="#">Избранное</a><span class="counter">0</span></li>
+                <li><a href="#">Отзывы</a><span class="counter">0</span></li>
             </ul>
         </div>
     </div>

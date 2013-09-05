@@ -45,8 +45,41 @@ class peUserController extends peController
         
         $response = new peResponse("edit-profile");
         $response->page->categories = $categories->bind("displayCategories");
+        if (!miUser::logined()) self::error(23);
+        $response->user = miUser::getLocal();
         
         return $response;
+    }
+    
+    public static function updateAction()
+    {
+        if (!miUser::logined()) self::error(23);
+        $user = miUser::getLocal();
+        $user->update(new peRequest(
+            "firstname", "lastname", "password", "repassword", 
+            "email", "phone", "country", "city", "address", "postindex"
+        ));
+        self::redirect(self::url(array(
+            "name" => "user", "action" => "index"
+        )));
+    }
+    
+    public static function createShopAction() 
+    {
+        if (!miUser::logined()) self::error(23);
+        miUser::getLocal()->setType(1);
+        self::redirect(self::url(array(
+            "name" => "user", "action" => "edit"
+        )));
+    }
+    
+    public static function removeImageAction() 
+    {
+        if (!miUser::logined()) self::error(23);
+        miUser::getLocal()->removeImage();
+        self::redirect(self::url(array(
+            "name" => "user", "action" => "edit"
+        )));
     }
     
     public static function registerAction()

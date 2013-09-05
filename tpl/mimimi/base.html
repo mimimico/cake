@@ -15,12 +15,15 @@
         {% endif %}
         <header>
             <div class="row">
+                {% if (cuser.logined) %}
                 <div class="header-profile">
                     <div class="userpic">
-                        <img src="images/temp/avatar50.jpg">
+                        <a href="{% url(user::index) %}">
+                        <img src="{% cuser.image %}" class="avatar" width="50px">
+                        </a>
                     </div>
-                    <a href="#" class="settings"></a>
-                    <div class="inbox">
+                    <a href="{% url(user::edit) %}" class="settings"></a>
+                    <!--div class="inbox">
                         <div class="block block-1 notifications" style="display: none;">
                             <div class="triangle"></div>
                             <ul class="categories-column">
@@ -46,8 +49,9 @@
                         </div>
                         <a href="#" class="icon"></a>
                         <div class="counter">3</div>
-                    </div>
+                    </div-->
                 </div>
+                {% endif %}
                 <div class="brand">
                     <a href="{% url(main::index) %}"><img src="images/logo.png" alt="mimimi" /></a>
                 </div>
