@@ -2,9 +2,11 @@
 <div class="row">
     {% foreach(itemrow::item) %}
     {% if(item.button) %}
-    <a href="{% url(shop::add) %}"><div class="block block-2 block-no-style add-item-link">
-        <span>Добавить товар</span>
-    </div></a>
+    <div class="block block-1 add-item-link">
+    <a href="#">
+        <span></span>
+    </a>
+    </div>
     {% endif %}
     {% if (item.title) %}
     <div class="block block-{%item.size%} item">

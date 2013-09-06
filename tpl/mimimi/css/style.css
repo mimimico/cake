@@ -505,6 +505,7 @@ section.add-edit .caption {
 	width: 120px;
 	display: block;
 	margin-top: 7px;
+	padding: 5px 0px;
 	padding-left: 0px;
 }
 
@@ -512,6 +513,7 @@ section.add-edit .input {
 	width: 350px;
 	display: block;
 	float: right;
+	padding: 5px 0px;
 }
 
 	section.add-edit .picture {
@@ -1286,26 +1288,23 @@ ul.comments li.comment .block .name {
 
 /* ADD-ITEM-BLOCK */
 .add-item-link {
-	height: 313px;
-	width: 310px;
-	padding: 0px !important;
-	text-align: center;
-	font-weight: bold;
-	font-size: 16px;
-	text-transform: uppercase;
-	border: 6px dashed #e1e1e1;
-	padding: 20px;
-	position: relative;
 	background: url("../images/add-photo.png") no-repeat center center;
+	border: 6px dashed #999;
+	width: 300px;
+	height: 307px;
+	box-shadow: none;
+	position: relative;
 }
 
 .add-item-link span {
 	position: absolute;
-	width: 132px;
-	height: 18px;
-	top: 60%;
-	left: 50%;
-	margin-left: -64px;
 	display: block;
-
+	width: 100%;
+	margin-top: 14px;
+	font-weight: 700;
+	height: 100%;
+	color: #999;
+	font-size: 18px;
+	text-align: center;
+	text-transform: uppercase;
 }
