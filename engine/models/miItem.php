@@ -108,6 +108,25 @@ class miItem extends peModel
         );
     }
     
+    public function getCategoriesItems($id = 0, $page = 0)
+    {
+        $query = $this->query()->select()->table("items")->order("uid", true);
+        $cond = $this->query()->select("uid")->table("categories")->where(array("parent" => $id))->prepare();
+        return array(
+            $query->where(array("category IN ($cond)", "size" => 1))->limit($page * 10, 10)->run(),
+            $query->where(array("category IN ($cond)", "size" => 2))->limit($page, 1)->run(true),
+        );
+    }
+    
+    public function getSubCategoriesItems($id = 0, $page = 0) 
+    {
+        $query = $this->query()->select()->table("items")->order("uid", true);
+        return array(
+            $query->where(array("category" => $id, "size" => 1))->limit($page * 10, 10)->run(),
+            $query->where(array("category" => $id, "size" => 2))->limit($page, 1)->run(true),
+        );
+    }
+    
     public function getItem($id = 0) 
     {
         $item = $this->query()->select()->table("items")->where(array("uid" => $id))->run(true);
@@ -151,6 +170,10 @@ class miItem extends peModel
             $rawitems = $this->getUserItems($userid, $page); 
         } else if ($type == "shop") {
             $rawitems = $this->getShopItems($userid, $page);
+        } else if ($type == "categories") {
+            $rawitems = $this->getCategoriesItems($userid, $page);
+        } else if ($type == "subcategories") {
+            $rawitems = $this->getSubCategoriesItems($userid, $page);
         }
         
         list($small, $big) = $rawitems;
@@ -186,6 +209,7 @@ class miItem extends peModel
                     if (isset($likes[$items[$i][$j]->uid])) {
                         $items[$i][$j]->liked = "liked";
                     }
+                    $items[$i][$j]->catid = $items[$i][$j]->category;
                     $cname = $categories[$items[$i][$j]->category]->name;
                     $items[$i][$j]->category = $cname;
                     if (strlen($items[$i][$j]->title) > 31 && $items[$i][$j]->size == 1) {

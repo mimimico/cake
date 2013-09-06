@@ -12,7 +12,7 @@ peCore::init(
     array(
         /* Basic project settings */
         "title"     => " | Proto Engine",
-        "host"      => "http://localhost/",
+        "host"      => "http://localhost:8080/proto/",
         "siteTheme" => "mimimi",
         "tplDirs"   => array("css", "slider", "script", "js", "images"),
         "debug"     => true,
@@ -23,7 +23,7 @@ peCore::init(
         /* Mysql settings */
         "mysqlHost" => "localhost",
         "mysqlUser" => "root",
-        "mysqlPass" => "root",
+        "mysqlPass" => "usbw",
         "mysqlName" => "mimimi",
         
         /* Components */

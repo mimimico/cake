@@ -64,7 +64,7 @@
             <ul class="menu">
                 <div class="row">
                     {% foreach(page.categories::cat)%}
-                    <li><a href="#">{% cat.name %}</a></li>
+                    <li><a href="{% url(categories::index) %}&id={%cat.uid%}">{% cat.name %}</a></li>
                     {% endfor %}
                 </div>
             </ul>

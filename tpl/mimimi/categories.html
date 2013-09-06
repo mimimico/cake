@@ -3,41 +3,28 @@
 <section id="categories">
     <div class="row">
         <div class="block block-min profile">
-                <a href="{% url(user::index) %}">
-                    <img src="{% user.image %}" class="avatar" />
-                </a>
-                <div class="status"><span class="label label-blue">{% user.status %}</span></div>
-                <h3 class="title">{% user.name %}</h3>
-                <ul class="categories-column">
-                    <li><a href="{%url(chat::index)%}">Сообщения</a></li>
-                    <li><a href="{%url(user::edit)%}">Настройки</a></li>
-                    <li><a href="{%url(user::logout)%}">Выход</a></li>
-                </ul>
-                <div class="rating">
-                    <div id="half"></div>
-                </div>
+            <a href="{% url(user::index) %}">
+                <img src="{% user.image %}" class="avatar" />
+            </a>
+            <div class="status"><span class="label label-blue">{% user.status %}</span></div>
+            <h3 class="title">{% user.name %}</h3>
+            <ul class="categories-column">
+                <li><a href="{%url(chat::index)%}">Сообщения</a></li>
+                <li><a href="{%url(user::edit)%}">Настройки</a></li>
+                <li><a href="{%url(user::logout)%}">Выход</a></li>
+            </ul>
+            <div class="rating">
+                <div id="half"></div>
             </div>
+        </div>
         <div class="block block-3 categories">
-        	<h3 class="title">Categories</h3>
-        	<ul class="cats">
-        		<li><a href="#">Очки</a></li>
-        		<li><a href="#">Украшения</a></li>
-        		<li><a href="#">Ковры</a></li>
-        		<li><a href="#">Игрушки</a></li>
-        		<li><a href="#">Смартфоны</a></li>
-        		<li><a href="#">Стройматериалы</a></li>
-        		<li><a href="#">Шлюхи</a></li>
-        		<li><a href="#">Шапки</a></li>
-        		<li><a href="#">Бананы</a></li>
-        		<li><a href="#">Носки</a></li>
-        		<li><a href="#">Крылья</a></li>
-        		<li><a href="#">Самолеты</a></li>
-        		<li><a href="#">Кружки</a></li>
-        		<li><a href="#">Чашки</a></li>
-        		<li><a href="#">Коты</a></li>
-        		<li><a href="#">Лол</a></li>
-        		<li><a href="#">Ассоциативный ряд</a></li>
-        	</ul>
+            <h3 class="title">{%l(title_subcategories)%}</h3>
+            <ul class="cats">
+            {% foreach(page.subcategories::subcat) %}
+                <li><a href="{% url(categories::sub) %}&id={% subcat.uid %}">{% subcat.name %}</a></li>
+            {% endfor %}
+            </ul>
         </div>
 </section>
+        {% include(item_container) %}
 {% endblock %}
