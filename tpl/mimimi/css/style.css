@@ -429,7 +429,8 @@ section#content .user-fields .social {
 }
 
 
-section#content .profile {
+section#content .profile,
+section#categories .profile {
 	height: 275px;
 	float: left;
 	padding: 20px 5px;
@@ -448,6 +449,11 @@ section#shop .profile {
 	max-height: 425px;
 	padding-left: 4px;
 }
+
+		.profile h3.title {
+			font-size: 11px !important;
+		}
+
 	.user-info .profile {
 		float: none;
 		padding: 23px 0px 22px 0px;
@@ -1308,3 +1314,8 @@ ul.comments li.comment .block .name {
 	text-align: center;
 	text-transform: uppercase;
 }
+
+/* CATEGORIES */
+section#categories .categories {padding-bottom: 30px; padding-top: 10px; font-weight: bold;}
+ul.cats {padding: 0px 30px; list-style-type: none; padding-bottom: 10px;}
+ul.cats li {width: 33%; float: left; margin: 10px 0px; text-align: center;}
