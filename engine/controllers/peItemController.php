@@ -26,7 +26,7 @@ class peItemController extends peController
         if (!$request->id) self::error(404);
         $response = new peResponse("item");
         
-        $response->page->title = "Главная" . peProject::getTitle();
+        $response->page->title = peLanguage::get("page_item") . peProject::getTitle();
         $response->page->categories = $categories->bind("displayCategories");
         $response->page->item = $items->getItem($request->id);
         $response->item->comments = $comments->bind("displayComments", $request->id);

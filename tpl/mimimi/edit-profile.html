@@ -3,58 +3,58 @@
 <section class="add-edit" id="edit-profile">
     <div class="row">
         <div class="user-info">
-            <div class="block block-min profile">
+             <div class="block block-min profile">
                 <a href="{% url(user::index) %}">
                     <img src="{% user.image %}" class="avatar" />
                 </a>
                 <div class="status"><span class="label label-blue">{% user.status %}</span></div>
                 <h3 class="title">{% user.name %}</h3>
                 <ul class="categories-column">
-                    <li><a href="{%url(chat::index)%}">Сообщения</a></li>
-                    <li><a href="{%url(user::edit)%}">Настройки</a></li>
-                    <li><a href="{%url(user::logout)%}">Выход</a></li>
+                    <li><a href="{%url(chat::index)%}">{%l(page_messages)%}</a></li>
+                    <li><a href="{%url(user::edit)%}">{%l(page_settings)%}</a></li>
+                    <li><a href="{%url(user::logout)%}">{%l(page_logout)%}</a></li>
                 </ul>
                 {% if (user.not_master) %}
                 <div class="create-master">
-                    <a href="{%url(user::createshop)%}"><input type="button" value="Создать магазин"/></a>
+                    <a href="{%url(user::createshop)%}"><input type="button" value="{%l(button_createshop)%}"/></a>
                 </div>
                 {% endif %}
             </div>
         </div>
         <div class="block block-3 content">
-            <h3 class="title">Редактирование профиля</h3>
+            <h3 class="title">{%l(page_editprofile)%}</h3>
             <form action="{% url(user::update) %}" method="post" enctype="multipart/form-data">
             <div class="section">
                 <div class="line">
                     <div class="column caption">
-                        Имя
+                        {%l(fields_firstname)%}
                     </div>
                     <div class="column input">
-                        <input type="text" name="firstname" value="{% user.firstname %}" placeholder="Имя" />
+                        <input type="text" name="firstname" value="{% user.firstname %}" placeholder="{%l(fields_firstname)%}" />
                     </div>
                 </div>
                 <div class="line">
                     <div class="column caption">
-                        Фамилия
+                        {%l(fields_lastname)%}
                     </div>
                     <div class="column input">
-                        <input type="text" name="lastname" value="{% user.lastname %}" placeholder="Имя" />
+                        <input type="text" name="lastname" value="{% user.lastname %}" placeholder="{%l(fields_lastname)%}" />
                     </div>
                 </div>
                 <div class="line">
                     <div class="column caption">
-                        Пароль
+                        {%l(fields_pass)%}
                     </div>
                     <div class="column input">
-                        <input type="password" name="password" value="" placeholder="Password" />
+                        <input type="password" name="password" value="" placeholder="{%l(fields_pass)%}" />
                     </div>
                 </div>
                 <div class="line">
                     <div class="column caption">
-                        Повторите пароль
+                        {%l(fields_repass)%}
                     </div>
                     <div class="column input">
-                        <input type="password" name="repassword" value="" placeholder="Repeat password" />
+                        <input type="password" name="repassword" value="" placeholder="{%l(fields_repass)%}" />
                     </div>
                 </div>
                 <div class="line">
@@ -208,40 +208,40 @@
                 </div-->
                 <div class="line phone">
                     <div class="column caption">
-                        Телефон
+                        {%l(field_phone)%}
                     </div>
                     <div class="column input">
                         <!--input type="text" class="country" value="+38" maxlength="5" placeholder="Страна" />
                         <input type="text" class="city" value="063" maxlength="4" placeholder="Город" /-->
-                        <input type="text" class="number" name="phone" value="{% user.phone %}" style="width:310px !important;" placeholder="Номер" />
+                        <input type="text" class="number" name="phone" value="{% user.phone %}" style="width:310px !important;" placeholder="{%l(fields_phone)%}" />
                     </div>
                 </div>
 
                 <div class="line map">
                     <div class="column caption">
-                        Адрес
+                        {%l(fields_address)%}
                     </div>
                     <div class="column input">
-                        <input type="text" name="country" class="map-country" value="{% user.country %}" placeholder="Страна" />
-                        <input type="text" name="city" class="map-city" value="{% user.city %}" placeholder="Город" />
-                        <input type="text" name="address" class="map-address" value="{% user.address %}" placeholder="Адрес" />
-                        <input type="text" name="postindex" class="map-index" value="{% user.postindex %}" placeholder="Индекс" />
+                        <input type="text" name="country" class="map-country" value="{% user.country %}" placeholder="{%l(fields_country)%}" />
+                        <input type="text" name="city" class="map-city" value="{% user.city %}" placeholder="{%l(fields_city)%}" />
+                        <input type="text" name="address" class="map-address" value="{% user.address %}" placeholder="{%l(fields_address)%}" />
+                        <input type="text" name="postindex" class="map-index" value="{% user.postindex %}" placeholder="{%l(fields_postindex)%}" />
                     </div>
                 </div>
             </div>
             <div class="picture column">
-                <h3 class="title">Фото</h3>
+                <h3 class="title">{%l(fields_image)%}</h3>
                 <div class="upload">
                     <input type="file" name="upload" class="file" />
                 </div>
                 <ul>
-                    <li><a href="{%url(user::removeimage)%}">Удалить</a></li>
+                    <li><a href="{%url(user::removeimage)%}">{%l(button_remove)%}</a></li>
                     <!--li><a href="#">Загрузить новое фото</a></li-->
                 </ul>
             </div>
             <div class="line">
-                <a href="{% url(user::index) %}" class="back">&larr; Вернуться в профиль</a>
-                <input type="submit" class="button" value="Сохранить" />
+                <a href="{% url(user::index) %}" class="back">&larr; {%l(button_back)%}</a>
+                <input type="submit" class="button" value="{%l(button_save)%}" />
             </div>
             </form>
         </div>

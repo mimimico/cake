@@ -20,10 +20,11 @@ class peUserController extends peController
         $items->categories = $categories;
         
         $request = new peRequest("id:i");
-        if (!$request->id) $request->id = miUser::getLocal()->uid;
+        if (!$request->id && miUser::logined()) $request->id = miUser::getLocal()->uid;
+        else if (!$request->id) self::error(23);
         $response = new peResponse("user");
         
-        $response->page->title = "User" . peProject::getTitle();
+        $response->page->title = peLanguage::get("page_user") . peProject::getTitle();
         $response->page->items = $items->bind("displayItemPage", 0, "user", $request->id);
         $response->page->categories = $categories->bind("displayCategories");
         
@@ -44,6 +45,7 @@ class peUserController extends peController
         $categories = new miCategory();
         
         $response = new peResponse("edit-profile");
+        $response->page->title = peLanguage::get("page_settings") . peProject::getTitle();
         $response->page->categories = $categories->bind("displayCategories");
         if (!miUser::logined()) self::error(23);
         $response->user = miUser::getLocal();

@@ -10,9 +10,9 @@
                 <div class="status"><span class="label label-blue">{% user.status %}</span></div>
                 <h3 class="title">{% user.name %}</h3>
                 <ul class="categories-column">
-                    <li><a href="{%url(chat::index)%}">Сообщения</a></li>
-                    <li><a href="{%url(user::edit)%}">Настройки</a></li>
-                    <li><a href="{%url(user::logout)%}">Выход</a></li>
+                    <li><a href="{%url(chat::index)%}">{%l(page_messages)%}</a></li>
+                    <li><a href="{%url(user::edit)%}">{%l(page_settings)%}</a></li>
+                    <li><a href="{%url(user::logout)%}">{%l(page_logout)%}</a></li>
                 </ul>
                 <div class="rating">
                     <div id="half"></div>
@@ -47,8 +47,8 @@
                     {% endfor %}
                 </ul>
                 <form method="post" action="{% url(chat::send) %}&id={% chat.partner %}" class="post-message">
-                    <input type="text" class="squared" name="message" placeholder="Ответ..." />
-                    <input type="submit" value="Ответить">
+                    <input type="text" class="squared" name="message" placeholder="{%l(button_reply)%}..." />
+                    <input type="submit" value="{%l(button_send)%}">
                 </form>
             </div>
         </div>

@@ -59,6 +59,22 @@ class miCategory extends peModel
         return $data;
     }
     
+    public function view_listCategoryWithSub()
+    {
+        $c = $this->getCategories();
+        $s = $this->getSubCategories();
+        foreach($c as $category) {
+            $a = array();
+            foreach($s as $subcat) {
+                if ($subcat->parent == $category->uid) {
+                    $a[] = $subcat;
+                }
+            }
+            $category->subcat = $a;
+        }
+        return $c;
+    }
+    
     public function view_displayCategories()
     {
         return $this->getCategories();

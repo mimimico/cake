@@ -22,7 +22,7 @@ class peCategoriesController extends peController
         $request = new peRequest("id:i");
         $response = new peResponse("categories");
         
-        $response->page->title = "Main" . peProject::getTitle();
+        $response->page->title = peLanguage::get("page_categories") . peProject::getTitle();
         $response->page->items = $items->bind("displayItemPage", 0, "categories", $request->id);
         $response->page->categories = $categories->bind("displayCategories");
         if (miUser::logined()) {
@@ -47,7 +47,7 @@ class peCategoriesController extends peController
         $request = new peRequest("id:i");
         $response = new peResponse("categories");
         
-        $response->page->title = "Main" . peProject::getTitle();
+        $response->page->title = peLanguage::get("page_subcategories") . peProject::getTitle();
         $response->page->items = $items->bind("displayItemPage", 0, "subcategories", $request->id);
         $response->page->categories = $categories->bind("displayCategories");
         if (miUser::logined()) {

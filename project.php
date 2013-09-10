@@ -11,8 +11,8 @@ require("core.php");
 peCore::init(
     array(
         /* Basic project settings */
-        "title"     => " | Proto Engine",
-        "host"      => "http://localhost:8080/proto/",
+        "title"     => " | Mimimi.co",
+        "host"      => "http://inlife.no-ip.org/proto/",
         "siteTheme" => "mimimi",
         "tplDirs"   => array("css", "slider", "script", "js", "images"),
         "debug"     => true,

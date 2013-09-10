@@ -32,12 +32,12 @@ class peShopController extends peController
         }
         $user->owner = false;
         if (miUser::logined()) {
-            if (miUser::getLocal()->uid == $user->uid) {
+            if (miUser::getLocal()->uid == $user->uid && $request->mode === 1) {
                 $user->owner = true;
             }
         }
         $response = new peResponse("shop", false);
-        $response->page->title = "Shop" . peProject::getTitle();
+        $response->page->title = peLanguage::get("page_shop") . peProject::getTitle();
         $response->page->items = $items->bind("displayItemPage", 0, $type, $request->id, $user->owner);
         $response->page->categories = $categories->bind("displayCategories");
         if ($request->mode === 1) {
@@ -54,10 +54,14 @@ class peShopController extends peController
     
     public static function addAction()
     {
+        if (!miUser::logined()) self::error(23);
+        if (!miUser::getLocal()->isMaster()) self::error(404);
         peLoader::import("models.miCategory");
         $response = new peResponse("add-item");
         $categories = new miCategory();
+        $response->page->title = peLanguage::get("page_additem") . peProject::getTitle();
         $response->page->categories = $categories->bind("displayCategories");
+        $response->categories = $categories->bind("listCategoryWithSub");
         return $response;
     }
     

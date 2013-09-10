@@ -23,7 +23,7 @@ class peChatController extends peController
         
         $response = new peResponse("chat", false);
         
-        $response->page->title = "chat" . peProject::getTitle();
+        $response->page->title = peLanguage::get("page_chat") . peProject::getTitle();
         
         $response->page->categories = $categories->bind("displayCategories");
         $response->chat->users = $chat->bind("displayChatUsers");

@@ -3,7 +3,7 @@
     {% foreach(itemrow::item) %}
     {% if(item.button) %}
     <div class="block block-1 add-item-link">
-    <a href="#">
+    <a href="{% url(shop::add) %}">
         <span></span>
     </a>
     </div>

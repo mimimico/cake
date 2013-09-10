@@ -16,12 +16,12 @@ return array(
     "user_status_master" => "Мастер",
     "user_status_user" => "Пользователь",
     
-    "category_accessories" => "Accessories",
-    "category_decorations" => "Decorations",
-    "category_forhome" => "For Home",
-    "category_clothes" => "Clothes",
-    "category_art" => "Art",
-    "category_misc" => "Misc",
+    "category_accessories" => "Аксессуары",
+    "category_decorations" => "Декор",
+    "category_forhome" => "Для дома",
+    "category_clothes" => "Одежда",
+    "category_art" => "Искусство",
+    "category_misc" => "Разное",
     
     "subcategory_sunglasses" => "Sunglasses",
     "subcategory_pictures" => "Pictures",

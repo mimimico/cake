@@ -134,12 +134,11 @@ class peQuery
         $query = $this->prepare();
         
         /* Running query */
-        $result = self::cacherun($query);
+        $result = self::cacherun($query, in_array($this->_method, self::$_requestSet));
         if (self::getPointer()->errno) {
             $p = self::getPointer();
             peCore::error("Mysqli: query error (" . $p->errno . "), " . $p->error);
         } else { 
-            self::$_requests++;
             if (!empty($result) && is_object($result))
             {
                 $objects = array();
@@ -158,10 +157,18 @@ class peQuery
         return null;
     }
     
-    private static function cacherun($query)
+    private static function cacherun($query, $insert = false)
     {
         if (empty(self::$_cache) || !isset(self::$_cache[$query])) {
-            self::$_cache[$query] = self::getPointer()->query($query);
+            self::$_requests++;
+            if ($insert) {
+                if (peSession::get($query) + 5 < time()) {
+                    peSession::set($query, time());
+                    self::getPointer()->query($query);
+                }
+            } else {
+                self::$_cache[$query] = self::getPointer()->query($query);
+            }
         } 
         return self::$_cache[$query];
     }

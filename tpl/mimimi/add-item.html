@@ -10,29 +10,19 @@
     <div class="row">
         <div class="block block-max content">
             <form action="{% url(shop::handleadd) %}" method="POST" enctype="multipart/form-data">
-            <h3 class="title">Добавление товара</h3>
+            <h3 class="title">{%l(page_additem)%}</h3>
             <div class="section">
                 <div class="line">
                     <select name="category" class="categories">
-                        <optgroup label="Accesories">
-                            <option value="0">Accesories</option>
-                            <option value="1">Sunglasses</option>
-                            <option value="2">Pictures</option>
-                            <option value="3">Lol</option>
-                            <option value="4">Category</option>
-                            <option value="5">Minecraft</option>
-                            <option value="6">Lorem Ipsum</option>
-                        </optgroup>
-                        <optgroup label="Decorations">
-                            <option value="8">For home</option>
-                            <option value="9">For sex</option>
-                            <option value="10">Art</option>
-                            <option value="11">Clothes</option>
-                            <option value="12">Misc</option>
-                        </optgroup>
+                        {% foreach(categories::cat) %}
+                        <optgroup label="{% cat.name %}">
+                            {% foreach(cat.subcat::sub) %}
+                            <option value="{% sub.uid %}">{% sub.name %}</option>
+                            {% endfor %}
+                        {% endfor %}
                     </select>
                     <div class="column caption">
-                        Название
+                        {%l(fields_name)%}
                     </div>
                     <div class="column input">
                         <input type="text" name="title" class="item-title">
@@ -47,17 +37,17 @@
                     </div>
                 </div-->
                 <div class="line">
-                    <textarea name="description" placeholder="Описание товара"></textarea>
+                    <textarea name="description" placeholder="{%l(fields_desc)%}"></textarea>
                 </div>
                 <div class="line money">
                     <div class="column caption">
-                        Цена
+                        {%l(fields_price)%}
                     </div>
                     <div class="column input">
                         <select class="currency">
                         <optgroup label="Europe">
-                            <option value="2">Hryvnas</option>
-                            <!--option value="0">Dollars</option>
+                            <option value="0">Dollars</option>
+                            <!--option value="2">Hryvnas</option>
                             <option value="1">Roubles</option>
                             <option value="3">Euros</option>
                             <option value="4">Belorussian roubles</option>
@@ -108,7 +98,7 @@
                 </div-->
             </div>
             <div class="picture column">
-                <h3 class="title">Главное фото</h3>
+                <h3 class="title">{%l(fields_mainphoto)%}</h3>
                     <div class="upload">
                         <input type="file" name="upload" class="file" />
                     </div>
@@ -123,7 +113,7 @@
             </div>
             <div class="line submit">
                 <!--input type="submit" value="Превью" class="preview" /-->
-                <input type="submit" value="Добавить товар в магазин" class="add" />
+                <input type="submit" value="{%l(button_additem)%}" class="add" />
             </div>
             </form>
         </div>

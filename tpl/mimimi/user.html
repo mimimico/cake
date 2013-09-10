@@ -10,16 +10,18 @@
                 <div class="status"><span class="label label-blue">{% user.status %}</span></div>
                 <h3 class="title">{% user.name %}</h3>
                 <div class="location">
+                    {% if (user.city) %}
                     {% user.city %}, {% user.country %} <br />
                     {% user.address %}<br />
+                    {% endif %}
                     <!--a href="#">Показать на карте</a-->
                 </div>
             </div>
             <div class="cover"><img src="images/temp/shop.jpg"/></div>
-            <ul class="categories-row">
+            <!--ul class="categories-row">
                 <li><a href="#">Избранное</a><span class="counter">0</span></li>
                 <li><a href="#">Отзывы</a><span class="counter">0</span></li>
-            </ul>
+            </ul-->
         </div>
     </div>
    {% include(item_container) %}
