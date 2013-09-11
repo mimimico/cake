@@ -94,7 +94,7 @@ header ul.menu {
 
 header ul.menu li {
 	display: inline-block; 
-	margin: 10px 30px 8px; 
+	margin: 10px 15px 8px; 
 	text-transform: uppercase; 
 	font-weight: bold; 
 	font-size: 13px;
@@ -283,6 +283,10 @@ footer .feedback {
 }
 
 /* BLOCK SETTINGS */
+#main {
+	min-height: 85%;
+}
+
 .row {
 	display: block;
 	width: 1000px;
@@ -385,6 +389,21 @@ section#shop .shop-inner a.like {
 }
 
 /* SECTION # CONTENT */
+.sorting {float: right;}
+.sorting ul.sorting-items {
+	list-style-type: none;
+	padding: 0px 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.sorting ul.sorting-items li {
+	display: inline-block;
+	float: left;
+	margin: 10px 8px;
+}
+
+
 .user-fields input[type="text"], 
 .user-fields input[type="password"] {
 	padding: 0px 0px 0px 40px;
@@ -429,8 +448,7 @@ section#content .user-fields .social {
 }
 
 
-section#content .profile,
-section#categories .profile {
+section#content .profile {
 	height: 275px;
 	float: left;
 	padding: 20px 5px;
@@ -1050,7 +1068,7 @@ section#chat .chat .messages .message {
 section#chat .chat .messages .message span {
 	position: absolute;
 	bottom: -15px;
-	color: #e1e1e1;
+	color: #999;
 	font-size: 10px;
 }
 section#chat .chat .messages .request {
@@ -1063,7 +1081,7 @@ section#chat .chat .messages .request span {
 } 
 
 section#chat .chat .messages .reply {
-	background: #9c4343;
+	background: #8ab8d5;
 	color: #fff;
 	text-align: right; 
 	float: right;
@@ -1316,6 +1334,6 @@ ul.comments li.comment .block .name {
 }
 
 /* CATEGORIES */
-section#categories .categories {padding-bottom: 30px; padding-top: 10px; font-weight: bold;}
+section#content .categories {padding-bottom: 30px; padding-top: 10px; font-weight: bold;}
 ul.cats {padding: 0px 30px; list-style-type: none; padding-bottom: 10px;}
 ul.cats li {width: 33%; float: left; margin: 10px 0px; text-align: center;}

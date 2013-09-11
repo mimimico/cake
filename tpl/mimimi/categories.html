@@ -13,8 +13,8 @@
 {% endblock %}
 
 {% block(content) %}
-<section id="categories">
-    <div class="row">
+<div class="row">
+<section id="content">
     {% if (user.logined) %}
         <div class="block block-min profile">
             <a href="{% url(user::index) %}">
@@ -78,7 +78,7 @@
             {% endfor %}
             </ul>
         </div>
-    </div>
 </section>
+</div>
 {% include(item_container) %}
 {% endblock %}
