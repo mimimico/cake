@@ -76,6 +76,22 @@ return array(
     "page_chat" => "Messages",
     "page_item" => "Item",
     
+    "text_buy" => "Hello, i want to buy your product: ",
+    
+    "err_image_bigger" => "Image size must be smaller that 1 MB",
+    "err_empty_fileds" => "One or more fields is(are) empty",
+    "err_non_valid_email" => "E-mail has wrong format",
+    "err_diff_pass" => "Passwords didn't match",
+    "err_acc_exists" => "Account already exists",
+    "err_acc_not_exists_or_not_activated" => "This account is not registered, or not activated",
+    "err_already_logined" => "You already logined in",
+    "err_acc_not_exists_or_activated" => "This account is not registered, or already activated",
+    "err_you_must_be_logined" => "You must be logined in",
+    "err_404" => "This page doesn't exists",
+    "err_image_upload" => "Image load error, try another image",
+    "err_unknown" => "Unknown error",
+    "err_profile_not_full" => "To create shop, you must fill all profile fileds",
+    
     /* Art */
     "sub_2" => "Art Zines",
     "sub_3" => " Collage & Mixed Media",
@@ -202,20 +218,7 @@ return array(
     "sub_110" => " Novelty & Gag ",
     "sub_111" => " Gifts ",
     "sub_112" => " Little Something ",
-    "sub_113" => " Cards & Wrap",
-    
-    "err_image_bigger" => "Image size must be smaller that 1 MB",
-    "err_empty_fileds" => "One or more fields is(are) empty",
-    "err_non_valid_email" => "E-mail has wrong format",
-    "err_diff_pass" => "Passwords didn't match",
-    "err_acc_exists" => "Account already exists",
-    "err_acc_not_exists_or_not_activated" => "This account is not registered, or not activated",
-    "err_already_logined" => "You already logined in",
-    "err_acc_not_exists_or_activated" => "This account is not registered, or already activated",
-    "err_you_must_be_logined" => "You must be logined in",
-    "err_404" => "This page doesn't exists",
-    "err_image_upload" => "Image load error, try another image",
-    "err_unknown" => "Unknown error"
+    "sub_113" => " Cards & Wrap"
 );
 /*
  * Art

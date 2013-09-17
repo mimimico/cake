@@ -59,8 +59,10 @@ class peTpl_variable
                             }
                         }
                         if ($value instanceof peResponse && $value->isEmpty()) $value = false;
+                        if ($value === "0")  { $value = "0"; } 
+                        else { if (empty($value)) $value = null; }
+                        
                         if ($ignore) return $value;
-                        if (empty($value)) $value = null;
                         $tpl[$n] = preg_replace(
                             peTemplate::exp($matches[1]),
                             $value, $tpl[$n]

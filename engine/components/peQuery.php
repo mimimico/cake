@@ -164,7 +164,7 @@ class peQuery
             if ($insert) {
                 if (peSession::get($query) + 5 < time()) {
                     peSession::set($query, time());
-                    self::getPointer()->query($query);
+                    self::$_cache[$query] = self::getPointer()->query($query);
                 }
             } else {
                 self::$_cache[$query] = self::getPointer()->query($query);

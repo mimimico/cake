@@ -36,14 +36,19 @@ class miItem extends peModel
     
     public function like()
     {
+        $result = false;
         if (!miUser::logined()) {
             $name = "mi_like_" . $this->uid;
             if (!peCookie::get($name)) {
                 peCookie::set($name, date("Y-m-d H:i:s"));
+                $result = true;
+            } else {
+                peCookie::remove($name);
             }
         } else {
-            miUser::getLocal()->like($this);
+            $result = miUser::getLocal()->like($this);
         }
+        print($result); die();
     }
     
     public function getLikes()
@@ -70,7 +75,7 @@ class miItem extends peModel
             if (!empty($result)) {
                 $this->insert($result);
                 $msg = new stdClass();
-                $msg->message = "Добрый день, я бы хотел заказать ваш товар под именем " . $this->title;
+                $msg->message = peLanguage::get("text_buy") . $this->title;
                 $msg->id = $this->userid;
                 $chat = new miChat();
                 $chat->send($msg);

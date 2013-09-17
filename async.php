@@ -7,16 +7,13 @@
  */
 
 require("project.php");
+peHttp::error(404);
 /*
 import("providers.peAsync");
 
 peAsync::main(
     peController::getData()
-);
-
-*/
-
-$a = new peRequest("z:h", "p:i", "s:i");
+);Request("z:h", "p:i", "s:i");
 $b = explode("<br />", $a->z);
 $parent = $a->p;
 $start = $a->s;

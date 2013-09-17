@@ -15,6 +15,7 @@ class peErrorController
             21 => "err_already_logined",
             22 => "err_acc_not_exists_or_activated",
             23 => "err_you_must_be_logined",
+            25 => "err_profile_not_full",
             35 => "err_image_upload",
             404 => "err_404",
         );

@@ -26,8 +26,13 @@ class miUser extends peModel
                 array("itemid" => $item, "userid" => $this->uid, "date" => $date)
             )->run();
             return true;
+        } else {
+            $this->query()->delete()->table("likes")->where(
+                array("itemid" => $item, "userid" => $this->uid)
+            )->run();
+            return false;
         }
-        return false;
+        return null;
     }
     
     public function getLikes()
@@ -251,12 +256,28 @@ class miUser extends peModel
     
     public function setType($type = 0)
     {
+        if ($this->type == 0 && $type == 1) {
+            if (!$this->firstname || !$this->lastname || !$this->address || !$this->country || !$this->city || !$this->phone) {
+                $this->error(25);
+            }
+        }
         $this->type = $type;
         $this->removeLocal();
         $this->unload();
         $this->load();
         $this->setLocal();
         $this->query()->update()->table("accounts")->where(array("uid" => $this->uid))->set(array("type" => $type))->run();
+    }
+    
+    public function subscribe($user) 
+    {
+        if ($this->uid == $user->uid) return;
+        if (!$this->isMaster()) return;
+        $cond = array("userid" => $user->uid, "shopid" => $this->uid);
+        $result = $this->query()->table("subscribers")->select()->where($cond)->run();
+        if (!$result) {
+            $this->query()->insert()->table("subscribers")->set($cond)->run();
+        }
     }
     
     public function isMaster()
@@ -272,6 +293,12 @@ class miUser extends peModel
         $user = new self;
         $result = $user->query()->select()->table("accounts")->where(array("uid" => $id))->run(true);
         if (!$result) return false;
+        if ($result->type == 1) {
+            $count = $user->query()->select("COUNT(*) AS count")->table("subscribers")->where(array(
+                "shopid" => $result->uid
+            ))->run(true)->count;
+            $user->subscribers = (empty($count)) ? "0" : $count;
+        }
         $user->insert($result);
         $user->load();
         return $user;

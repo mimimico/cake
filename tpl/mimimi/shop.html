@@ -32,7 +32,7 @@
                         {% shop.address %}<br />
                         <!--a href="#">Показать на карте</a-->
                     </li>
-                    <li><a href="#">{%l(title_subscribers)%}</a> <span class="counter">0</span></li>
+                    <li><a href="#">{%l(title_subscribers)%}</a> <span class="counter">{% shop.subscribers %}</span></li>
                     <!--li><a href="#">Официальный сайт</a></li-->
                 </ul>
                 <a href="{%url(shop::subscribe)%}&id={%shop.uid%}" class="button like">{%l(button_subscribe)%}</a>

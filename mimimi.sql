@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Сен 10 2013 г., 18:12
+-- Время создания: Сен 17 2013 г., 17:45
 -- Версия сервера: 5.5.29
 -- Версия PHP: 5.4.10
 
@@ -271,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `likes` (
   `userid` int(255) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=26 ;
 
 --
 -- Дамп данных таблицы `likes`
@@ -286,14 +286,13 @@ INSERT INTO `likes` (`uid`, `itemid`, `userid`, `date`) VALUES
 (7, 6, 18, '2013-08-26 15:51:50'),
 (8, 12, 18, '2013-08-26 18:10:03'),
 (9, 10, 18, '2013-08-27 17:10:45'),
-(10, 12, 28, '2013-08-29 19:43:47'),
-(11, 13, 28, '0000-00-00 00:00:00'),
-(12, 14, 28, '2013-08-29 19:43:17'),
-(13, 15, 28, '0000-00-00 00:00:00'),
-(14, 16, 28, '2013-08-29 19:43:11'),
-(15, 17, 28, '2013-08-29 19:43:59'),
 (16, 15, 7, '2013-08-29 20:23:34'),
-(17, 21, 18, '2013-08-30 20:36:46');
+(17, 21, 18, '2013-08-30 20:36:46'),
+(19, 7, 28, '2013-09-17 13:25:32'),
+(21, 9, 28, '2013-09-17 13:25:45'),
+(22, 10, 28, '2013-09-17 13:26:13'),
+(24, 21, 28, '2013-09-17 13:33:24'),
+(25, 16, 28, '2013-09-17 13:44:48');
 
 -- --------------------------------------------------------
 
@@ -308,7 +307,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `text` text COLLATE utf8_unicode_ci NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=25 ;
 
 --
 -- Дамп данных таблицы `messages`
@@ -332,7 +331,28 @@ INSERT INTO `messages` (`uid`, `userid`, `senderid`, `text`, `date`) VALUES
 (20, 28, 18, 'как дела?)', '2013-08-31 08:43:10'),
 (21, 28, 18, 'автообновления нету =*(', '2013-08-31 08:43:21'),
 (22, 28, 18, 'пока что', '2013-08-31 08:43:27'),
-(23, 32, 18, 'потом сделаем,я уверен', '2013-08-31 08:43:38');
+(23, 32, 18, 'потом сделаем,я уверен', '2013-08-31 08:43:38'),
+(24, 18, 28, 'Hello, i want to buy your item, Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', '2013-09-17 14:44:49');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `subscribers`
+--
+
+CREATE TABLE IF NOT EXISTS `subscribers` (
+  `uid` int(255) NOT NULL AUTO_INCREMENT,
+  `shopid` int(255) NOT NULL,
+  `userid` int(255) NOT NULL,
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `subscribers`
+--
+
+INSERT INTO `subscribers` (`uid`, `shopid`, `userid`) VALUES
+(1, 19, 28);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

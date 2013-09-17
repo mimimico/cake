@@ -24,7 +24,7 @@
                     </div>
                     <a href="{% url(user::edit) %}" class="settings"></a>
                     <!--div class="inbox">
-                        <div class="block block-1 notifications" style="display: none;">
+                        <div class="block block-1 notifications" id="notifications" style="display: none;">
                             <div class="triangle"></div>
                             <ul class="categories-column">
                                 <li>
@@ -47,8 +47,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="#" class="icon"></a>
-                        <div class="counter">3</div>
+                        <a id="notificator" class="icon">
+                        <div class="counter">3</div></a>
                     </div-->
                 </div>
                 {% endif %}
@@ -92,6 +92,7 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript">   
           var al_page = 1;
+          var notif = false;
           function getURLParameter(name) {
             return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
           }
@@ -109,6 +110,29 @@
                       $('#loaded-content').append(data);
                   });
                   al_page++;
+              });
+              $("#notificator").click(function() {
+                  if (!notif) {
+                    $("#notifications").show(); notif = true;
+                  } else {
+                    $("#notifications").hide(); notif = false;
+                  }
+              });
+              $(".like").each(function () {
+                  $(this).on("click",function(e){
+                      e.preventDefault();
+                      var href = this.href;
+                      var obj = $(this);
+                      $.ajax({
+                          url: href
+                      }).done(function(data) {
+                          if (data) {
+                            obj.addClass("liked");
+                          } else {
+                            obj.removeClass("liked");
+                          }
+                      });
+                  });
               });
           });
         </script>

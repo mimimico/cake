@@ -73,4 +73,17 @@ class peShopController extends peController
             "title", "description", "price", "category"
         ));
     }
+    
+    public static function subscribeAction() 
+    {
+        if (!miUser::logined()) self::error(23);
+        $request = new peRequest("id:i");
+        if (!$request->id) self::error(0);
+        $user = miUser::getUser($request->id);
+        if (!$user) self::error(404);
+        $user->subscribe(miUser::getLocal());
+        self::redirect(self::url(array(
+            "name" => "shop", "id" => $request->id
+        )));
+    }
 }
