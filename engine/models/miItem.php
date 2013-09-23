@@ -9,19 +9,37 @@
 
 class miItem extends peModel 
 {
+    const IMAGE_SIZE = 1000000;
+    const IMAGES_LIMIT = 3;
+    
     public function create($data)
     {
         if ($data->title && $data->category && $data->description && $data->price) {
             if (!miUser::logined()) $this->error(23);
             if (!miUser::getLocal()->isMaster()) $this->error(36); // only masters
             
-            $image = new peImage("upload", 1000 * 1000); // 1000 kb
+            $image = new peImage(@$_FILES["upload"], self::IMAGE_SIZE); // 1000 kb
             $imagename = md5(time()) . "_". rand(100,100000);
             if ($image->save($imagename)) {
                 $this->image = $image->getUrl();
             } else {
                 $this->error(35); // wrong image
             }
+            
+            $images = peImage::rearrange(@$_FILES["uploadmore"]);
+            for($i = 0; $i < self::IMAGES_LIMIT; $i++) {
+                if (isset($images[$i]) && !empty($images[$i]) && !empty($images[$i]["name"])) {
+                    $prop = "subimage_".$i;
+                    $image = new peImage($images[$i], self::IMAGE_SIZE); // 1000 kb
+                    $imagename = md5(time()) . "_". rand(100,100000);
+                    if ($image->save($imagename)) {
+                        $this->$prop = $image->getUrl();
+                    } else {
+                        $this->error(35); // wrong image
+                    }
+                }
+            }
+            
             $this->insert($data);
             $this->userid = miUser::getLocal()->uid;
                     
@@ -83,6 +101,20 @@ class miItem extends peModel
         }
     }
     
+    public function getLikesCount()
+    {
+        return @$this->query()->select("COUNT(*) AS c")->table("likes")->where(array("itemid" => $this->uid))->run(true)->c;
+    }
+    
+    public function getViewsCount($update = false) 
+    {
+        $q = $this->query()->table("items")->where(array("uid" => $this->uid));
+        if ($update) {
+            $q->update()->set(array("views" => "views+1:ns"))->run();
+        }
+        return @$q->select("views")->run(true)->views;
+    }
+    
     public function getItemsPage($page = 0)
     {
         $query = $this->query()->select()->table("items")->order("uid", true);
@@ -139,6 +171,15 @@ class miItem extends peModel
         $price->usd = $item->price;
         $price->uah = $price->usd * 8;
         $item->price = $price;
+        $subimages = array();
+        for($i = 0; $i < self::IMAGES_LIMIT; $i++) {
+            $prop = "subimage_".$i;
+            if ($item->$prop) {
+                $subimages[$i] = new stdClass();
+                $subimages[$i]->image = $item->$prop;
+            }
+        }
+        $item->subimages = $subimages;
         return $item;
     }
     

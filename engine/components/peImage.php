@@ -10,7 +10,6 @@ class peImage
 {
     public $image;
     public $name;
-    public $errors = true;
     public $required_size;
     
     protected static $types = array(
@@ -20,20 +19,15 @@ class peImage
         "jpg", "jpeg", "gif", "png"
     );
     
-    public function __construct($name, $size = 20000)
+    public function __construct($array, $size = 20000)
     {
-        if (isset($_FILES[$name]) && !empty($_FILES[$name])) {
-            $this->image = (object)$_FILES[$name];
-            $this->required_size = $size;
-            if (!$this->image->error) {
-                $this->errors = false;
-            }
-        }
+        $this->image = (object)$array;
+        $this->required_size = $size;
     }
     
     public function save($name = null)
     {
-        if ($this->errors) return false;
+        if ($this->image->error) return false;
         if (!$name) {
             $name = $this->image->name;
         } else {
@@ -74,5 +68,16 @@ class peImage
     protected function checkExtension() 
     {
         return in_array($this->getExtension(), self::$extensions);
+    }
+    
+    public static function rearrange($arr)
+    {
+        $new = array();
+        foreach($arr as $key => $all) {
+            foreach($all as $i => $val) {
+                $new[$i][$key] = $val;    
+            }    
+        }
+       return $new;
     }
 }

@@ -47,6 +47,24 @@ class peItemController extends peController
         self::redirect();
     }
     
+    public static function getLikesAction()
+    {
+        $item = miItem::get(new peRequest("id:i"));
+        if ($item) {
+            print($item->getLikesCount());
+        }
+        die();
+    }
+    
+    public static function getViewsAction()
+    {
+        $item = miItem::get(new peRequest("id:i"));
+        if ($item) {
+            print($item->getViewsCount(true));
+        }
+        die();
+    }
+    
     public static function addCommentAction()
     {
         peLoader::import("models.miComment");

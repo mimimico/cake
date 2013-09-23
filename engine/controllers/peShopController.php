@@ -86,4 +86,14 @@ class peShopController extends peController
             "name" => "shop", "id" => $request->id
         )));
     }
+    
+    public static function getSubscribersAction()
+    {
+        $u = new peRequest("id:i");
+        $user = miUser::getUser($u->id);
+        if ($user) {
+            print($user->getSubscribers());
+        }
+        die();
+    }
 }

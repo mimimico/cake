@@ -52,6 +52,9 @@ return array(
     "title_subscribers" => "Subscribers",
     "title_shop" => "Shop",
     "title_activity" => "Activity",
+    "title_stats" => "Statistic",
+    "title_views" => "Views",
+    "title_likes" => "Likes",
     
     "page_faq" => "FAQ",
     "page_privacy" => "Privacy",

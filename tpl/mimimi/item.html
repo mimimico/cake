@@ -3,6 +3,43 @@
 {% block(scripts) %}
 <script type="text/javascript" src="scripts/jquery.raty.min.js"></script>
 <script type="text/javascript" src="scripts/raty.load.js"></script>
+<script type="text/javascript">
+    $(window).load(function() {
+        $.ajax({ 
+            url: "{% url(item::getlikes) %}&id={% page.item.uid %}"
+        }).done(function(data) {
+            if (data) {
+                $("#item_likes").text(data);
+            } else {
+                $("#item_likes").text("0");
+            }
+        });
+        $.ajax({ 
+            url: "{% url(item::getviews) %}&id={% page.item.uid %}"
+        }).done(function(data) {
+            if (data) {
+                $("#item_views").text(data);
+            } else {
+                $("#item_views").text("0");
+            }
+        });
+        $.ajax({ 
+            url: "{% url(shop::getSubscribers) %}&id={% page.item.userid %}"
+        }).done(function(data) {
+            if (data) {
+                $("#shop_subscribers").text(data);
+            } else {
+                $("#shop_subscribers").text("0");
+            }
+        });
+        var mainimg = $("#mainimg").attr("src");
+        $("[name=subimg]").hover(function() {
+            $("#mainimg").attr("src", $(this).attr("src"));
+        }, function() {
+            $("#mainimg").attr("src", mainimg);
+        });
+    });
+</script>
 {% endblock %}
 
 {% block(content) %}
@@ -16,13 +53,13 @@
                 </h3>
                 <div class="image">
                     <div class="original">
-                        <img src="{% page.item.image %}" />
+                        <img id="mainimg" src="{% page.item.image %}" />
                     </div>
-                    <!--div class="minimized">
-                        <div class="crop"><img src="images/temp/minimized1.jpg" /></div>
-                        <div class="crop"><img src="images/temp/minimized2.jpg" /></div>
-                        <div class="crop"><img src="images/temp/minimized3.jpg" /></div>
-                    </div-->
+                    <div class="minimized">
+                    {% foreach(page.item.subimages::subimg) %}
+                        <div class="crop"><img name="subimg" src="{% subimg.image %}" /></div>
+                    {% endfor %}
+                    </div>
                 </div>
                 <div class="description">
                    {% page.item.description %}
@@ -85,7 +122,7 @@
                             {% user.address %}<br />
                             <!--a href="#">Показать на карте</a-->
                         </li>
-                        <li><a href="{%url(shop::index)%}&id={% user.uid %}">{%l(title_subscribers)%}</a> <span class="counter">{% user.subscribers %}</span></li>
+                        <li><a href="{%url(shop::index)%}&id={% user.uid %}">{%l(title_subscribers)%}</a> <span id="shop_subscribers" class="counter">0</span></li>
                         <li><a href="{%url(shop::index)%}&id={% user.uid %}">{%l(button_toshop)%}</a></li>
                         <!--li><a href="#">Официальный сайт</a></li-->
                     </ul>
@@ -117,14 +154,14 @@
                     <img src="images/temp/image6.jpg" />
                 </div>
                 <a class="more-link" href="#">Еще 216 товаров</a>
-            </div>
-            <div class="block block-min social-stats">
-                <h3 class="title">Статистика</h3>
-                <ul class="categories-column stats">
-                    <li>Просмотров <span class="counter">1671</span></li>
-                    <li><a href="#">Избранное</a> <span class="counter">126</span></li>
-                </ul>
             </div-->
+            <div class="block block-min social-stats">
+                <h3 class="title">{%l(title_stats)%}</h3>
+                <ul class="categories-column stats">
+                    <li>{%l(title_views)%} <span id="item_views" class="counter">0</span></li>
+                    <li>{%l(title_likes)%} <span id="item_likes" class="counter">0</span></li>
+                </ul>
+            </div>
         </div>
     </div>
     {% endif %}

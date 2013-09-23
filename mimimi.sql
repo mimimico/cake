@@ -2,10 +2,10 @@
 -- version 4.0.5
 -- http://www.phpmyadmin.net
 --
--- Хост: localhost
--- Время создания: Сен 17 2013 г., 17:45
--- Версия сервера: 5.5.29
--- Версия PHP: 5.4.10
+-- Host: localhost
+-- Generation Time: Sep 23, 2013 at 08:16 PM
+-- Server version: 5.5.29
+-- PHP Version: 5.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- База данных: `mimimi`
+-- Database: `mimimi`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `accounts`
+-- Table structure for table `accounts`
 --
 
 CREATE TABLE IF NOT EXISTS `accounts` (
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=33 ;
 
 --
--- Дамп данных таблицы `accounts`
+-- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`uid`, `email`, `password`, `activated`, `registered`, `lastonline`, `fbid`, `vkid`, `firstname`, `lastname`, `type`, `avatar`, `phone`, `country`, `city`, `address`, `postindex`) VALUES
@@ -59,7 +59,7 @@ INSERT INTO `accounts` (`uid`, `email`, `password`, `activated`, `registered`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE IF NOT EXISTS `categories` (
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=166 ;
 
 --
--- Дамп данных таблицы `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`uid`, `name`, `parent`) VALUES
@@ -192,7 +192,7 @@ INSERT INTO `categories` (`uid`, `name`, `parent`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE IF NOT EXISTS `comments` (
@@ -205,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
--- Дамп данных таблицы `comments`
+-- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`uid`, `userid`, `itemid`, `text`, `date`) VALUES
@@ -219,7 +219,7 @@ INSERT INTO `comments` (`uid`, `userid`, `itemid`, `text`, `date`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `items`
+-- Table structure for table `items`
 --
 
 CREATE TABLE IF NOT EXISTS `items` (
@@ -232,37 +232,43 @@ CREATE TABLE IF NOT EXISTS `items` (
   `size` int(1) NOT NULL DEFAULT '1',
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `views` int(255) NOT NULL DEFAULT '0',
+  `subimage_0` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `subimage_1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `subimage_2` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=24 ;
 
 --
--- Дамп данных таблицы `items`
+-- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`uid`, `userid`, `title`, `image`, `category`, `price`, `size`, `date`, `description`) VALUES
-(1, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image8.jpg', 28, '20', 1, '0000-00-00 00:00:00', ''),
-(2, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image2.jpg', 28, '20', 1, '0000-00-00 00:00:00', ''),
-(3, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image10.jpg', 28, '20', 1, '0000-00-00 00:00:00', ''),
-(4, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image4.jpg', 28, '20', 2, '0000-00-00 00:00:00', ''),
-(5, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image2.jpg', 28, '20', 1, '0000-00-00 00:00:00', ''),
-(6, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image6.jpg', 28, '20', 1, '0000-00-00 00:00:00', ''),
-(7, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image3.jpg', 28, '20', 1, '0000-00-00 00:00:00', ''),
-(8, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image11.jpg', 28, '20', 1, '0000-00-00 00:00:00', ''),
-(9, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image9.jpg', 28, '20', 1, '0000-00-00 00:00:00', ''),
-(10, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image1.jpg', 28, '20', 2, '0000-00-00 00:00:00', ''),
-(11, 0, 'BLablabla', 'images/temp/image7.jpg', 56, '30', 1, '0000-00-00 00:00:00', ''),
-(12, 0, 'Teestestest', 'images/temp/image5.jpg', 56, '30', 1, '0000-00-00 00:00:00', ''),
-(13, 0, 'BLablabla', 'images/temp/image3.jpg', 28, '100', 1, '0000-00-00 00:00:00', ''),
-(14, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image8.jpg', 28, '20', 1, '0000-00-00 00:00:00', ''),
-(15, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image2.jpg', 28, '20', 1, '0000-00-00 00:00:00', ''),
-(16, 18, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image10.jpg', 28, '20', 1, '0000-00-00 00:00:00', ''),
-(17, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image4.jpg', 28, '20', 2, '0000-00-00 00:00:00', ''),
-(21, 18, 'Mario', 'http://inlife.no-ip.org/proto/uploads/e30acc21d7782d618a6767b463dffa21.jpeg', 56, '250000', 1, '2013-08-30 14:23:58', 'THIS IS MARIO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!!!!!!!!!!!!!!!!!!!!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n');
+INSERT INTO `items` (`uid`, `userid`, `title`, `image`, `category`, `price`, `size`, `date`, `description`, `views`, `subimage_0`, `subimage_1`, `subimage_2`) VALUES
+(1, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image8.jpg', 28, '20', 1, '0000-00-00 00:00:00', '', 0, '', '', ''),
+(2, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image2.jpg', 28, '20', 1, '0000-00-00 00:00:00', '', 0, '', '', ''),
+(3, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image10.jpg', 28, '20', 1, '0000-00-00 00:00:00', '', 2, '', '', ''),
+(4, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image4.jpg', 28, '20', 2, '0000-00-00 00:00:00', '', 0, '', '', ''),
+(5, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image2.jpg', 28, '20', 1, '0000-00-00 00:00:00', '', 1, '', '', ''),
+(6, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image6.jpg', 28, '20', 1, '0000-00-00 00:00:00', '', 1, '', '', ''),
+(7, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image3.jpg', 28, '20', 1, '0000-00-00 00:00:00', '', 2, '', '', ''),
+(8, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image11.jpg', 28, '20', 1, '0000-00-00 00:00:00', '', 2, '', '', ''),
+(9, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image9.jpg', 28, '20', 1, '0000-00-00 00:00:00', '', 1, '', '', ''),
+(10, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image1.jpg', 28, '20', 2, '0000-00-00 00:00:00', '', 2, '', '', ''),
+(11, 0, 'BLablabla', 'images/temp/image7.jpg', 56, '30', 1, '0000-00-00 00:00:00', '', 2, '', '', ''),
+(12, 0, 'Teestestest', 'images/temp/image5.jpg', 56, '30', 1, '0000-00-00 00:00:00', '', 2, '', '', ''),
+(13, 0, 'BLablabla', 'images/temp/image3.jpg', 28, '100', 1, '0000-00-00 00:00:00', '', 1, '', '', ''),
+(14, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image8.jpg', 28, '20', 1, '0000-00-00 00:00:00', '', 3, '', '', ''),
+(15, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image2.jpg', 28, '20', 1, '0000-00-00 00:00:00', '', 2, '', '', ''),
+(16, 18, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image10.jpg', 28, '20', 1, '0000-00-00 00:00:00', '', 9, '', '', ''),
+(17, 0, 'Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', 'images/temp/image4.jpg', 28, '20', 2, '0000-00-00 00:00:00', '', 1, '', '', ''),
+(21, 18, 'Mario', 'http://inlife.no-ip.org/proto/uploads/e30acc21d7782d618a6767b463dffa21.jpeg', 56, '250000', 1, '2013-08-30 14:23:58', 'THIS IS MARIO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!!!!!!!!!!!!!!!!!!!!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n\n', 57, '', '', ''),
+(22, 18, 'Test#4', 'http://inlife.no-ip.org/proto/uploads/593edb0a3baa2d74c9490f65064b3cf3_8885.jpg', 26, '100', 1, '2013-09-23 16:20:49', 'asdasdasd', 29, 'http://inlife.no-ip.org/proto/uploads/593edb0a3baa2d74c9490f65064b3cf3_37115.jpg', 'http://inlife.no-ip.org/proto/uploads/593edb0a3baa2d74c9490f65064b3cf3_6179.jpg', ''),
+(23, 18, 'Covers', 'http://inlife.no-ip.org/proto/uploads/067f3b10d621d6354f6f4df6941d450d_18519.jpg', 29, '1000', 1, '2013-09-23 16:38:56', 'asdasd', 24, 'http://inlife.no-ip.org/proto/uploads/067f3b10d621d6354f6f4df6941d450d_3060.jpg', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `likes`
+-- Table structure for table `likes`
 --
 
 CREATE TABLE IF NOT EXISTS `likes` (
@@ -271,10 +277,10 @@ CREATE TABLE IF NOT EXISTS `likes` (
   `userid` int(255) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=26 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=28 ;
 
 --
--- Дамп данных таблицы `likes`
+-- Dumping data for table `likes`
 --
 
 INSERT INTO `likes` (`uid`, `itemid`, `userid`, `date`) VALUES
@@ -287,17 +293,17 @@ INSERT INTO `likes` (`uid`, `itemid`, `userid`, `date`) VALUES
 (8, 12, 18, '2013-08-26 18:10:03'),
 (9, 10, 18, '2013-08-27 17:10:45'),
 (16, 15, 7, '2013-08-29 20:23:34'),
-(17, 21, 18, '2013-08-30 20:36:46'),
 (19, 7, 28, '2013-09-17 13:25:32'),
 (21, 9, 28, '2013-09-17 13:25:45'),
 (22, 10, 28, '2013-09-17 13:26:13'),
-(24, 21, 28, '2013-09-17 13:33:24'),
-(25, 16, 28, '2013-09-17 13:44:48');
+(25, 16, 28, '2013-09-17 13:44:48'),
+(26, 21, 28, '2013-09-21 08:06:53'),
+(27, 21, 18, '2013-09-23 12:52:10');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `messages`
+-- Table structure for table `messages`
 --
 
 CREATE TABLE IF NOT EXISTS `messages` (
@@ -307,10 +313,10 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `text` text COLLATE utf8_unicode_ci NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=27 ;
 
 --
--- Дамп данных таблицы `messages`
+-- Dumping data for table `messages`
 --
 
 INSERT INTO `messages` (`uid`, `userid`, `senderid`, `text`, `date`) VALUES
@@ -332,12 +338,14 @@ INSERT INTO `messages` (`uid`, `userid`, `senderid`, `text`, `date`) VALUES
 (21, 28, 18, 'автообновления нету =*(', '2013-08-31 08:43:21'),
 (22, 28, 18, 'пока что', '2013-08-31 08:43:27'),
 (23, 32, 18, 'потом сделаем,я уверен', '2013-08-31 08:43:38'),
-(24, 18, 28, 'Hello, i want to buy your item, Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', '2013-09-17 14:44:49');
+(24, 18, 28, 'Hello, i want to buy your item, Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', '2013-09-17 14:44:49'),
+(25, 18, 0, 'Hello, i want to buy your product: Mario', '2013-09-23 15:42:12'),
+(26, 18, 0, 'Hello, i want to buy your product: Blue Sapphire Gemstone Bracelet Precious Gem Gold Chain Delicate Handmade Jewelry', '2013-09-23 15:43:00');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `subscribers`
+-- Table structure for table `subscribers`
 --
 
 CREATE TABLE IF NOT EXISTS `subscribers` (
@@ -348,11 +356,11 @@ CREATE TABLE IF NOT EXISTS `subscribers` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `subscribers`
+-- Dumping data for table `subscribers`
 --
 
 INSERT INTO `subscribers` (`uid`, `shopid`, `userid`) VALUES
-(1, 19, 28);
+(1, 18, 28);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

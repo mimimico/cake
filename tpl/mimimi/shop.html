@@ -3,6 +3,19 @@
 {% block(scripts) %}
 <script type="text/javascript" src="scripts/jquery.raty.min.js"></script>
 <script type="text/javascript" src="scripts/raty.load.js"></script>
+<script type="text/javascript">
+    $(window).load(function() {
+        $.ajax({ 
+            url: "{% url(shop::getSubscribers) %}&id={% shop.uid %}"
+        }).done(function(data) {
+            if (data) {
+                $("#shop_subscribers").text(data);
+            } else {
+                $("#shop_subscribers").text("0");
+            }
+        });
+    });
+</script>
 {% endblock %}
 
 {% block(content) %}
@@ -32,7 +45,7 @@
                         {% shop.address %}<br />
                         <!--a href="#">Показать на карте</a-->
                     </li>
-                    <li><a href="#">{%l(title_subscribers)%}</a> <span class="counter">{% shop.subscribers %}</span></li>
+                    <li><a href="#">{%l(title_subscribers)%}</a> <span id="shop_subscribers" class="counter">0</span></li>
                     <!--li><a href="#">Официальный сайт</a></li-->
                 </ul>
                 <a href="{%url(shop::subscribe)%}&id={%shop.uid%}" class="button like">{%l(button_subscribe)%}</a>

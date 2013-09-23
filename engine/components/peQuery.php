@@ -40,7 +40,7 @@ class peQuery
             case "where": $this->_condition = $args[0]; break;
             case "order": $this->_order = $args;        break;
             case "limit": $this->_limit = $args;        break;
-            case "run":   return $this->query(@$args[0]);break;
+            case "run":   return $this->query(@$args[0], @$args[1]);break;
             case "clear":
                 $this->_method = null;
                 $this->_condition = null;
@@ -67,9 +67,7 @@ class peQuery
     public function prepare()
     {
         /* Adding method*/
-        if (empty($this->_method)) {
-            peCore::error("No method", "modelprovider", __LINE__);
-        }
+        
         $query = new String($this->_method);
         $query->toUpper();
         
@@ -88,11 +86,7 @@ class peQuery
         }
         
         /* Adding table */
-        if (empty($this->_table)) {
-            peCore::error("No table", "modelprovider", __LINE__);
-        } else {
-            $query->space()->concat($this->_table);
-        }
+        $query->space()->concat($this->_table);
         
         /* Adding data */
         if (!empty($this->_info) && in_array($this->_method, self::$_requestSet)) {
@@ -129,12 +123,12 @@ class peQuery
         return $query->get();
     }
     
-    private function query($single = false)
+    private function query($single = false, $query = null)
     {
-        $query = $this->prepare();
+        $query = ($query) ? $query : $this->prepare();
         
         /* Running query */
-        $result = self::cacherun($query, in_array($this->_method, self::$_requestSet));
+        $result = self::cacherun($query, ($this->_method == self::$_requestSet[0]));
         if (self::getPointer()->errno) {
             $p = self::getPointer();
             peCore::error("Mysqli: query error (" . $p->errno . "), " . $p->error);
@@ -176,6 +170,10 @@ class peQuery
     private static function escapeString($value)
     {
         if(@gettype($value) == "string" || $value === null) {
+            if (strpos($value, ":ns")) {
+                list($a) = explode(":n", $value);
+                return $a;
+            }
             return "'".$value."'";
         } else {
             return $value;

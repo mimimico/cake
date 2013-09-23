@@ -133,7 +133,7 @@ class miUser extends peModel
         $this->insert($data);
         $this->removeLocal();
         $this->unload();
-        $image = new peImage("upload", 1000 * 1000); // 1000 kb
+        $image = new peImage(@$_FILES["upload"], 1000 * 1000); // 1000 kb
         $imagename = md5(time()) . "_". rand(100,100000);
         if ($image->save($imagename)) {
             $this->avatar = $image->getUrl();
@@ -280,6 +280,13 @@ class miUser extends peModel
         }
     }
     
+    public function getSubscribers() 
+    {
+        return @$this->query()->select("COUNT(*) AS count")->table("subscribers")->where(array(
+            "shopid" => $this->uid
+        ))->run(true)->count;
+    }
+    
     public function isMaster()
     {
         if ($this->type == 1) {
@@ -293,12 +300,6 @@ class miUser extends peModel
         $user = new self;
         $result = $user->query()->select()->table("accounts")->where(array("uid" => $id))->run(true);
         if (!$result) return false;
-        if ($result->type == 1) {
-            $count = $user->query()->select("COUNT(*) AS count")->table("subscribers")->where(array(
-                "shopid" => $result->uid
-            ))->run(true)->count;
-            $user->subscribers = (empty($count)) ? "0" : $count;
-        }
         $user->insert($result);
         $user->load();
         return $user;
