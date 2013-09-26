@@ -153,6 +153,25 @@ html {
 	background-color: #8db847;
 }
 
+
+/* ERROR WHILE WRONG DATA ENTERED */
+.splash-screen input[type="text"].error,
+.splash-screen input[type="password"].error {
+	background: rgba(255, 60, 0, 0.10);
+}
+
+.splash-screen input.error::-webkit-input-placeholder {color: rgba(255, 60, 0, 0.5);}
+.splash-screen input.error:-moz-placeholder {color: rgba(255, 60, 0, 0.5);}
+.splash-screen input.error::-moz-placeholder {color: rgba(255, 60, 0, 0.5);}
+.splash-screen input.error::-ms-input-placeholder {color: rgba(255, 60, 0, 0.5);}
+
+.splash-screen input[type="text"].error:focus,
+.splash-screen input[type="password"].error:focus {
+	background: #fff;
+}
+/* --- */
+
+
 .splash-screen input[type="text"]:focus,
 .splash-screen input[type="password"]:focus {
 	box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.10);
