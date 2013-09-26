@@ -14,7 +14,7 @@ peCore::init(
         "title"     => " | Mimimi.co",
         "host"      => "http://inlife.no-ip.org/proto/",
         "siteTheme" => "mimimi",
-        "tplDirs"   => array("css", "slider", "script", "js", "images"),
+        "tplDirs"   => array("css", "slider", "script", "js", "images", "splash"),
         "debug"     => true,
         "hashSalt"  => "qw123",
         "charset"   => "utf-8",
@@ -49,5 +49,16 @@ peHook::addHook("onGetData", function($args) {
         $args[0]->cuser = miUser::getLocal();
     } else {
         $args[0]->cuser->logined = false;
+    }
+});
+
+peHook::addHook("onRequest", function($args) {
+    $actions = array("index", "info", "login");
+    if (!miUser::logined()) {
+        if (($args[0]->name != "main" || !in_array($args[0]->action, $actions)) && !$args[0]->async) {
+            peHttp::redirect(peHttp::url(
+                array("name" => "main", "action" => "index")
+            ));
+        }
     }
 });

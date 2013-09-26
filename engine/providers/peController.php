@@ -11,7 +11,8 @@ abstract class peController extends peHttp
     public static function getData()
     {
         /* Hooks */
-        $Page = new peRequest("name", "action");
+        $Page = new peRequest("name", "action", "async:i");
+        peHook::onRequest($Page);
         if (!@$Page->Name) $Page->Name = peTpl_DefaultPage;
         if (!@$Page->Action) $Page->Action = peTpl_DefaultAction;
         $data = self::classRegistry(

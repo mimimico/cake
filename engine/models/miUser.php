@@ -59,11 +59,17 @@ class miUser extends peModel
     {
         if (self::logined()) $this->error(21);
             
-        if (isset($this->email) && isset($this->password) && isset($this->repassword)) {
+        if (isset($this->email) && isset($this->password)) {
             
             if (!$this->validEmail()) $this->error(14);
+            if ($this->username) {
+                @list($this->firstname, $this->lastname) = explode(" ", $this->username);
+            }
+            unset($this->username);
             
-            if ($this->password != $this->repassword) $this->error(15);
+            if ($this->repassword) {
+                if ($this->password != $this->repassword) $this->error(15);
+            }
             unset($this->repassword);
             
             $query = $this->query()->table("accounts");
@@ -75,13 +81,13 @@ class miUser extends peModel
             $this->registered = date("Y-m-d H:i:s");
             $query->insert()->values($this)->run();
             
+            /*
             $hash = $this->hash($this->email, $this->password);
             
             $this->mail("register", self::url(
                 array("name" => "user", "action" => "activate", "email" => $this->email, "hash" => $hash)
             ));
-            
-            self::redirect();   //notification about mail
+            */
             
         } else {
             $this->error(13);
@@ -114,8 +120,6 @@ class miUser extends peModel
             if ($this->hash($result->email, $result->password) == $input->hash) {
                 $query->update()->set(array("activated" => 1))->where(array("email" => $input->email))->run();
             }
-            
-            $this->redirect();
         }
     }
     
@@ -160,7 +164,6 @@ class miUser extends peModel
                 $this->load();
                 $this->setLocal();
                 $this->transferLikes();
-                $this->redirect();
             } else {
                 $this->error(20); 
             }
@@ -212,7 +215,6 @@ class miUser extends peModel
             $this->load();
             $this->transferLikes();
             $this->setLocal();
-            $this->redirect();
         }
     }
     

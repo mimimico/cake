@@ -40,8 +40,9 @@ class peHttp
     
     public static function error($code = 0, $back = false)
     {
+        $req = new peRequest("async");
         self::redirect(self::url(
-            array("name" => "error", "code" => $code, "back" => $back)
+            array("name" => "error", "code" => $code, "back" => $back, "async" => $req->async)
         ));
     }
 }

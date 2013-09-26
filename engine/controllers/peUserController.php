@@ -87,20 +87,32 @@ class peUserController extends peController
     public static function registerAction()
     {
         $user = new miUser();
-        $user->insert(new peRequest("email", "password", "repassword"));
+        $user->insert(new peRequest("email", "password", "repassword", "username"));
         $user->create();
+        $req = new peRequest("async");
+        if ($req->async) {
+            print("register_ok");die();
+        }
+        
+        self::redirect();
     }
     
     public static function activateAction()
     {
         $user = new miUser();
         $user->activate(new peRequest("hash", "email"));
+        self::redirect();
     }
     
     public static function loginAction()
     {
         $user = new miUser();
-        $user->login(new peRequest("email", "password"));
+        $user->login(new peRequest("email", "password")); 
+        $req = new peRequest("async");
+        if ($req->async) {
+            print("login_ok");die();
+        }
+        self::redirect();
     }
     
     public static function logoutAction()
@@ -113,11 +125,13 @@ class peUserController extends peController
     {
         $user = new miUser();
         $user->socialLogin(1);
+        self::redirect();
     }
     
     public static function vkontakteAction()
     {
         $user = new miUser();
         $user->socialLogin(0);
+        self::redirect();
     }
 }

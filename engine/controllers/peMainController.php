@@ -8,7 +8,26 @@
 
 class peMainController extends peController
 {
-    public static function indexAction()
+    public static function indexAction() 
+    {
+        if (miUser::logined()) return self::homeAction();
+        $response = new peResponse("splash/registration");
+        return $response;
+    }
+            
+    public static function infoAction() 
+    {
+        $response = new peResponse("splash/message");
+        return $response;
+    }
+    
+    public static function loginAction()
+    {
+        $response = new peResponse("splash/login");
+        return $response;
+    }
+    
+    public static function homeAction()
     {
         /* Imports */
         peLoader::import("models.miCategory");

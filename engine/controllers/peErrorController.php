@@ -4,7 +4,7 @@ class peErrorController
 {
     public static function indexAction()
     {
-        $param = new peRequest("code:i", "back:i");
+        $param = new peRequest("code:i", "back:i", "async:i");
         $errors = array(
             7  => "err_image_bigger",
             13 => "err_empty_fileds",
@@ -25,6 +25,11 @@ class peErrorController
             $message = "err_unknown";
         }
         
+        $message = peLanguage::get($message);
+        if ($param->async) {
+            print($message);die();
+        }
+        
         peLoader::import("models.miCategory");
         peLoader::import("models.miItem");
         
@@ -43,7 +48,7 @@ class peErrorController
         }
         $response->user->logined = miUser::logined();
         $response->user->links = miUser::getLinks();
-        $response->error->message = peLanguage::get($message);
+        $response->error->message = $message;
         $response->page->error = true;
         return $response;
     }

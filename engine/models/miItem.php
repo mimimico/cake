@@ -40,6 +40,7 @@ class miItem extends peModel
                 }
             }
             
+            $this->category = $data->category;
             $this->insert($data);
             $this->userid = miUser::getLocal()->uid;
                     
