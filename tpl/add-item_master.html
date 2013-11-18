@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="scripts/jquery.js"></script>
+		<script src="scripts/like_demo.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="wrapper">
+				<div class="overflow">
+					<div class="brand box">
+						<a href="#">MIMIMI.co</a>
+					</div>
+				</div>
+				<nav class="user">
+					<ul class="user-panel">
+						<li><a href="#">About</a></li>
+						<li><a href="#">Help</a></li>
+						<li><a href="#">Messages</a></li>
+						<li class="account">
+							<a href="#">Account</a>
+							<div class="notifications">
+								<a href="#notifications" class="indicator box">5</a>
+								<div class="notifications-dropdown"><div class="notifications-triangle"></div>
+									<div class="title"><h3>Notifications</h3><a href="#" class="all-notifications"></a></div>
+									<ul class="notifications-list">
+									
+									</ul>
+								</div> 
+							</div>
+							<img src="images/temp/userpic-40-1.jpg" class="userpic-small" />
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<nav class="under-head">
+			<div class="wrapper">
+			<ul class="menu">
+				<li><a href="#">Art</a></li>
+				<li><a href="#">Home & Living</a></li>
+				<li><a href="#">Women</a></li>
+				<li><a href="#">Men</a></li>
+				<li><a href="#">Kids</a></li>
+				<li><a href="#">Jewelry</a></li>
+				<li><a href="#">Vintage</a></li>
+				<li><a href="#">Gift ideas</a></li>
+			</ul>
+			<form method="post">
+				<input type="search" placeholder="Search" />
+			</form>
+			</div>
+		</nav>
+		<div class="content">
+			<div class="wrapper">
+				<aside>
+					<div class="block box checkout">
+						<h3>Order</h3>
+						<div class="row box">
+							<span>Price</span>
+							<input type="text" placeholder="Make your price" class="price" />
+						</div>
+						<div class="row box">
+							<span>Ship to</span>
+							<select class="quantity">
+								<option value="0">Worldwide</option>
+								<option value="01">01</option>
+								<option value="02">02</option>
+								<option value="03">03</option>
+							</select>
+						</div>
+						<div class="row box">
+							<span>Made in</span>
+							<select class="quantity">
+								<option value="0">Select country</option>
+								<option value="01">01</option>
+								<option value="02">02</option>
+								<option value="03">03</option>
+							</select>
+						</div>
+						<div class="row box">
+							<input type="submit" value="Add" class="box" />
+						</div>
+					</div>
+					<div class="block box">
+						<h3>Quick access</h3>
+						<ul class="browse quick-access">
+							<li><a href="#" class="add-item">Add item</a></li>
+							<li><a href="#" class="feedback">Your replies</a></li>
+						</ul>
+					</div>
+				</aside>
+				<section>
+					<div class="item">
+						<div class="block box">
+							<h3 class="title">
+								Add new item
+							</h3>
+								<form class="upload">
+									<ul>
+										<div class="row box">
+										<li class="box image-main">
+											<input type="file" id="upload1" />
+											<img class="image" id="image1" alt="" src="#" />
+										</li>
+										<li class="box">
+											<input type="file" id="upload2" />
+											<img class="image" id="image2" alt="" src="#" />
+										</li>
+										<li class="box">
+											<input type="file" id="upload3" />
+											<img class="image" id="image3" alt="" src="#" />
+										</li>
+										<li class="box">
+											<input type="file" id="upload4" />
+											<img class="image" id="image4" alt="" src="#" />
+										</li>
+										</div>
+										<div class="row box">
+										<li class="box">
+											<input type="file" id="upload5" />
+											<img class="image" id="image5" alt="" src="#" />
+										</li>
+										<li class="box">
+											<input type="file" id="upload6" />
+											<img class="image" id="image6" alt="" src="#" />
+										</li>
+										<li class="box">
+											<input type="file" id="upload7" />
+											<img class="image" id="image7" alt="" src="#" />
+										</li>
+										<li class="box">
+											<input type="file" id="upload8" />
+											<img class="image" id="image8" alt="" src="#" />
+										</li>
+										</div>
+									</ul>
+								</form>
+							<div class="row full">
+								<span>Category</span>
+								<select>
+									<option value="0">Select category from list</option>
+									<option value="01">01</option>
+									<option value="02">02</option>
+									<option value="03">03</option>
+								</select>
+							</div>
+							<div class="row full">
+								<span>Title</span>
+								<input type="text" placeholder="Enter title here" />
+							</div>
+							<div class="row full">
+								<span class="sign">Description</span>
+								<ul class="available-tags">
+									<li><a href="#">&#60;a&#62;</a></li>
+									<li><a href="#">&#60;strong&#62;</a></li>
+									<li><a href="#">&#60;i&#62;</a></li>
+									<li><a href="#">&#60;u&#62;</a></li>
+									<li><a href="#">&#60;h4&#62;</a></li>
+									<li><a href="#">&#60;br&#62;</a></li>
+								</ul>
+								<textarea placeholder="Item description."></textarea>
+								<h6 class="counter box">23</h6>
+							</div>
+							<div class="section small-section">
+								<div class="row">
+									<span>Available</span>
+									<input type="text" placeholder="Quantity" />
+								</div>
+								<div class="row">
+									<span>Sizes</span>
+									<input type="text" placeholder="Optional" />
+								</div>
+							</div>
+							<div class="section middle-section">
+								<div class="row">
+									<span>Available</span>
+									<input type="text" placeholder="Quantity" />
+								</div>
+								<div class="row">
+									<span>Sizes</span>
+									<input type="text" placeholder="Optional" />
+								</div>
+							</div>
+							<ul class="browse">
+								<li><a href="#" class="highlights">Highlight item</a></li>
+							</ul>
+							<div class="buttons">
+								<input type="submit" value="Save" />
+								<input type="button" value="Cancel" />
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<footer>
+			<div class="wrapper">
+				<div class="logo">
+					<span>2013 &copy; All rights reserved.</span>
+					MIMIMI.co
+				</div>
+				<ul class="foot-menu">
+					<li><a href="#">About</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Job</a></li>
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">Privacy</a></li>
+					<li><a href="#">Contacts</a></li>
+					<li><a href="#">Advertisement</a></li>
+				</ul>
+			</div>
+		</footer>
+		<script src="scripts/upload_demo.js"></script>
+		<script src="scripts/slider.js"></script>
+		<script src="scripts/notifications.js"></script>
+	</body>
+</html>
