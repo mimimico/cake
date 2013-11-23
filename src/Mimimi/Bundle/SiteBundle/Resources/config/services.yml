@@ -1,0 +1,7 @@
+parameters:
+#    mimimi_site.example.class: Mimimi\Bundle\SiteBundle\Example
+
+services:
+#    mimimi_site.example:
+#        class: %mimimi_site.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

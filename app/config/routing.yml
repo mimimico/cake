@@ -1,0 +1,4 @@
+mimimi_site:
+    resource: "@MimimiSiteBundle/Resources/config/routing.yml"
+    prefix:   /
+

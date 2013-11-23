@@ -1,0 +1,12 @@
+{% extends "MimimiSiteBundle:Default:base.html.twig" %}
+
+{% block content_wrapper %}
+<div class="wrapper">
+	<aside>
+	{% block aside %}{% endblock %}
+	</aside>
+	<section>
+	{% block content %}{% endblock %}
+	</section>
+</div>
+{% endblock %}
