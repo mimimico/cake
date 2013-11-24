@@ -67,7 +67,7 @@ class Item
     /** 
      * @ORM\Column(name="quantity", type="integer")
      */
-    public $quantity;
+    public $quantity = 0;
 
 
     /** 
