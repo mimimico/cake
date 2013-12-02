@@ -77,7 +77,7 @@ class User
     public function login($controller) 
     {
         $data  = $controller->get('request')->request;
-        $em = $->get('doctrine')->getManager();
+        $em = $controller->get('doctrine')->getManager();
 
         foreach((array)$this as $param => $v) {
             if (!is_null($data->get($param))) {
