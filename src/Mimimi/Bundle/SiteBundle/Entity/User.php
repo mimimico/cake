@@ -70,7 +70,7 @@ class User
 
 
 
-    private $name;
+    public $name;
 
 
 
@@ -121,7 +121,7 @@ class User
     public function load($data) 
     {
         foreach((array)$data as $key => $value) {
-            if ($key && $value) 
+            if ($key && $value)
             $this->$key = $value;
         }
     }
