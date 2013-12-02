@@ -123,6 +123,10 @@ class Item
     	$this->images = new ArrayCollection();
     	$this->shipto = new ArrayCollection();
 
+        $this->user = $em->getRepository("MimimiSiteBundle:User")->find(
+            $controller->get('session')->get('_current_user')->id
+        );
+
     	if ($data->get("shipto") > 0) {
     		$this->shipto->add($em->getRepository("MimimiSiteBundle:Country")->find($data->get("shipto")));
 		} else {

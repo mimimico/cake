@@ -111,7 +111,7 @@ class User
         $this->date = new \DateTime("now");
         $this->password = md5($this->password);
         $this->status = $em->getRepository("MimimiSiteBundle:UserStatus")->find(1);
-        list($this->firstname, $this->lastname) = explode(' ', $this->name);
+        @list($this->firstname, $this->lastname) = explode(' ', $this->name);
 
         $em->persist($this);
         $em->flush();

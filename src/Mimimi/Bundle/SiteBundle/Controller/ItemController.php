@@ -39,7 +39,7 @@ class ItemController extends Controller implements UserRestricted
 	        	/* Pushing it to database */
 	        	$item->push($em);
 
-	        	return $this->redirect($this->generateUrl('_index'));
+	        	return $this->redirect($this->generateUrl('_user_index'));
 	        } else {
 	        	/* Woops, we have an error */
 	        	return array();

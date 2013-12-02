@@ -31,7 +31,7 @@ class DefaultController extends Controller
 	        $user = new User();
 
 	        if ($user->login($this)) {
-	        	return $this->redirect($this->generateUrl('_index'));
+	        	return $this->redirect($this->generateUrl('_user_index'));
 	        } else {
 	        	/* Woops, we have an error */
 	        	return array();

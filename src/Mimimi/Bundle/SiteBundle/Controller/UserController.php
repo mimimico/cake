@@ -16,7 +16,7 @@ class UserController extends Controller implements UserRestricted
 {
     /**
      * @Template("MimimiSiteBundle:Default:profile-master.html.twig")
-     * @Route("/")
+     * @Route("/", name="_user_index")
      * @Route("/{id}", requirements={"id" = "\d+"})
      */
     public function indexAction($id = 0)
