@@ -89,7 +89,7 @@ html {
 }
 
 .splash-screen a.brand {
-	background: url("images/logo-splash.svg") no-repeat;
+	background: url("../images/logo-splash.svg") no-repeat;
 	background-size: contain;
 	width: 240px;
 	height: 50px;

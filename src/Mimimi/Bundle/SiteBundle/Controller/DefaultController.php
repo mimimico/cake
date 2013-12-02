@@ -6,46 +6,71 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-use Mimimi\Bundle\SiteBundle\Entity\Item;
+use Mimimi\Bundle\SiteBundle\Entity\User;
 
 class DefaultController extends Controller
 {
     /**
-     * @Template()
      * @Route("/", name="_index")
      */
     public function indexAction()
     {
-    	return $this->redirect($this->generateUrl("_item_add"));
+    	return $this->redirect($this->generateUrl("_splash_register"));
     }
 
 
     /**
-     * @Template("MimimiSiteBundle:Default:item-add.html.twig")
-     * @Route("/item/add", name="_item_add")
+     * @Template("MimimiSiteBundle:Splash:splash_login.html.twig")
+     * @Route("/login", name="_splash_login")
      */
-    public function itemAddAction()
+    public function splashLoginAction()
     {
         $em = $this->get('doctrine')->getManager();
 
         if ($this->get('request')->getMethod() == "POST") {
-        	/* Create new item */
-	        $item = new Item($this);
+	        $user = new User();
 
-	        if ($item->isValid()) {
-	        	/* Pushing it to database */
-	        	$item->push($em);
-
+	        if ($user->login($this)) {
 	        	return $this->redirect($this->generateUrl('_index'));
 	        } else {
 	        	/* Woops, we have an error */
 	        	return array();
 	        }
         } else {
-        	return array(
-	    		"categories" => $em->getRepository("MimimiSiteBundle:Category")->findAll(),
-	    		"countries"  => $em->getRepository("MimimiSiteBundle:Country") ->findAll()
-			);
-        }
+    		return array();
+    	}
+    }
+
+
+    /**
+     * @Template("MimimiSiteBundle:Splash:splash_registration.html.twig")
+     * @Route("/registration", name="_splash_register")
+     */
+    public function splashRegisterAction()
+    {
+        $em = $this->get('doctrine')->getManager();
+
+        if ($this->get('request')->getMethod() == "POST") {
+	        $user = new User();
+
+	        if ($user->create($this)) {
+	        	return $this->redirect($this->generateUrl('_splash_message'));
+	        } else {
+	        	/* Woops, we have an error */
+	        	return array();
+	        }
+        } else {
+    		return array();
+    	}
+    }
+
+
+    /**
+     * @Template("MimimiSiteBundle:Splash:splash_message.html.twig")
+     * @Route("/welcome", name="_splash_message")
+     */
+    public function splashMessageAction()
+    {
+    	return array();
     }
 }

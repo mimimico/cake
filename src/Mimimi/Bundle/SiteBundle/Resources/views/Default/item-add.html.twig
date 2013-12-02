@@ -58,6 +58,10 @@
 				<ul>
 					<div class="row box">
 					<li class="box image-main">
+						<input type="file" id="upload0" name="images[]" />
+						<img class="image" id="image0" alt="" src="#" />
+					</li>
+					<li class="box">
 						<input type="file" id="upload1" name="images[]" />
 						<img class="image" id="image1" alt="" src="#" />
 					</li>
@@ -69,12 +73,12 @@
 						<input type="file" id="upload3" name="images[]" />
 						<img class="image" id="image3" alt="" src="#" />
 					</li>
+					</div>
+					<div class="row box">
 					<li class="box">
 						<input type="file" id="upload4" name="images[]" />
 						<img class="image" id="image4" alt="" src="#" />
 					</li>
-					</div>
-					<div class="row box">
 					<li class="box">
 						<input type="file" id="upload5" name="images[]" />
 						<img class="image" id="image5" alt="" src="#" />
@@ -86,10 +90,6 @@
 					<li class="box">
 						<input type="file" id="upload7" name="images[]" />
 						<img class="image" id="image7" alt="" src="#" />
-					</li>
-					<li class="box">
-						<input type="file" id="upload8" name="images[]" />
-						<img class="image" id="image8" alt="" src="#" />
 					</li>
 					</div>
 				</ul>
@@ -133,11 +133,11 @@
 		<div class="section middle-section">
 			<div class="row">
 				<span>Used materials</span>
-				<input type="text" placeholder="Seperate materials with commas (optional)" />
+				<input type="text" placeholder="Seperate materials with commas (optional)" name="materials" />
 			</div>
 			<div class="row">
 				<span>Tags</span>
-				<input type="text" placeholder="Enter tags" />
+				<input type="text" placeholder="Enter tags" name="tags" />
 			</div>
 		</div>
 		<ul class="browse">

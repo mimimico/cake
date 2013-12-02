@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
 * @ORM\Entity
 */
-class Category
+class UserStatus
 {
     /**
      * @ORM\Id
@@ -24,9 +24,10 @@ class Category
 
 
     /**
-     * @ORM\OneToMany(targetEntity="Item", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="User", mappedBy="status")
      */
-    public $items;
+    public $users;
+
 
     public function getTitle()
     {

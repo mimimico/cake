@@ -1,5 +1,9 @@
 mimimi_site_homepage:
     resource: "@MimimiSiteBundle/Controller/DefaultController.php"
     type:     annotation
-#    pattern:  /
-#    defaults: { _controller: MimimiSiteBundle:Default:index }
+mimimi_site_userpage:
+    resource: "@MimimiSiteBundle/Controller/UserController.php"
+    type:     annotation
+mimimi_site_itempage:
+    resource: "@MimimiSiteBundle/Controller/ItemController.php"
+    type:     annotation

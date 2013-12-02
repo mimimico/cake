@@ -4,6 +4,7 @@ namespace Mimimi\Bundle\SiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+
 use Mimimi\Bundle\SiteBundle\Entity\ItemImage;
 use Mimimi\Bundle\SiteBundle\Entity\Country;
 use Mimimi\Bundle\SiteBundle\Entity\Category;
@@ -44,6 +45,12 @@ class Item
      * @ORM\JoinTable(name="item_shipping")
      */
     public $shipto;
+    
+
+    /** 
+     * @ORM\ManyToOne(targetEntity="User")
+     */
+    public $user;
 
 
     /** 
@@ -94,6 +101,7 @@ class Item
     public $date;
 
 
+
     public $_tmp_images;
 
 
@@ -130,6 +138,11 @@ class Item
     			$this->_tmp_images[] = new ItemImage($image);
     		}
     	}
+    }
+
+    public function getCategory() 
+    {
+        return $this->category;
     }
 
     public function addItemImage(ItemImage $image) 

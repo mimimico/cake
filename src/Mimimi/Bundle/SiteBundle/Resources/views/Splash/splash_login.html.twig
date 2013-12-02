@@ -1,0 +1,15 @@
+{% extends "MimimiSiteBundle:Splash:splash_base.html.twig" %}
+
+{% block content %}
+<a href="#" class="brand">MIMIMI.co</a>
+<form method="post" action="{{ url("_splash_login") }}">
+	<input type="text" placeholder="Email address" class="email" name="email" />
+	<input type="password" placeholder="Secret password" class="password" name="password" />
+	<input type="submit" value="Let me in!">
+</form>
+<span class="link">You need an account? <a href="{{ url("_splash_register") }}">Sign up!</a></span>
+<ul class="links">
+	<li><a href="#">About us</a></li>
+	<li><a href="#">Our blog</a></li>
+</ul>
+{% endblock %}
