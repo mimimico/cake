@@ -77,7 +77,7 @@ class User
     public function login($controller) 
     {
         $data  = $controller->get('request')->request;
-        $em = $controller->get('doctrine')->getManager();
+        $em = $->get('doctrine')->getManager();
 
         foreach((array)$this as $param => $v) {
             if (!is_null($data->get($param))) {
@@ -90,7 +90,7 @@ class User
         $entity = $em->getRepository("MimimiSiteBundle:User")->findOneBy(array('email' => $this->email, 'password' => $this->password));
         if ($entity) {
             $this->load($entity);
-            $contoller->get('session')->set("_current_user", $this);
+            $controller->get('session')->set("_current_user", $this);
             return true;
         }
         return false;
