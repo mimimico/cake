@@ -22,7 +22,7 @@ class UserController extends Controller implements UserRestricted
     public function indexAction($id = 0)
     {
         if (!$id) {
-            $id = $this->get('session')->get('_current_user')->id;
+            $id = $this->getRequest()->getSession()->get('_current_user')->id;
         }
 
         $em = $this->get('doctrine')->getManager();
