@@ -12,10 +12,12 @@ use Mimimi\Bundle\SiteBundle\Interfaces\UserRestricted;
 class UserListener
 {
     private $router;
+    private $session;
 
-    public function __construct($router)
+    public function __construct($router, $session)
     {
         $this->router = $router;
+        $this->session = $session;
     }
 
     public function onKernelController(FilterControllerEvent $event)
@@ -31,9 +33,7 @@ class UserListener
         }
 
         if ($controller[0] instanceof UserRestricted) {
-            $session = new Session();
-            $session->start();
-            if (!$session->get("_current_user")) {
+            if (!$this->session->get("_current_user")) {
                 $redirectUrl = $this->router->generate("_index");
                 $event->setController(function() use ($redirectUrl) {
                     return new RedirectResponse($redirectUrl);

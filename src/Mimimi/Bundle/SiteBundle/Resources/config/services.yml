@@ -7,6 +7,6 @@ services:
 #        arguments: [@service_id, "plain_value", %parameter%]
  mimimi_site.users.action_listener:
         class: Mimimi\Bundle\SiteBundle\EventListener\UserListener
-        arguments: ["@router"]
+        arguments: ["@router", "@session"]
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
