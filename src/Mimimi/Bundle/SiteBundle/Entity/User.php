@@ -6,8 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\Session\Session;
 
-use Mimimi\Bundle\SiteBundle\Entity\UserStatus;
-
 /**
 * @ORM\Entity
 */
@@ -52,9 +50,9 @@ class User
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="UserStatus")
+     * @ORM\Column(name="status", type="integer", length=2)
      */
-    public $status;
+    public $status = 1;
 
 
     /** 
@@ -87,13 +85,22 @@ class User
 
         $this->password = md5($this->password);
 
-        $entity = $em->getRepository("MimimiSiteBundle:User")->findOneBy(array('email' => $this->email, 'password' => $this->password));
+        $entity = $em->getRepository("MimimiSiteBundle:User")->findOneBy(array('email' => $this->email, 'password' => $this->password, 'activated' => true));
         if ($entity) {
             $this->load($entity);
             $controller->get('session')->set("_current_user", $this);
             return true;
         }
         return false;
+    }
+
+
+    public function update($controller)
+    {
+        $data  = $controller->get('request')->request;
+        $em = $controller->get('doctrine')->getManager();
+
+        //$em->flush();
     }
 
 
@@ -110,7 +117,6 @@ class User
 
         $this->date = new \DateTime("now");
         $this->password = md5($this->password);
-        $this->status = $em->getRepository("MimimiSiteBundle:UserStatus")->findOneById(1);
         @list($this->firstname, $this->lastname) = explode(' ', $this->name);
 
         $em->persist($this);

@@ -24,7 +24,7 @@ class ItemController extends Controller implements UserRestricted
     
 
     /**
-     * @Template("MimimiSiteBundle:Default:item-add.html.twig")
+     * @Template("MimimiSiteBundle:Item:add.html.twig")
      * @Route("/add", name="_item_add")
      */
     public function itemAddAction()

@@ -1,0 +1,35 @@
+<div class="block box profile">
+	<img src="{{ asset('bundles/mimimisite/images/userpic-40-wrapper.jpg') }}" class="userpic-middle"/>
+	<div class="progress-bar">
+		<h6>75% Completed</h6>
+		<div class="bar p75"></div>
+	</div>
+	<h4>{{ user.firstname }} {{ user.lastname }}</h4>
+	{% if (user.status == 1) %}
+		<div class="label label-user">User</div>
+	{% elseif (user.status == 2) %}
+		<div class="label label-master">Master</div>
+	{% endif%}
+	<div class="following-area">
+		<div>
+			<a href="#">
+				<strong>56</strong>
+				Following
+			</a>
+		</div>
+		<div>
+			<a href="#">
+				<strong>146</strong>
+				Followers
+			</a>
+		</div>
+	</div>
+	<!-- For foreign pages -->
+	<!-- <a href="#" class="follow-button">Follow</a> -->
+	<ul class="browse">
+		<li><a href="{{ url("_item_add") }}" class="add-item">Add item</a></li>
+		<li><a href="#" class="feedback">Your feedback</a></li>
+		<li><a href="{{ url("_user_edit") }}" class="settings">Accout settings</a></li>
+		<li><a href="{{ url("_user_logout") }}" class="power">Log Out</a></li>
+	</ul>
+</div>

@@ -1,0 +1,182 @@
+{% extends "MimimiSiteBundle:Default:two-column.page.html.twig" %}
+
+{% block javascript %}
+<script src="{{ asset('bundles/mimimisite/js/like_demo.js') }}"></script>
+<script src="{{ asset('bundles/mimimisite/js/upload_demo.js') }}"></script>
+<script src="{{ asset('bundles/mimimisite/js/slider.js') }}"></script>
+<script src="{{ asset('bundles/mimimisite/js/notifications.js') }}"></script>
+{% endblock %}
+
+{% block aside %}
+{% include "MimimiSiteBundle:User:sidebar.html.twig" %}
+<div class="block box" id="invites">
+	<h3>Invites</h3>
+	<h6 class="title">3 invites left</h6>
+	<form method="post" class="registration" action="index.php">
+		<input type="text" placeholder="Email of prospect" />
+		<input type="submit" value="Send invite">
+	</form>
+	<a href="#" class="small-link box">Request more invitatons!</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="account-settings">
+	<div class="block box">
+	<div class="sections">
+		<section class="main">
+			<div class="progress-bar">
+				<h6>50% Completed</h6>
+				<div class="bar p50"></div>
+			</div>
+			<div class="section general">
+				<h3 class="title">General</h3>
+				<div class="row">
+					<span>Email</span>
+					<input type="email" value="{{ user.email }}" placeholder="Enter your Email" />
+				</div>
+
+				<div class="row">
+					<span>Firstname</span>
+					<input type="text" value="{{ user.firstname }}" placeholder="Enter your Name" />
+				</div>
+
+				<div class="row">
+					<span>Lastname</span>
+					<input type="text" value="{{ user.lastname }}" placeholder="Enter your Surname" />
+				</div>
+			</div>
+			<div class="section biography">
+				<h3 class="title">About</h3>
+				<div class="row">
+					<span>Biography</span>
+					<ul class="available-tags">
+						<li><a href="#">&#60;a&#62;</a></li>
+						<li><a href="#">&#60;strong&#62;</a></li>
+						<li><a href="#">&#60;i&#62;</a></li>
+						<li><a href="#">&#60;u&#62;</a></li>
+						<li><a href="#">&#60;h4&#62;</a></li>
+						<li><a href="#">&#60;br&#62;</a></li>
+					</ul>
+					<textarea placeholder="A bit information about you.">Hi! I am Andrew Veles, designer and front end developer for beautiful country – Ukraine. I build this website for one year. Yes, I design all of those things and develop it. Thanks for this opportunity for Antuan and Vlad, my friends. And it’s cool status bar for this profile page. Just kidding. It support strong, italic and underline tags. No colors and other shit. Yes, links, header4 tags and br too. But be careful! Quantity of symbols may be no more than 500 symbols. Cheers!</textarea>
+					<h6 class="counter box">23</h6>
+				</div>
+			</div>
+			<div class="section additional">
+				<h3 class="title">Additional</h3>
+				<div class="row location">
+					<span>Location</span>
+					<input type="email" placeholder="Country" />
+					<input type="email" value="Kiev" placeholder="City" />
+				</div>
+				<div class="row gender">
+					<span>Gender</span>
+					<select>
+						<option value="0">Not selected</option>
+						<option value="female">Female</option>
+						<option value="male">Male</option>
+					</select>
+				</div>
+				<div class="row date">
+					<span>Date of birth</span>
+					<select class="day">
+						<option value="0">Day</option>
+						<option value="01">01</option>
+						<option value="02">02</option>
+						<option value="03">03</option>
+						<option value="04">04</option>
+						<option value="05">05</option>
+						<option value="06">06</option>
+						<option value="07">07</option>
+						<option value="08">08</option>
+						<option value="09">09</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+					</select>
+					<select class="month">
+						<option value="0">Month</option>
+						<option value="01">January</option>
+						<option value="02">February</option>
+						<option value="03">March</option>
+						<option value="04">April</option>
+						<option value="05">May</option>
+						<option value="06">June</option>
+						<option value="07">July</option>
+						<option value="08">August</option>
+						<option value="09">September</option>
+						<option value="10">October</option>
+						<option value="11">November</option>
+						<option value="12">December</option>
+					</select>
+					<input type="text" value="1995" class="year" placeholder="Year" />
+				</div>
+			</div>
+			<div class="section">
+				<h3 class="title">Security</h3>
+				<div class="row security">
+					<span>Change password</span>
+					<input type="password" placeholder="Current password" />
+					<input type="password" placeholder="New password" />
+					<input type="password" placeholder="Confirm password" />
+				</div>
+			</div>
+		</section>
+		<section class="more">
+			<div class="section">
+				<h3 class="title">Social Networks</h3>
+				<div class="row">
+					<span>Facebook</span>
+					<input type="email" placeholder="Facebook login or ID" />
+				</div>
+
+				<div class="row">
+					<span>VKontakte</span>
+					<input type="email" placeholder="VKontakte identifier" />
+				</div>
+
+				<div class="row">
+					<span>Twitter</span>
+					<input type="email" placeholder="Twitter username" />
+				</div>
+
+				<div class="row">
+					<span>Pinterest</span>
+					<input type="email" placeholder="Pinterest username" />
+				</div>
+
+				<div class="row">
+					<span>Instagram</span>
+					<input type="email" placeholder="Instagram username" />
+				</div>
+			</div>
+		</section>
+	</div>
+	<ul class="browse">
+		<li><a href="#" class="trash">Remove account</a></li>
+	</ul>
+	<div class="buttons">
+		<input type="submit" value="Save" />
+		<input type="button" value="Cancel" />
+	</div>
+</div>
+{% endblock %}	

@@ -42,7 +42,7 @@ class Item
 
     /** 
      * @ORM\ManyToMany(targetEntity="Country")
-     * @ORM\JoinTable(name="item_shipping")
+     * @ORM\JoinTable(name="ItemShipping")
      */
     public $shipto;
     

@@ -8,37 +8,7 @@
 {% endblock %}
 
 {% block aside %}
-<div class="block box profile">
-	<img src="{{ asset('bundles/mimimisite/images/temp/userpic-100.jpg') }}" class="userpic-middle"/>
-	<div class="progress-bar">
-		<h6>75% Completed</h6>
-		<div class="bar p75"></div>
-	</div>
-	<h4>{{ user.firstname }} {{ user.lastname }}</h4>
-	<div class="label label-master">{{ user.status.getTitle() }}</div>
-	<div class="following-area">
-		<div>
-			<a href="#">
-				<strong>56</strong>
-				Following
-			</a>
-		</div>
-		<div>
-			<a href="#">
-				<strong>146</strong>
-				Followers
-			</a>
-		</div>
-	</div>
-	<!-- For foreign pages -->
-	<!-- <a href="#" class="follow-button">Follow</a> -->
-	<ul class="browse">
-		<li><a href="#" class="add-item">Add item</a></li>
-		<li><a href="#" class="feedback">Your feedback</a></li>
-		<li><a href="#" class="settings">Accout settings</a></li>
-		<li><a href="#" class="power">Log Out</a></li>
-	</ul>
-</div>
+{% include "MimimiSiteBundle:User:sidebar.html.twig" %}
 <div class="block box">
 	<h3>Browse</h3>
 	<ul class="browse">
