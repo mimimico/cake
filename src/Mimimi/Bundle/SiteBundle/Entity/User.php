@@ -46,7 +46,7 @@ class User
     /**
      * @ORM\Column(name="activated", type="boolean")
      */
-    public $activated = false;
+    public $activated = true;
 
 
     /**

@@ -4,13 +4,14 @@
 		<meta charset="utf-8" />
         <link rel="stylesheet" href="{{ asset('bundles/mimimisite/css/style.css') }}" />
         <script src="{{ asset('bundles/mimimisite/js/jquery.js') }}" type="text/javascript"></script>
+        <title>Mimimi.co</title>
 	</head>
 	<body>
 		<header>
 			<div class="wrapper">
 				<div class="overflow">
 					<div class="brand box">
-						<a href="#">MIMIMI.co</a>
+						<a href="{{ url("_index") }}">MIMIMI.co</a>
 					</div>
 				</div>
 				<nav class="user">
@@ -21,13 +22,40 @@
 						<li class="account">
 							<a href="#">Account</a>
 							<div class="notifications">
-								<a href="#notifications" class="indicator box">0</a>
+								<a href="#notifications" class="indicator box">5</a>
 								<div class="notifications-dropdown"><div class="notifications-triangle"></div>
 									<div class="title"><h3>Notifications</h3><a href="#" class="all-notifications"></a></div>
 									<ul class="notifications-list">
-									
+										<li>
+											<img src="images/temp/userpic-40-2.jpg">
+											<div class="notification-content">
+												<a href="#" class="name">Anthony Lagon</a> <a href="#">comments your item. Check it out.</a>
+											</div>
+											<a href="#" class="action comment"></a>
+										</li>
+										<li>
+											<img src="images/temp/userpic-40-3.jpg">
+											<div class="notification-content">
+												<a href="#" class="name">Colin Devroe</a> <a href="#">likes your item. Now you have 17 likes</a>
+											</div>
+											<a href="#" class="action view"></a>
+										</li>
+										<li>
+											<img src="images/temp/userpic-40-4.jpg">
+											<div class="notification-content">
+												<a href="#" class="name">Josh Long</a> <a href="#">sent you a message!</a>
+											</div>
+											<a href="#" class="action reply"></a>
+										</li>
+										<li>
+											<img src="images/temp/userpic-40-1.jpg">
+											<div class="notification-content">
+												<a href="#" class="name">Josh Long</a> <a href="#">sent you a message!</a>
+											</div>
+											<a href="#" class="action reply"></a>
+										</li>
 									</ul>
-								</div> 
+								</div> 	
 							</div>
 							<img src="{{ asset('bundles/mimimisite/images/userpic-40-wrapper.jpg') }}" class="userpic-small" />
 						</li>
@@ -38,14 +66,9 @@
 		<nav class="under-head">
 			<div class="wrapper">
 			<ul class="menu">
-				<li><a href="#">Art</a></li>
-				<li><a href="#">Home & Living</a></li>
-				<li><a href="#">Women</a></li>
-				<li><a href="#">Men</a></li>
-				<li><a href="#">Kids</a></li>
-				<li><a href="#">Jewelry</a></li>
-				<li><a href="#">Vintage</a></li>
-				<li><a href="#">Gift ideas</a></li>
+			{% for category in categories %}
+				<li><a href="{{ url("_item_category", {'id': category.id}) }}">{{ category.title }}</a></li>
+			{% endfor %}
 			</ul>
 			<form method="post">
 				<input type="search" placeholder="Search" />

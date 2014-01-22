@@ -34,7 +34,7 @@ class UserListener
 
         if ($controller[0] instanceof UserRestricted) {
             if (!$this->session->get("_current_user")) {
-                $redirectUrl = $this->router->generate("_index");
+                $redirectUrl = $this->router->generate("_splash_register");
                 $event->setController(function() use ($redirectUrl) {
                     return new RedirectResponse($redirectUrl);
                 });

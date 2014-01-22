@@ -15,7 +15,7 @@ use Mimimi\Bundle\SiteBundle\Interfaces\UserRestricted;
 class UserController extends Controller implements UserRestricted
 {
     /**
-     * @Template("MimimiSiteBundle:User:profile.html.twig")
+     * @Template()
      * @Route("/", name="_user_index")
      * @Route("/{id}", requirements={"id" = "\d+"})
      */
@@ -33,13 +33,14 @@ class UserController extends Controller implements UserRestricted
         }
 
         return array(
+            "categories" => $em->getRepository("MimimiSiteBundle:Category")->findAll(),
             "user"  => $user
     	);
     }
 
 
     /**
-     * @Template("MimimiSiteBundle:User:edit.html.twig")
+     * @Template()
      * @Route("/edit", name="_user_edit")
      */
     public function editAction()
@@ -59,6 +60,7 @@ class UserController extends Controller implements UserRestricted
         }
 
         return array(
+            "categories" => $em->getRepository("MimimiSiteBundle:Category")->findAll(),
             "user"  => $user
         );
     }

@@ -78,9 +78,9 @@ class Item
 
 
     /** 
-     * @ORM\Column(name="sizes", type="integer")
+     * @ORM\Column(name="sizes", type="string")
      */
-    public $sizes = 0;
+    public $sizes = "";
 
 
     /** 
@@ -152,6 +152,20 @@ class Item
     public function addItemImage(ItemImage $image) 
     {
     	$this->images->add($image);
+    }
+
+    public function getTags()
+    {
+        $list = explode(",", $this->tags);
+        array_walk($list, "trim");
+        return $list;
+    }
+
+    public function getMaterials()
+    {
+        $list = explode(",", $this->materials);
+        array_walk($list, "trim");
+        return $list;
     }
 
     public function isValid()

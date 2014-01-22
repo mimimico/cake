@@ -1,5 +1,8 @@
 mimimi_site_homepage:
-    resource: "@MimimiSiteBundle/Controller/DefaultController.php"
+    resource: "@MimimiSiteBundle/Controller/MainController.php"
+    type:     annotation
+mimimi_site_splash:
+    resource: "@MimimiSiteBundle/Controller/SplashController.php"
     type:     annotation
 mimimi_site_userpage:
     resource: "@MimimiSiteBundle/Controller/UserController.php"

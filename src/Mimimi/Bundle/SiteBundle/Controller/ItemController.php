@@ -15,11 +15,23 @@ use Mimimi\Bundle\SiteBundle\Interfaces\UserRestricted;
 class ItemController extends Controller implements UserRestricted
 {
     /**
+     * @Template()
      * @Route("/", name="_item_index")
+     * @Route("/{id}", requirements={"id" = "\d+"})
      */
-    public function indexAction()
+    public function indexAction($id = 0)
     {
-    	return $this->redirect($this->generateUrl("_item_add"));
+        $em = $this->get('doctrine')->getManager();
+        $item = $em->getRepository("MimimiSiteBundle:Item")->find($id);
+
+        if (!$item) {
+            throw $this->createNotFoundException('The item does not exist');
+        }
+
+        return array(
+            "categories" => $em->getRepository("MimimiSiteBundle:Category")->findAll(),
+            "item"  => $item
+        );
     }
     
 

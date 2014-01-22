@@ -1,4 +1,4 @@
-{% extends "MimimiSiteBundle:Default:two-column.page.html.twig" %}
+{% extends "MimimiSiteBundle:Main:two-column.page.html.twig" %}
 
 {% block javascript %}
 <script src="{{ asset('bundles/mimimisite/js/like_demo.js') }}"></script>
@@ -51,7 +51,7 @@
 			<div class="image">
 				<img src="../../uploads/images/{{ item.images[0].path }}" />
 			</div>
-			<div class="title"><a href="#">{{ item.title }}</a></div>
+			<div class="title"><a href="{{ url('_item_index') }}{{ item.id }}">{{ item.title }}</a></div>
 			<div class="category"><a href="#">{{ item.getCategory().getTitle() }}</a></div>
 			<div class="price">{{ item.price }} <span>USD</span></div>
 		</li>

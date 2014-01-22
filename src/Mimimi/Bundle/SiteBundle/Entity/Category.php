@@ -32,4 +32,14 @@ class Category
     {
         return $this->title;
     }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getItems()
+    {
+        return $this->items;
+    }
 }

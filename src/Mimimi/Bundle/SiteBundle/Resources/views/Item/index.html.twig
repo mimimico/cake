@@ -1,0 +1,185 @@
+{% extends "MimimiSiteBundle:Main:two-column.page.html.twig" %}
+
+{% block javascript %}
+<script src="{{ asset('bundles/mimimisite/js/like_demo.js') }}"></script>
+<script src="{{ asset('bundles/mimimisite/js/upload_demo.js') }}"></script>
+<script src="{{ asset('bundles/mimimisite/js/slider.js') }}"></script>
+<script src="{{ asset('bundles/mimimisite/js/notifications.js') }}"></script>
+{% endblock %}
+
+{% block aside %}
+<div class="block box checkout">
+	<h3>Order</h3>
+	<!--div class="row box">
+		<span>Quantity</span>
+		<select class="quantity">
+			<option value="0">Select quantity</option>
+			<option value="01">01</option>
+			<option value="02">02</option>
+			<option value="03">03</option>
+		</select>
+	</div-->
+	<div class="row box">
+		<span>Total</span>
+		<div class="price">12.00 <span>USD</span></div>
+	</div>
+	<div class="submit">
+		<input type="submit" value="Buy now" />
+	</div>
+</div>
+<div class="block box">
+	<h3>Quick access</h3>
+	<ul class="browse quick-access">
+		<li><a href="#" class="edit-item">Edit item</a></li>
+		<li><a href="#" class="add-item">Add item</a></li>
+		<li><a href="#" class="highlights">Highlight item</a></li>
+		<li><a href="#" class="feedback">Your replies</a></li>
+	</ul>
+</div>
+<div class="block box mini-profile">
+	<img src="images/temp/userpic-40-1.jpg" class="userpic-small" />
+	<strong><a href="#">Andrew Veles</a></strong>
+	<div class="location">Kiev, Ukraine</div>
+	<div class="following-area">
+		<div>
+			<strong>56</strong>
+			Following
+		</div>
+		<div>
+			<strong>146</strong>
+			Followers
+		</div>
+		<div>
+			<strong>146</strong>
+			Followers
+		</div>
+	</div>
+	<ul class="browse">
+		<li><a href="#" class="message">Send message</a></li>
+	</ul>
+</div>
+<!--div class="block box highlights">
+	<h3>Shop highlights</h3>
+	<ul class="highlight-items">
+		<li class="box">
+			<div class="image"><img src="images/temp/grid-1.jpg"></div>
+			<a href="#">Elegant sketchbook was made with love and peace.</a>
+		</li>
+		<li class="box">
+			<div class="image"><img src="images/temp/grid-3.jpg"></div>
+			<a href="#">Great clock from XIX century. Granny’s</a>
+		</li>
+		<li class="box">
+			<div class="image"><img src="images/temp/grid-4.jpg"></div>
+			<a href="#">iPhone case with mushrooms on the back.</a>
+		</li class="box">
+	</ul>
+	<ul class="browse">
+		<li><a href="#" class="all-grid">Show all</a></li>
+	</ul>
+</div>
+<div class="block box statistics">
+	<div class="title"><h3>Statistics</h3></div>
+	<div class="following-area">
+		<div>
+			<strong>56</strong>
+			Views
+		</div>
+		<div>
+			<strong>146</strong>
+			Comments
+		</div>
+		<div>
+			<strong>146</strong>
+			Likes
+		</div>
+	</div>
+</div-->
+{% endblock %}
+
+
+{% block content %}
+<div class="item">
+	<div class="block box">
+		<h3 class="title">
+			{{ item.title }}
+			<!--a class="like liked"></a-->
+		</h3>
+		<div class="photos">
+			<ul id="images">
+			{% for image in item.images %}
+				<li><img src="../../uploads/images/{{ image.path }}"/></li>
+			{% endfor %}
+			</ul>
+		</div>
+		<div class="side-info">
+			<h3>Options</h3>
+			<ul class="options">
+				<li><div>Category:</div><a href="{{ item.getCategory().getId() }}">{{ item.getCategory().getTitle() }}</a></li>
+				<li><div>Size:</div>{{ item.sizes }}</li>
+				<li><div>Materials:</div>{% for material in item.getMaterials() %}{% if not loop.first %},{% endif %}<a href="#">{{ material }}</a>{% endfor %}
+				<!--li><div>Feedback:</div><a href="#" id="reviewsLink">51 reviews</a></li-->
+			</ul>
+			<h3>Tags</h3>
+			<ul class="tags">
+			{% for tag in item.getTags() %}
+				<li><a href="#">{{ tag }}</a></li>
+			{% endfor %}
+			</ul>
+			<!--h3>Share</h3>
+			<img src="images/temp/share-facebook.png" />
+			<img src="images/temp/share-twitter.png" />
+			<img src="images/temp/share-pinterest.png" /-->
+		</div>
+		<div class="description">
+			<h3 class="title">Description</h3>
+			{{ item.description }}
+		</div>
+	</div>
+</div>
+<!--div class="reviews">
+	<h3 class="title" id="reviews">Reviews</h3>
+	<ul>
+		<li class="comment">
+			<img src="images/temp/userpic-40-1.jpg" class="userpic-small">
+			<div class="block box">
+				<div class="block-about-triangle"></div>
+				<div class="meta"><strong><a href="#">Andrew Veles</a></strong> wrote:<date>Oct 7, 2013</date></div>
+				<div class="comment-content">
+					<p>I adore these tiny canvases. I am an artist myself but can't resist these cuties. They arrive packaged ready to give as a gift and the quality is excellent. Caroline is easy to work with.</p>
+				</div>
+			</div>
+		</li>
+		<li class="comment">
+			<img src="images/temp/userpic-40-2.jpg" class="userpic-small">
+			<div class="block box">
+				<div class="block-about-triangle"></div>
+				<div class="meta"><strong><a href="#">Colin Devroe</a></strong> wrote:<date>Sep 21, 2013</date></div>
+				<div class="comment-content">
+					<p>These are such animated little paintings. You can put them anywhere, take them with you. They were VERY carefully wrapped and packaged, you could give them as gifts straight away. Loved the stickers! Shipped very quickly, good communication from artist/seller. Thank you!</p>
+				</div>
+			</div>
+		</li>
+		<li class="comment">
+			<img src="images/temp/userpic-40-3.jpg" class="userpic-small">
+			<div class="block box">
+				<div class="block-about-triangle"></div>
+				<div class="meta"><strong><a href="#">Anthony Lagon</a></strong> wrote:<date>Jun 10, 2013</date></div>
+				<div class="comment-content">
+					<p>I love my painting! Its my Mothers Day present to me :~) Thank you!</p>
+				</div>
+			</div>
+		</li>
+		<li class="comment add-comment">
+			<form>
+			<img src="images/temp/userpic-40-3.jpg" class="userpic-small">
+			<div class="box">
+				<div class="block-about-triangle"></div>
+				<textarea placeholder="Enter your comment here."></textarea>
+			</div>
+			<div class="submit"><input type="submit" value="Send" /></div>
+			</form>
+		</li>
+	</ul>
+</div-->
+{% endblock %}

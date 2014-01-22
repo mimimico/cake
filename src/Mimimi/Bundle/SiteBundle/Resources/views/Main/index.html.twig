@@ -1,0 +1,69 @@
+{% extends "MimimiSiteBundle:Main:two-column.page.html.twig" %}
+
+{% block javascript %}
+<script src="{{ asset('bundles/mimimisite/js/like_demo.js') }}"></script>
+<script src="{{ asset('bundles/mimimisite/js/upload_demo.js') }}"></script>
+<script src="{{ asset('bundles/mimimisite/js/slider.js') }}"></script>
+{% endblock %}
+
+{% block aside %}
+{#% include "MimimiSiteBundle:User:sidebar.html.twig" %#}
+<!--div class="block box">
+	<h3>Browse</h3>
+	<ul class="browse">
+		<li><a href="#" class="feed">Feed</a></li>
+		<li><a href="#" class="latest">Latest</a></li>
+		<li><a href="#" class="highlights">Highlights</a></li>
+		<li><a href="#" class="shops">Shops</a></li>
+		<li><a href="#" class="alphabetic">Alphabetic</a></li>
+		<li><a href="#" class="debuts">Debuts</a></li>
+		<li class="active"><a href="#" class="playoffs">Playoffs</a></li>
+		<li><a href="#" class="sandbox">Sandbox</a></li>
+	</ul>
+</div>
+<div class="block box">
+	<h3>Quick access</h3>
+	<div class="label label-user">User</div>
+	<ul class="browse quick-access">
+		<li><a href="#" class="add-item">Sandbox item</a></li>
+		<li><a href="#" class="feedback">Your replies</a></li>
+	</ul>
+</div-->
+{% endblock %}
+
+{% block content %}
+<!--div class="promotion">
+	<div class="block">
+		<div class="slider">
+		<ul>
+			<li><img src="{{ asset('bundles/mimimisite/images/temp/promotion-1.jpg') }}"></li>
+			<li><img src="{{ asset('bundles/mimimisite/images/temp/promotion-2.jpg') }}"></li>
+			<li><img src="{{ asset('bundles/mimimisite/images/temp/promotion-3.jpg') }}"></li>
+		</ul>
+		</div>
+	</div>
+</div-->
+<div class="grid grid-3">
+	{% for item in items %}
+		{% if loop.first %}<ul class="row">{% endif %}
+		<li class="block">
+			<div class="image">
+				<img src="../uploads/images/{{ item.images[0].path }}" />
+			</div>
+			<div class="title"><a href="{{ url('_item_index') }}{{ item.id }}">{{ item.title }}</a></div>
+			<div class="category"><a href="{{ url("_item_category", {'id': item.getCategory().getId()}) }}">{{ item.getCategory().getTitle() }}</a></div>
+			<div class="price">{{ item.price }} <span>USD</span></div>
+		</li>
+		{% if loop.index is divisible by(3) %}
+			</ul><ul class="row">
+		{% endif %}
+		{% if loop.last %}</ul>{% endif %}
+	{% endfor %}
+</div>
+<div class="load-more">
+	<a href="#" class="more box">
+		<img src="{{ asset('bundles/mimimisite/images/section-more.svg') }}" />
+		Load more items
+	</a>
+</div>
+{% endblock %}

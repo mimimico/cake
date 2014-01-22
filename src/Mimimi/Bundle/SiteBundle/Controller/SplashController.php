@@ -8,17 +8,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Mimimi\Bundle\SiteBundle\Entity\User;
 
-class DefaultController extends Controller
+class SplashController extends Controller
 {
-    /**
-     * @Route("/", name="_index")
-     */
-    public function indexAction()
-    {
-    	return $this->redirect($this->generateUrl("_splash_register"));
-    }
-
-
+    
     /**
      * @Template("MimimiSiteBundle:Splash:splash_login.html.twig")
      * @Route("/login", name="_splash_login")
@@ -31,7 +23,7 @@ class DefaultController extends Controller
 	        $user = new User();
 
 	        if ($user->login($this)) {
-	        	return $this->redirect($this->generateUrl('_user_index'));
+	        	return $this->redirect($this->generateUrl('_index'));
 	        } else {
 	        	/* Woops, we have an error */
 	        	return array();
