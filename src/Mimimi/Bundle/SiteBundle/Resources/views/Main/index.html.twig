@@ -43,27 +43,6 @@
 		</div>
 	</div>
 </div-->
-<div class="grid grid-3">
-	{% for item in items %}
-		{% if loop.first %}<ul class="row">{% endif %}
-		<li class="block">
-			<div class="image">
-				<img src="../uploads/images/{{ item.images[0].path }}" />
-			</div>
-			<div class="title"><a href="{{ url('_item_index') }}{{ item.id }}">{{ item.title }}</a></div>
-			<div class="category"><a href="{{ url("_item_category", {'id': item.getCategory().getId()}) }}">{{ item.getCategory().getTitle() }}</a></div>
-			<div class="price">{{ item.price }} <span>USD</span></div>
-		</li>
-		{% if loop.index is divisible by(3) %}
-			</ul><ul class="row">
-		{% endif %}
-		{% if loop.last %}</ul>{% endif %}
-	{% endfor %}
-</div>
-<div class="load-more">
-	<a href="#" class="more box">
-		<img src="{{ asset('bundles/mimimisite/images/section-more.svg') }}" />
-		Load more items
-	</a>
-</div>
+
+{% include "MimimiSiteBundle:Main:item_listing.html.twig" %}
 {% endblock %}

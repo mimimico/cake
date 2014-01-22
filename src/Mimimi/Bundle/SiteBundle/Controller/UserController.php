@@ -17,7 +17,7 @@ class UserController extends Controller implements UserRestricted
     /**
      * @Template()
      * @Route("/", name="_user_index")
-     * @Route("/{id}", requirements={"id" = "\d+"})
+     * @Route("/{id}", name="_user_index_id", requirements={"id" = "\d+"})
      */
     public function indexAction($id = 0)
     {

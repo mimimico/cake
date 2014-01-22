@@ -9,7 +9,7 @@
 
 {% block aside %}
 {% include "MimimiSiteBundle:User:sidebar.html.twig" %}
-<div class="block box" id="invites">
+<!--div class="block box" id="invites">
 	<h3>Invites</h3>
 	<h6 class="title">3 invites left</h6>
 	<form method="post" class="registration" action="index.php">
@@ -17,7 +17,11 @@
 		<input type="submit" value="Send invite">
 	</form>
 	<a href="#" class="small-link box">Request more invitatons!</a>
-</div>
+</div-->
+{% endblock %}
+
+{% block content_wrapper_prehook %}
+<form action="{{ url("_user_edit") }}" method="post" enctype="multipart/form-data">
 {% endblock %}
 
 {% block content %}
@@ -25,59 +29,59 @@
 	<div class="block box">
 	<div class="sections">
 		<section class="main">
-			<div class="progress-bar">
+			<!--div class="progress-bar">
 				<h6>50% Completed</h6>
 				<div class="bar p50"></div>
-			</div>
+			</div-->
 			<div class="section general">
 				<h3 class="title">General</h3>
 				<div class="row">
 					<span>Email</span>
-					<input type="email" value="{{ user.email }}" placeholder="Enter your Email" />
+					<input type="email" value="{{ user.email }}" placeholder="Enter your Email" name="email" />
 				</div>
 
 				<div class="row">
 					<span>Firstname</span>
-					<input type="text" value="{{ user.firstname }}" placeholder="Enter your Name" />
+					<input type="text" value="{{ user.firstname }}" placeholder="Enter your Name" name="firstname" />
 				</div>
 
 				<div class="row">
 					<span>Lastname</span>
-					<input type="text" value="{{ user.lastname }}" placeholder="Enter your Surname" />
+					<input type="text" value="{{ user.lastname }}" placeholder="Enter your Surname" name="lastname" />
 				</div>
 			</div>
 			<div class="section biography">
 				<h3 class="title">About</h3>
 				<div class="row">
 					<span>Biography</span>
-					<ul class="available-tags">
+					<!--ul class="available-tags">
 						<li><a href="#">&#60;a&#62;</a></li>
 						<li><a href="#">&#60;strong&#62;</a></li>
 						<li><a href="#">&#60;i&#62;</a></li>
 						<li><a href="#">&#60;u&#62;</a></li>
 						<li><a href="#">&#60;h4&#62;</a></li>
 						<li><a href="#">&#60;br&#62;</a></li>
-					</ul>
-					<textarea placeholder="A bit information about you.">Hi! I am Andrew Veles, designer and front end developer for beautiful country – Ukraine. I build this website for one year. Yes, I design all of those things and develop it. Thanks for this opportunity for Antuan and Vlad, my friends. And it’s cool status bar for this profile page. Just kidding. It support strong, italic and underline tags. No colors and other shit. Yes, links, header4 tags and br too. But be careful! Quantity of symbols may be no more than 500 symbols. Cheers!</textarea>
-					<h6 class="counter box">23</h6>
+					</ul-->
+					<textarea placeholder="A bit information about you." name="about">{{ user.about }}</textarea>
+					<!--h6 class="counter box">23</h6-->
 				</div>
 			</div>
 			<div class="section additional">
 				<h3 class="title">Additional</h3>
 				<div class="row location">
 					<span>Location</span>
-					<input type="email" placeholder="Country" />
-					<input type="email" value="Kiev" placeholder="City" />
+					<input type="text" placeholder="Country" value="{{ user.country }}" name="country" />
+					<input type="text" placeholder="City" value="{{ user.city }}" name="city" />
 				</div>
-				<div class="row gender">
+				<!--div class="row gender">
 					<span>Gender</span>
 					<select>
 						<option value="0">Not selected</option>
 						<option value="female">Female</option>
 						<option value="male">Male</option>
 					</select>
-				</div>
-				<div class="row date">
+				</div-->
+				<!--div class="row date">
 					<span>Date of birth</span>
 					<select class="day">
 						<option value="0">Day</option>
@@ -129,19 +133,19 @@
 						<option value="12">December</option>
 					</select>
 					<input type="text" value="1995" class="year" placeholder="Year" />
-				</div>
+				</div-->
 			</div>
 			<div class="section">
 				<h3 class="title">Security</h3>
 				<div class="row security">
 					<span>Change password</span>
-					<input type="password" placeholder="Current password" />
-					<input type="password" placeholder="New password" />
-					<input type="password" placeholder="Confirm password" />
+					<input type="password" placeholder="Current password" name="currentpass" />
+					<input type="password" placeholder="New password" name="newpass" />
+					<input type="password" placeholder="Confirm password" name="confirmpass" />
 				</div>
 			</div>
 		</section>
-		<section class="more">
+		<!--section class="more">
 			<div class="section">
 				<h3 class="title">Social Networks</h3>
 				<div class="row">
@@ -169,14 +173,18 @@
 					<input type="email" placeholder="Instagram username" />
 				</div>
 			</div>
-		</section>
+		</section-->
 	</div>
-	<ul class="browse">
+	<!--ul class="browse">
 		<li><a href="#" class="trash">Remove account</a></li>
-	</ul>
+	</ul-->
 	<div class="buttons">
 		<input type="submit" value="Save" />
-		<input type="button" value="Cancel" />
+		<a href="{{ url("_user_index") }}" title="Cancel"><input type="button" value="Cancel" /></a>
 	</div>
 </div>
-{% endblock %}	
+{% endblock %}
+
+{% block content_wrapper_posthook %}
+</form>
+{% endblock %}

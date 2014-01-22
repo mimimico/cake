@@ -16,12 +16,12 @@
 				</div>
 				<nav class="user">
 					<ul class="user-panel">
-						<li><a href="#">About</a></li>
+						<!--li><a href="#">About</a></li>
 						<li><a href="#">Help</a></li>
-						<li><a href="#">Messages</a></li>
+						<li><a href="#">Messages</a></li-->
 						<li class="account">
-							<a href="#">Account</a>
-							<div class="notifications">
+							<!--a href="#">Account</a-->
+							<!--div class="notifications">
 								<a href="#notifications" class="indicator box">5</a>
 								<div class="notifications-dropdown"><div class="notifications-triangle"></div>
 									<div class="title"><h3>Notifications</h3><a href="#" class="all-notifications"></a></div>
@@ -56,8 +56,8 @@
 										</li>
 									</ul>
 								</div> 	
-							</div>
-							<img src="{{ asset('bundles/mimimisite/images/userpic-40-wrapper.jpg') }}" class="userpic-small" />
+							</div-->
+							<a href="{{ url("_user_index_id", {id: app.session.get("_current_user").getId() }) }}"><img src="{{ asset('bundles/mimimisite/images/userpic-40-wrapper.jpg') }}" class="userpic-small" />
 						</li>
 					</ul>
 				</nav>

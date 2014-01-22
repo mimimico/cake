@@ -25,6 +25,7 @@ class Category
 
     /**
      * @ORM\OneToMany(targetEntity="Item", mappedBy="category")
+     * @ORM\OrderBy({"id" = "DESC"})
      */
     public $items;
 

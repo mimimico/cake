@@ -24,19 +24,20 @@
 		<div class="price">12.00 <span>USD</span></div>
 	</div>
 	<div class="submit">
-		<input type="submit" value="Buy now" />
+		<a href="{{ url("_item_buy", {id: item.id }) }}"><input type="submit" value="Buy now" /></a>
 	</div>
 </div>
 <div class="block box">
 	<h3>Quick access</h3>
 	<ul class="browse quick-access">
-		<li><a href="#" class="edit-item">Edit item</a></li>
-		<li><a href="#" class="add-item">Add item</a></li>
-		<li><a href="#" class="highlights">Highlight item</a></li>
-		<li><a href="#" class="feedback">Your replies</a></li>
+		<li><a href="{{ url("_item_add") }}" class="add-item">Add item</a></li>
+		<li><a href="{{ url("_item_edit", {id: item.id }) }}" class="edit-item">Edit item</a></li>
+		<!--li><a href="#" class="highlights">Highlight item</a></li-->
+		<!--li><a href="#" class="feedback">Your replies</a></li-->
 	</ul>
 </div>
-<div class="block box mini-profile">
+{#
+<!--div class="block box mini-profile">
 	<img src="images/temp/userpic-40-1.jpg" class="userpic-small" />
 	<strong><a href="#">Andrew Veles</a></strong>
 	<div class="location">Kiev, Ukraine</div>
@@ -57,7 +58,7 @@
 	<ul class="browse">
 		<li><a href="#" class="message">Send message</a></li>
 	</ul>
-</div>
+</div-->
 <!--div class="block box highlights">
 	<h3>Shop highlights</h3>
 	<ul class="highlight-items">
@@ -95,6 +96,7 @@
 		</div>
 	</div>
 </div-->
+#}
 {% endblock %}
 
 
@@ -115,17 +117,18 @@
 		<div class="side-info">
 			<h3>Options</h3>
 			<ul class="options">
-				<li><div>Category:</div><a href="{{ item.getCategory().getId() }}">{{ item.getCategory().getTitle() }}</a></li>
+				<li><div>Category:</div><a href="{{ url("_item_category", {id: item.getCategory().getId()}) }}">{{ item.getCategory().getTitle() }}</a></li>
+				<li><div>Country:</div>{{ item.getUser().getCountry() }} </li>
 				<li><div>Size:</div>{{ item.sizes }}</li>
 				<li><div>Materials:</div>{% for material in item.getMaterials() %}{% if not loop.first %},{% endif %}<a href="#">{{ material }}</a>{% endfor %}
 				<!--li><div>Feedback:</div><a href="#" id="reviewsLink">51 reviews</a></li-->
 			</ul>
-			<h3>Tags</h3>
+			<!--h3>Tags</h3>
 			<ul class="tags">
 			{% for tag in item.getTags() %}
 				<li><a href="#">{{ tag }}</a></li>
 			{% endfor %}
-			</ul>
+			</ul-->
 			<!--h3>Share</h3>
 			<img src="images/temp/share-facebook.png" />
 			<img src="images/temp/share-twitter.png" />

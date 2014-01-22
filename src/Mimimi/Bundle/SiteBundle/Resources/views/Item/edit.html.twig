@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content_wrapper_prehook %}
-<form action="{{ url("_item_add") }}" method="post" enctype="multipart/form-data">
+<form action="{{ url("_item_edit", {id: item.id }) }}" method="post" enctype="multipart/form-data">
 {% endblock %}
 
 {% block aside %}
@@ -15,9 +15,9 @@
 	<h3>Order</h3>
 	<div class="row box">
 		<span>Price</span>
-		<input type="text" placeholder="Make your price" class="price" name="price" />
+		<input type="text" placeholder="Make your price" class="price" name="price" value="{{ item.price }}" />
 	</div>
-	<!--div class="row box">
+	{#<!--div class="row box">
 		<span>Ship to</span>
 		<select class="quantity" name="shipto">
 			<option value="0">Worldwide</option>
@@ -33,10 +33,10 @@
 			{% for country in countries %}
 				<option value="{{ country.id }}">{{ country.title }}</option>
 			{% endfor %}
-		</select>
+		</select>#}
 	</div-->
 	<div class="row box">
-		<input type="submit" value="Add" class="box" />
+		<input type="submit" value="Update" class="box" />
 	</div>
 </div>
 <!--div class="block box">
@@ -59,7 +59,7 @@
 					<div class="row box">
 					<li class="box image-main">
 						<input type="file" id="upload0" name="images[]" />
-						<img class="image" id="image0" alt="" src="#" />
+						<img class="image" id="image0" alt="" src="{{ app.request.getBasePath() }}/{{ item.images[0].getRelativeUrl() }}" style="opacity: 1" />
 					</li>
 					<!--li class="box">
 						<input type="file" id="upload1" name="images[]" />
@@ -99,13 +99,13 @@
 			<select name="category">
 				<option value="0">Select category from list</option>
 				{% for category in categories %}
-					<option value="{{ category.id }}">{{ category.title }}</option>
+					<option {% if item.category == category %}selected{% endif %} value="{{ category.id }}">{{ category.title }}</option>
 				{% endfor %}
 			</select>
 		</div>
 		<div class="row full">
 			<span>Title</span>
-			<input type="text" placeholder="Enter title here" name="title" />
+			<input type="text" placeholder="Enter title here" name="title" value="{{ item.title }}" />
 		</div>
 		<div class="row full">
 			<span class="sign">Description</span>
@@ -117,8 +117,8 @@
 				<li><a href="#">&#60;h4&#62;</a></li>
 				<li><a href="#">&#60;br&#62;</a></li>
 			</ul-->
-			<textarea placeholder="Item description." name="description"></textarea>
-			<h6 class="counter box">23</h6>
+			<textarea placeholder="Item description." name="description">{{ item.description }}</textarea>
+			<!--h6 class="counter box">23</h6-->
 		</div>
 		<div class="section small-section">
 			<!--div class="row">
@@ -127,13 +127,13 @@
 			</div-->
 			<div class="row">
 				<span>Sizes</span>
-				<input type="text" placeholder="Optional" name="sizes" />
+				<input type="text" placeholder="Optional" name="sizes" value="{{ item.sizes }}" />
 			</div>
 		</div>
 		<div class="section middle-section">
 			<div class="row">
 				<span>Used materials</span>
-				<input type="text" placeholder="Seperate materials with commas (optional)" name="materials" />
+				<input type="text" placeholder="Seperate materials with commas (optional)" name="materials" value="{{ item.materials }}"/>
 			</div>
 			<!--div class="row">
 				<span>Tags</span>

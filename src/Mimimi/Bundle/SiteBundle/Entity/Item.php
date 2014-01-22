@@ -102,7 +102,7 @@ class Item
 
 
 
-    public $_tmp_images;
+    public $_tmp_images = array();
 
 
     public function __construct($controller) 
@@ -134,7 +134,7 @@ class Item
 			foreach($result as $country) $this->shipto->add($country);
 		}
 
-    	$this->madein = $em->getRepository("MimimiSiteBundle:Country")->find($this->madein);
+    	$this->madein = $em->getRepository("MimimiSiteBundle:Country")->find(1);//TEMP First country in table (Ukraine)//$this->madein);
     	$this->category = $em->getRepository("MimimiSiteBundle:Category")->find($this->category);
 
     	foreach($files->get("images") as $image) {
@@ -142,6 +142,36 @@ class Item
     			$this->_tmp_images[] = new ItemImage($image);
     		}
     	}
+    }
+
+
+    public function update($controller)
+    {
+        $data  = $controller->get('request')->request;
+        $files = $controller->get('request')->files;
+        $em = $controller->get('doctrine')->getManager();
+
+        $this->price = $data->get("price");
+        $this->title = $data->get("title");
+        $this->sizes = $data->get("sizes");
+        $this->description = $data->get("description");
+        $this->materials = $data->get("materials");
+
+        $this->category = $em->getRepository("MimimiSiteBundle:Category")->find($data->get("category"));
+
+        foreach($files->get("images") as $image) {
+            if (!is_null($image)) {
+                $this->_tmp_images[] = new ItemImage($image);
+            }
+        }
+
+        foreach($this->_tmp_images as $image) {
+            $image->item = $this;
+            $em->persist($image);
+            $this->addItemImage($image);
+        }
+
+        $em->flush();
     }
 
     public function getCategory() 
@@ -152,6 +182,11 @@ class Item
     public function addItemImage(ItemImage $image) 
     {
     	$this->images->add($image);
+    }
+
+    public function getUser()
+    {
+        return $this->user;
     }
 
     public function getTags()

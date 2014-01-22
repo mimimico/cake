@@ -49,6 +49,11 @@ class ItemImage
             : $this->getUploadRootDir().'/'.$this->path;
     }
 
+    public function getRelativeUrl()
+    {
+        return $this->getUploadDir() . '/' . $this->path;
+    }
+
     public function getWebPath()
     {
         return null === $this->path

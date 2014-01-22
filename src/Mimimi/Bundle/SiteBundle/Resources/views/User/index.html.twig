@@ -9,7 +9,7 @@
 
 {% block aside %}
 {% include "MimimiSiteBundle:User:sidebar.html.twig" %}
-<div class="block box">
+<!--div class="block box">
 	<h3>Browse</h3>
 	<ul class="browse">
 		<li><a href="#" class="latest">Latest</a></li>
@@ -18,7 +18,7 @@
 		<li><a href="#" class="highlights">Popular</a></li>
 		<li><a href="#" class="alphabetic">Alphabetic</a></li>
 	</ul>
-</div>
+</div-->
 {% endblock %}
 
 {% block content %}
@@ -26,45 +26,22 @@
 	<div class="block-about-triangle"></div>
 	<div class="block box">
 		<div class="about">
-			Hi!<br />
-			I am Andrew Veles, designer and front end developer for beautiful country – Ukraine. I build this website for one year. Yes, I design all of those things and develop it. Thanks for this opportunity for Antuan and Vlad, my friends. And it’s cool status bar for this profile page. Just kidding. It support strong, italic and underline tags. No colors and other shit. Yes, links, header4 tags and br too. But be careful! Quantity of symbols may be no more than 500 symbols.<br />
-			Cheers!
+			{{ user.about }}
 		</div>
 		<ul class="browse">
-			<li><a href="#" class="map">Kyiv, Ukraine</a></li>
-			<li><a href="#" class="male">Male</a></li>
-			<li><a href="#" class="date">Born on 10 July</a></li>
+			<li><a href="#" class="map">{{ user.city }}, {{ user.country }}</a></li>
+			<!--li><a href="#" class="male">Male</a></li>
+			<li><a href="#" class="date">Born on 10 July</a></li-->
 		</ul>
-		<ul class="social">
+		<!--ul class="social">
 			<li><a href="#" class="vk"></a></li>
 			<li><a href="#" class="facebook"></a></li>
 			<li><a href="#" class="twitter"></a></li>
 			<li><a href="#" class="instagram"></a></li>
 			<li><a href="#" class="pinterest"></a></li>
-		</ul>
+		</ul-->
 	</div>
 </div>
-<div class="grid grid-3">
-	{% for item in user.items %}
-		{% if loop.first %}<ul class="row">{% endif %}
-		<li class="block">
-			<div class="image">
-				<img src="../../uploads/images/{{ item.images[0].path }}" />
-			</div>
-			<div class="title"><a href="{{ url('_item_index') }}{{ item.id }}">{{ item.title }}</a></div>
-			<div class="category"><a href="#">{{ item.getCategory().getTitle() }}</a></div>
-			<div class="price">{{ item.price }} <span>USD</span></div>
-		</li>
-		{% if loop.index is divisible by(3) %}
-			</ul><ul class="row">
-		{% endif %}
-		{% if loop.last %}</ul>{% endif %}
-	{% endfor %}
-</div>
-<div class="load-more">
-	<a href="#" class="more box">
-		<img src="{{ asset('bundles/mimimisite/images/section-more.svg') }}" />
-		Load more items
-	</a>
-</div>
+{% set items = user.items %}
+{% include "MimimiSiteBundle:Main:item_listing.html.twig" %}
 {% endblock %}

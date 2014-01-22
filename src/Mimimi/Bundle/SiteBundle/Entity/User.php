@@ -52,7 +52,7 @@ class User
     /**
      * @ORM\Column(name="status", type="integer", length=2)
      */
-    public $status = 1;
+    public $status = 2; // MASTER
 
 
     /** 
@@ -61,8 +61,27 @@ class User
     public $date;
 
 
+    /** 
+     * @ORM\Column(name="about", type="text")
+     */
+    public $about = "";
+
+
+    /** 
+     * @ORM\Column(name="country", type="string", length=255)
+     */
+    public $country = "";
+
+
+    /** 
+     * @ORM\Column(name="city", type="string", length=255)
+     */
+    public $city = "";
+
+
     /**
      * @ORM\OneToMany(targetEntity="Item", mappedBy="user")
+     * @ORM\OrderBy({"id" = "DESC"})
      */
     public $items;
 
@@ -71,10 +90,15 @@ class User
     public $name;
 
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
 
     public function login($controller) 
     {
-        $data  = $controller->get('request')->request;
+        $data = $controller->get('request')->request;
         $em = $controller->get('doctrine')->getManager();
 
         foreach((array)$this as $param => $v) {
@@ -97,16 +121,33 @@ class User
 
     public function update($controller)
     {
-        $data  = $controller->get('request')->request;
+        $data = $controller->get('request')->request;
         $em = $controller->get('doctrine')->getManager();
 
-        //$em->flush();
+        $this->firstname = $data->get("firstname");
+        $this->lastname = $data->get("lastname");
+        $this->email = $data->get("email");
+        $this->about = $data->get("about");
+        $this->country = $data->get("country");
+        $this->city = $data->get("city");
+
+        if (md5($data->get("currentpass")) == $this->password) {
+            if ($data->get("newpass") == $data->get("confirmpass")) {
+                $this->password = md5($data->get("newpass"));
+            }
+        }
+
+        $em->flush();
     }
 
+    public function getCountry()
+    {
+        return $this->country == null ? "Unknown" : $this->country;
+    }
 
     public function create($controller) 
     {
-        $data  = $controller->get('request')->request;
+        $data = $controller->get('request')->request;
         $em = $controller->get('doctrine')->getManager();
 
         foreach((array)$this as $param => $v) {
